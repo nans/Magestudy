@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magestudy_Menu::main_content" title="MAIN LABEL" module="Magestudy_Menu" sortOrder="60" resource="Magestudy_Menu::main_content"/>
+        <add id="Magestudy_Menu::first_link" title="First Link" module="Magestudy_Menu" sortOrder="61" parent="Magestudy_Menu::main_content" action="menuitem/first" resource="Magestudy_Menu::content"/>
+        <add id="Magestudy_Menu::second_link" title="Second Link" module="Magestudy_Menu" sortOrder="62" parent="Magestudy_Menu::main_content" action="menuitem/second" resource="Magestudy_Menu::content"/>
+    </menu>
+</config>

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/shop/phone/:id" method="GET">
+        <service class="Magestudy\Rest\Api\ShopInterface" method="getPhone"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/shop/phone/" method="POST">
+        <service class="Magestudy\Rest\Api\ShopInterface" method="postPhone"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/shop/phones/" method="GET">
+        <service class="Magestudy\Rest\Api\ShopInterface" method="phones"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/shop/buy/:customerPhone/id/:id" method="GET">
+        <service class="Magestudy\Rest\Api\ShopInterface" method="buy"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
+
+
+
+
+
+
+

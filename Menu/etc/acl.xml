@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magestudy_Menu::main_content" title="NEW MENU ITEM">
+                    <resource id="Magestudy_Menu::content" title="Content">
+                        <resource id="Magestudy_Menu::first_index" title="Check First"/>
+                        <resource id="Magestudy_Menu::second_index" title="Check Second"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
