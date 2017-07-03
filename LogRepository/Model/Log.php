@@ -31,7 +31,7 @@ class Log extends AbstractModel
      * @param UrlInterface $urlBuilder
      * @param array $data
      */
-    function __construct(
+    public function __construct(
         Context $context,
         Registry $registry,
         UrlInterface $urlBuilder,
