@@ -4,11 +4,6 @@ namespace Magestudy\LogRepository\Model;
 
 use Magestudy\LogRepository\Api\Data\LogInterface;
 use Magento\Framework\Model\AbstractModel;
-use Magento\Framework\Data\Collection\AbstractDb;
-use Magento\Framework\Model\Context;
-use Magento\Framework\Model\ResourceModel\AbstractResource;
-use Magento\Framework\Registry;
-use Magento\Framework\UrlInterface;
 use Magestudy\LogRepository\Model\ResourceModel\Log as ResourceModel;
 
 class Log extends AbstractModel
@@ -22,28 +17,6 @@ class Log extends AbstractModel
      * @var string
      */
     protected $_urlBuilder;
-
-    /**
-     * @param Context $context
-     * @param Registry $registry
-     * @param AbstractResource|null $resource
-     * @param AbstractDb|null $resourceCollection
-     * @param UrlInterface $urlBuilder
-     * @param array $data
-     */
-    public function __construct(
-        Context $context,
-        Registry $registry,
-        UrlInterface $urlBuilder,
-        AbstractResource $resource = null,
-        AbstractDb $resourceCollection = null,
-        array $data = []
-    ) {
-        $this->_urlBuilder = $urlBuilder;
-        parent::__construct(
-            $context, $registry, $resource, $resourceCollection, $data
-        );
-    }
 
     /**
      * Initialize resource model

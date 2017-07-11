@@ -47,4 +47,40 @@ class Logger
         }
         return true;
     }
+
+    /**
+     * @param int $id
+     *
+     * @return boolean
+     */
+    public function deleteLog($id)
+    {
+        try {
+            return $this->_repository->deleteById($id);
+        } catch (\Exception $exception) {
+            return false;
+        }
+    }
+
+    /**
+     * @param int $id
+     * @param string $content
+     * @return boolean
+     */
+    public function updateLog($id, $content)
+    {
+        /** @var ItemInterface $log */
+        try {
+            $log = $this->_repository->getById($id);
+        } catch (\Exception $exception) {
+            return false;
+        }
+        $log->setContent($content);
+        try {
+            $this->_repository->save($log);
+        } catch (\Exception $exception) {
+            return false;
+        }
+        return true;
+    }
 }

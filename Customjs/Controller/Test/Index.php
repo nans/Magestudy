@@ -8,7 +8,10 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
-    protected $resultPageFactory;
+    /**
+     * @var PageFactory
+     */
+    protected $_resultPageFactory;
 
     /**
      * Constructor
@@ -20,7 +23,7 @@ class Index extends Action
         Context $context,
         PageFactory $resultPageFactory
     ) {
-        $this->resultPageFactory = $resultPageFactory;
+        $this->_resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
 
@@ -31,6 +34,6 @@ class Index extends Action
      */
     public function execute()
     {
-        return $this->resultPageFactory->create();
+        return $this->_resultPageFactory->create();
     }
 }

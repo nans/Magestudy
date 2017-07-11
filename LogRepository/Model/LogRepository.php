@@ -8,7 +8,7 @@ use Magento\Framework\Exception\StateException;
 use Magento\Framework\Exception\ValidatorException;
 use Magestudy\LogRepository\Api\Data\LogInterface as ItemInterface;
 use Magestudy\LogRepository\Api\LogRepositoryInterface;
-use Magestudy\LogRepository\Model\ResourceModel\Log as Resource;
+use Magestudy\LogRepository\Model\ResourceModel\Log as LogResource;
 use Magestudy\LogRepository\Model\LogFactory as Factory;
 
 class LogRepository implements LogRepositoryInterface
@@ -19,7 +19,7 @@ class LogRepository implements LogRepositoryInterface
     protected $_instances = [];
 
     /**
-     * @var Resource
+     * @var LogResource
      */
     protected $_resource;
 
@@ -28,8 +28,12 @@ class LogRepository implements LogRepositoryInterface
      */
     protected $_factory;
 
+    /**
+     * @param LogResource $resource
+     * @param Factory $factory
+     */
     public function __construct(
-        Resource $resource,
+        LogResource $resource,
         Factory $factory
     ) {
         $this->_resource = $resource;
