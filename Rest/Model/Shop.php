@@ -54,10 +54,10 @@ class Shop implements ShopInterface
      */
     public function postPhone()
     {
-        $id = $this->_request->getParam('id');
-        $title = $this->_request->getParam('title');
-        $brand = $this->_request->getParam('brand');
-        $price = $this->_request->getParam('price');
+        $id = $this->_request->getParam(Phone::ID);
+        $title = $this->_request->getParam(Phone::TITLE);
+        $brand = $this->_request->getParam(Phone::BRAND);
+        $price = $this->_request->getParam(Phone::PRICE);
         if (!$id && (!$title || !$brand || !$price)) {
             $this->_throwBadRequest(__('Data is not correct'), Exception::HTTP_BAD_REQUEST);
         }

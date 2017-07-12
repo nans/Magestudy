@@ -11,7 +11,7 @@ class Index extends Action
     /**
      * @var PageFactory
      */
-    protected $resultPageFactory;
+    protected $_resultPageFactory;
 
     /**
      * @param Context $context
@@ -22,7 +22,7 @@ class Index extends Action
         PageFactory $resultPageFactory
     ) {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
+        $this->_resultPageFactory = $resultPageFactory;
     }
 
     /**
@@ -33,14 +33,9 @@ class Index extends Action
     public function execute()
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magestudy_Menu::first_link');
-        $resultPage->addBreadcrumb(__('First'), __('First'));
-        $resultPage->addBreadcrumb(
-            __('Manage'), __('Manage')
-        );
+        $resultPage = $this->_resultPageFactory->create();
+        $resultPage->addBreadcrumb('First Manager', 'First Manager');
         $resultPage->getConfig()->getTitle()->prepend(__('First'));
-
         return $resultPage;
     }
 

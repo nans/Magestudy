@@ -32,14 +32,8 @@ class Index extends Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-
-        $resultPage->addBreadcrumb(
-            'Second Manager',
-            'Second Manager'
-        );
+        $resultPage->addBreadcrumb('Second Manager', 'Second Manager');
         $resultPage->getConfig()->getTitle()->prepend(__('Second'));
-        $resultPage->getConfig()->getTitle()
-            ->prepend('Second Manager');
         return $resultPage;
     }
 
