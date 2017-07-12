@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magestudy_Crud::content" title="CRUD">
+                    <resource id="Magestudy_Crud::post" title="Post">
+                        <resource id="Magestudy_Crud::save_post" title="Save"/>
+                        <resource id="Magestudy_Crud::delete_post" title="Delete"/>
+                    </resource>
+                    <resource id="Magestudy_Crud::category" title="Category">
+                        <resource id="Magestudy_Crud::save_category" title="Save"/>
+                        <resource id="Magestudy_Crud::delete_category" title="Delete"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
