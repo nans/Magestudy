@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="first_event_for_example">
+        <observer name="FirstEventForExample" instance="Magestudy\Event\Observer\FirstEventForExample" />
+    </event>
+    <event name="second_event_for_example">
+        <observer name="SecondEventForExample" instance="Magestudy\Event\Observer\SecondEventForExample" />
+    </event>
+</config>
