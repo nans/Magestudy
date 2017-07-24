@@ -14,8 +14,6 @@ class Collection extends AbstractCollection
     protected $_idFieldName = Model::ID;
 
     /**
-     * Define resource model
-     *
      * @return void
      */
     protected function _construct()

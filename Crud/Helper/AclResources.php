@@ -11,4 +11,7 @@ class AclResources
     const CATEGORY = 'Magestudy_Crud::category';
     const CATEGORY_SAVE = 'Magestudy_Crud::save_category';
     const CATEGORY_DELETE = 'Magestudy_Crud::delete_category';
+    const TAG = 'Magestudy_Crud::tag';
+    const TAG_SAVE = 'Magestudy_Crud::save_tag';
+    const TAG_DELETE = 'Magestudy_Crud::delete_tag';
 }

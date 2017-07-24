@@ -2,116 +2,64 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
-use Exception;
-use Magento\Backend\App\Action;
-use Magento\Framework\View\Result\PageFactory;
-use Magento\Framework\Registry;
-use Magento\Framework\ObjectManagerInterface;
+use Magento\Framework\Model\AbstractModel;
+use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Api\PostRepositoryInterface;
+use Magestudy\Crud\Api\PostTagRepositoryInterface;
+use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Model\Factory\PostFactory;
 
-class Edit extends Action
+class Edit extends AbstractEdit
 {
     /**
-     * @var Registry
+     * @param PostInterface $model
+     * @return string
      */
-    protected $_coreRegistry = null;
-
-    /**
-     * @var PageFactory
-     */
-    protected $_resultPageFactory;
-
-    /**
-     * @param Action\Context $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\ObjectManagerInterface $objectManager
-     */
-    public function __construct(
-        Action\Context $context,
-        PageFactory $resultPageFactory,
-        Registry $registry,
-        ObjectManagerInterface $objectManager
-    ) {
-        $this->_resultPageFactory = $resultPageFactory;
-        $this->_coreRegistry = $registry;
-
-        parent::__construct($context);
+    protected function getTitle($model)
+    {
+        return $model->getTitle();
     }
 
     /**
-     * Init actions
-     *
-     * @return \Magento\Backend\Model\View\Result\Page
+     * @return string
      */
-    protected function _initAction()
+    protected function _getAclResource()
     {
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-        $resultPage = $this->_resultPageFactory->create();
-        $resultPage->addBreadcrumb(__(Post::ENTITY_TITLE), __(Post::ENTITY_TITLE));
-        $resultPage->addBreadcrumb(__('Manage ' . Post::ENTITY_TITLE), __('Manage ' . Post::ENTITY_TITLE));
-        return $resultPage;
+        return AclResources::POST_SAVE;
     }
 
     /**
-     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
-     * @SuppressWarnings(PHPMD.NPathComplexity)
+     * @return string
      */
-    public function execute()
+    protected function _getEntityTitle()
     {
-        $id = $this->getRequest()->getParam(Post::ID);
-        /** @var Post $model */
+        return Post::ENTITY_TITLE;
+    }
+
+    /**
+     * @param int $id
+     * @return AbstractModel|PostInterface
+     */
+    protected function _loadEditData($id)
+    {
         /** @var PostRepositoryInterface $repository */
         $repository = $this->_objectManager->get(PostRepositoryInterface::class);
-
-        if ($id) {
-            try {
-                $model = $repository->getById($id);
-            } catch (Exception $exception) {
-                $this->messageManager->addErrorMessage(__('This record no longer exists.'));
-                /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-                $resultRedirect = $this->resultRedirectFactory->create();
-                return $resultRedirect->setPath('*/*/');
-            }
-        } else {
-            /** @var PostFactory $factory */
-            $factory = $this->_objectManager->get(PostFactory::class);
-            $model = $factory->create();
-        }
-
-        $data = $this->_session->getFormData(true);
-        if (!empty($data)) {
-            $model->setData($data);
-        }
-
-        $this->_coreRegistry->register(strtolower(Post::ENTITY_TITLE), $model);
-
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-        $resultPage = $this->_initAction();
-        $resultPage->addBreadcrumb(
-            $id ? __('Edit ' . Post::ENTITY_TITLE) : __('New ' . Post::ENTITY_TITLE),
-            $id ? __('Edit ' . Post::ENTITY_TITLE) : __('New ' . Post::ENTITY_TITLE)
-        );
-
-        $resultPage->getConfig()
-            ->getTitle()
-            ->prepend(
-                $model->getId()
-                    ? __('Edit ' . Post::ENTITY_TITLE . ': ') . $model->getTitle()
-                    : __('New ' . Post::ENTITY_TITLE)
-            );
-
-        return $resultPage;
+        $model = $repository->getById($id);
+        /** @var PostTagRepositoryInterface $postTagRepository */
+        $postTagRepository = $this->_objectManager->get(PostTagRepositoryInterface::class);
+        $model->setData(Post::TAG, $postTagRepository->getTagIdsByPostId($id));
+        return $model;
     }
 
     /**
-     * @return boolean
+     * @return AbstractModel|PostInterface
      */
-    protected function _isAllowed()
+    protected function _createEditData()
     {
-        return $this->_authorization->isAllowed(AclResources::POST_SAVE);
+        /** @var PostFactory $factory */
+        $factory = $this->_objectManager->get(PostFactory::class);
+        return $factory->create();
     }
 }

@@ -1,0 +1,39 @@
+<?php
+
+namespace Magestudy\Crud\Model;
+
+use Magestudy\Crud\Api\Data\TagInterface;
+use Magento\Framework\Model\AbstractModel;
+use Magestudy\Crud\Model\ResourceModel\Tag as ResourceModel;
+
+class Tag extends AbstractModel implements TagInterface
+{
+    const ID = 'tag_id';
+    const TITLE = 'title';
+
+    const ENTITY_TITLE = 'Tag';
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(ResourceModel::class);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->getData(self::TITLE);
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->setData(self::TITLE, $title);
+    }
+}

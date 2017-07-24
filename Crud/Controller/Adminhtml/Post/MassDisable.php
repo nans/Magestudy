@@ -2,28 +2,44 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
-use Magestudy\Crud\Api\Data\CategoryInterface;
-use Magestudy\Crud\Model\Post;
 
-class MassDisable extends MassEnable
+use Magestudy\Crud\Controller\Adminhtml\AbstractMassDisable;
+use Magestudy\Crud\Model\Post;
+use Magestudy\Crud\Api\PostRepositoryInterface;
+use Magestudy\Crud\Helper\AclResources;
+use Magestudy\Crud\Model\ResourceModel\Post\Collection as PostCollection;
+
+class MassDisable extends AbstractMassDisable
 {
     /**
-     * @override
-     * @param CategoryInterface $item
-     * @return void
+     * @return string
      */
-    protected function _updateItem(&$item)
+    protected function _getAclResource()
     {
-        $item->setIsActive(Post::DISABLED_STATUS);
+        return AclResources::POST_SAVE;
     }
 
     /**
-     * @override
-     * @param int $collectionSize
      * @return string
      */
-    protected function _getSuccessMessage($collectionSize)
+    protected function _getEntityTitle()
     {
-        return __('A total of %1 record(s) have been disabled.', $collectionSize);
+        return Post::ENTITY_TITLE;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getCollectionClass()
+    {
+        return PostCollection::class;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getRepositoryClass()
+    {
+        return PostRepositoryInterface::class;
     }
 }

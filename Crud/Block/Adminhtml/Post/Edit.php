@@ -30,6 +30,20 @@ class Edit extends Container
     }
 
     /**
+     * @return \Magento\Framework\Phrase
+     */
+    public function getHeaderText()
+    {
+        /** @var Post $model */
+        $model = $this->_coreRegistry->registry(strtolower(Post::ENTITY_TITLE));
+        if ($model->getId()) {
+            return __("Edit " . Post::ENTITY_TITLE . " '%1'", $this->escapeHtml($model->getTitle()));
+        } else {
+            return __('New ' . Post::ENTITY_TITLE);
+        }
+    }
+
+    /**
      * @return void
      */
     protected function _construct()
@@ -66,20 +80,6 @@ class Edit extends Container
             $this->buttonList->update('delete', 'label', __('Delete'));
         } else {
             $this->buttonList->remove('delete');
-        }
-    }
-
-    /**
-     * @return \Magento\Framework\Phrase
-     */
-    public function getHeaderText()
-    {
-        /** @var Post $model */
-        $model = $this->_coreRegistry->registry(strtolower(Post::ENTITY_TITLE));
-        if ($model->getId()) {
-            return __("Edit " . Post::ENTITY_TITLE . " '%1'", $this->escapeHtml($model->getTitle()));
-        } else {
-            return __('New ' . Post::ENTITY_TITLE);
         }
     }
 

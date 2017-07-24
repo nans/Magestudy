@@ -3,41 +3,32 @@
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
 use Magestudy\Crud\Api\PostRepositoryInterface;
+use Magestudy\Crud\Controller\Adminhtml\AbstractDelete;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\Post;
-use Magento\Backend\App\Action;
 
-class Delete extends Action
+class Delete extends AbstractDelete
 {
     /**
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return string
      */
-    public function execute()
+    protected function _getAclResource()
     {
-        $id = $this->getRequest()->getParam(Post::ID);
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultRedirectFactory->create();
-        if ($id) {
-            try {
-                /** @var PostRepositoryInterface $repository */
-                $repository = $this->_objectManager->get(PostRepositoryInterface::class);
-                $repository->deleteById($id);
-                $this->messageManager->addSuccessMessage(__('The record has been deleted.'));
-                return $resultRedirect->setPath('*/*/');
-            } catch (\Exception $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
-                return $resultRedirect->setPath('*/*/edit', [Post::ID => $id]);
-            }
-        }
-        $this->messageManager->addErrorMessage(__('We can\'t find a record to delete.'));
-        return $resultRedirect->setPath('*/*/');
+        return AclResources::POST_DELETE;
+    }
+
+    protected function _deleteById($id)
+    {
+        /** @var PostRepositoryInterface $repository */
+        $repository = $this->_objectManager->get(PostRepositoryInterface::class);
+        $repository->deleteById($id);
     }
 
     /**
-     * @return boolean
+     * @return string
      */
-    protected function _isAllowed()
+    protected function _getEntityTitle()
     {
-        return $this->_authorization->isAllowed(AclResources::POST_DELETE);
+        return Post::ENTITY_TITLE;
     }
 }

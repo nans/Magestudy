@@ -280,7 +280,7 @@
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="Magestudy\Crud\Ui\Component\Listing\Column\CategoryActions">
+        <actionsColumn name="actions" class="Magestudy\Crud\Ui\Component\Listing\Column\CategoryAction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>

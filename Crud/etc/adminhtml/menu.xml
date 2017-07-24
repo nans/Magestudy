@@ -4,5 +4,6 @@
         <add id="Magestudy_Crud::main_content" title="CRUD" module="Magestudy_Crud" sortOrder="60" resource="Magestudy_Crud::content"/>
         <add id="Magestudy_Crud::category" title="Category" module="Magestudy_Crud" sortOrder="1" parent="Magestudy_Crud::main_content" action="crud/category" resource="Magestudy_Crud::category"/>
         <add id="Magestudy_Crud::post" title="Post" module="Magestudy_Crud" sortOrder="2" parent="Magestudy_Crud::main_content" action="crud/post" resource="Magestudy_Crud::post"/>
+        <add id="Magestudy_Crud::tag" title="Tag" module="Magestudy_Crud" sortOrder="3" parent="Magestudy_Crud::main_content" action="crud/tag" resource="Magestudy_Crud::tag"/>
     </menu>
 </config>

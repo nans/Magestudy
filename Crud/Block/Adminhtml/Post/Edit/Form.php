@@ -6,11 +6,9 @@ use Magento\Backend\Block\Widget\Form\Generic;
 use Magestudy\Crud\Model\Post;
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Backend\Block\Template\Context;
-use Magento\Config\Model\Config\Source\Yesno;
 use Magento\Framework\Data\FormFactory;
 use Magento\Framework\Registry;
-use Magento\Store\Model\System\Store;
-use Magestudy\Crud\Model\ResourceModel\Category\Collection as CategoryCollection;
+use Magestudy\Crud\Helper\Data as DataHelper;
 
 class Form extends Generic
 {
@@ -20,46 +18,28 @@ class Form extends Generic
     protected $_wysiwygConfig;
 
     /**
-     * Boolean options
-     *
-     * @var Yesno
+     * @var DataHelper
      */
-    protected $_booleanOptions;
-
-    /**
-     * @var Store
-     */
-    protected $_systemStore;
-
-    /**
-     * @var CategoryCollection
-     */
-    protected $_categoryCollection;
+    protected $_dataHelper;
 
     /**
      * @param Context $context
      * @param Registry $registry
      * @param FormFactory $formFactory
-     * @param Yesno $booleanOptions
-     * @param Store $systemStore
      * @param Config $wysiwygConfig
-     * @param CategoryCollection $collection
+     * @param DataHelper $dataHelper
      * @param array $data
      */
     public function __construct(
         Context $context,
         Registry $registry,
         FormFactory $formFactory,
-        Yesno $booleanOptions,
-        Store $systemStore,
         Config $wysiwygConfig,
-        CategoryCollection $collection,
+        DataHelper $dataHelper,
         array $data = []
     ) {
-        $this->_booleanOptions = $booleanOptions;
-        $this->_systemStore = $systemStore;
         $this->_wysiwygConfig = $wysiwygConfig;
-        $this->_categoryCollection = $collection;
+        $this->_dataHelper = $dataHelper;
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
@@ -133,7 +113,7 @@ class Form extends Generic
                 'title' => __('Category'),
                 'name' => Post::CATEGORY_ID,
                 'required' => true,
-                'values' => $this->_categoryCollection->toOptionArray()
+                'values' => $this->_dataHelper->getCategoryCollection()->toOptionArray()
             ]
         );
 
@@ -145,7 +125,7 @@ class Form extends Generic
                 'label' => __('Enabled'),
                 'title' => __('Enabled'),
                 'required' => true,
-                'values' => $this->_booleanOptions->toOptionArray(),
+                'values' => $this->_dataHelper->getBooleanOptions()->toOptionArray(),
             ]
         );
 
@@ -158,7 +138,7 @@ class Form extends Generic
                 'title' => __('Store Views'),
                 'note' => __('Select Store Views'),
                 'required' => true,
-                'values' => $this->_systemStore->getStoreValuesForForm(
+                'values' => $this->_dataHelper->getSystemStore()->getStoreValuesForForm(
                     false, true
                 ),
             ]
@@ -185,6 +165,19 @@ class Form extends Generic
                 'date_format' => 'yyyy-MM-dd',
                 'time_format' => 'hh:mm:ss',
                 'required' => false
+            ]
+        );
+
+        $fieldset->addField(
+            Post::TAG,
+            'multiselect',
+            [
+                'name' => Post::TAG,
+                'label' => __('Tags'),
+                'title' => __('Tags'),
+                'note' => __('Select Tags'),
+                'required' => false,
+                'values' => $this->_dataHelper->getTagCollection()->toOptionArray(),
             ]
         );
 

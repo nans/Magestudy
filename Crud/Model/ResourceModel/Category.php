@@ -10,8 +10,6 @@ class Category extends AbstractDb
     const MAIN_TABLE = 'crud_category';
 
     /**
-     * Initialize resource model
-     *
      * @return void
      */
     protected function _construct()

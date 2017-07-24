@@ -4,9 +4,10 @@ namespace Magestudy\Crud\Model;
 
 use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magento\Framework\Model\AbstractModel;
+use Magestudy\Crud\Api\Data\StatusSwitch;
 use Magestudy\Crud\Model\ResourceModel\Category as ResourceModel;
 
-class Category extends AbstractModel implements CategoryInterface
+class Category extends AbstractModel implements CategoryInterface, StatusSwitch
 {
     const ID = 'category_id';
     const TITLE = 'title';
@@ -21,13 +22,6 @@ class Category extends AbstractModel implements CategoryInterface
     const DISABLED_STATUS = 0;
 
     /**
-     * @var string
-     */
-    protected $_urlBuilder;
-
-    /**
-     * Initialize resource model
-     *
      * @return void
      */
     protected function _construct()
@@ -97,5 +91,15 @@ class Category extends AbstractModel implements CategoryInterface
     public function getUpdateTime()
     {
         return $this->getData(self::UPDATE_TIME);
+    }
+
+    public function activate()
+    {
+        $this->setIsActive(self::ENABLED_STATUS);
+    }
+
+    public function deactivate()
+    {
+        $this->setIsActive(self::DISABLED_STATUS);
     }
 }

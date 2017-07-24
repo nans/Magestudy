@@ -11,6 +11,10 @@ use Magestudy\Crud\Model\Category;
 use Magestudy\Crud\Model\ResourceModel\Category as CategoryResource;
 use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Model\ResourceModel\Post as PostResource;
+use Magestudy\Crud\Model\Tag;
+use Magestudy\Crud\Model\ResourceModel\Tag as TagResource;
+use Magestudy\Crud\Model\PostTag;
+use Magestudy\Crud\Model\ResourceModel\PostTag as PostTagResource;
 
 class InstallSchema implements InstallSchemaInterface
 {
@@ -68,7 +72,16 @@ class InstallSchema implements InstallSchemaInterface
                     ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Modification Time'
                 )
-                ->setComment('Crud Category');
+                ->addIndex(
+                    $installer->getIdxName(
+                        CategoryResource::MAIN_TABLE,
+                        [Category::TITLE],
+                        AdapterInterface::INDEX_TYPE_UNIQUE
+                    ),
+                    [Category::TITLE],
+                    ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
+                )
+                ->setComment('Category');
             $installer->getConnection()->createTable($table);
 
             $installer->getConnection()->addIndex(CategoryResource::MAIN_TABLE,
@@ -116,7 +129,7 @@ class InstallSchema implements InstallSchemaInterface
                     'Image'
                 )
                 ->addColumn(
-                    Post::STORE_IDS, Table::TYPE_TEXT, 500, ['nullable' => false, 'default' => 0],
+                    Post::STORE_IDS, Table::TYPE_TEXT, 255, ['nullable' => false, 'default' => "0"],
                     'Store Ids'
                 )
                 ->addColumn(
@@ -137,10 +150,10 @@ class InstallSchema implements InstallSchemaInterface
                     $installer->getIdxName(
                         PostResource::MAIN_TABLE,
                         [Post::TITLE],
-                        AdapterInterface::INDEX_TYPE_FULLTEXT
+                        AdapterInterface::INDEX_TYPE_UNIQUE
                     ),
                     [Post::TITLE],
-                    ['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
+                    ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
                 )
                 ->addForeignKey(
                     $installer->getFkName(
@@ -152,7 +165,87 @@ class InstallSchema implements InstallSchemaInterface
                     Post::CATEGORY_ID,
                     Table::ACTION_CASCADE
                 )
-                ->setComment('Crud Post');
+                ->setComment('Post');
+            $installer->getConnection()->createTable($table);
+
+            $installer->getConnection()->addIndex(PostResource::MAIN_TABLE,
+                $installer->getIdxName(
+                    PostResource::MAIN_TABLE,
+                    [Post::TITLE, Post::IMAGE],
+                    AdapterInterface::INDEX_TYPE_FULLTEXT
+                ), [Category::TITLE, Post::IMAGE], AdapterInterface::INDEX_TYPE_FULLTEXT);
+        }
+
+        if (!$installer->tableExists(TagResource::MAIN_TABLE)) {
+            $table = $installer->getConnection()->newTable(
+                $installer->getTable(TagResource::MAIN_TABLE)
+            )
+                ->addColumn(
+                    Tag::ID, Table::TYPE_INTEGER, null,
+                    [
+                        'identity' => true,
+                        'nullable' => false,
+                        'primary' => true,
+                    ], 'ID'
+                )
+                ->addColumn(
+                    Tag::TITLE, Table::TYPE_TEXT, 255, ['nullable' => false],
+                    'Title'
+                )
+                ->addIndex(
+                    $installer->getIdxName(
+                        TagResource::MAIN_TABLE,
+                        [Tag::TITLE],
+                        AdapterInterface::INDEX_TYPE_UNIQUE
+                    ),
+                    [Tag::TITLE],
+                    ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
+                )
+                ->setComment('Tag');
+            $installer->getConnection()->createTable($table);
+        }
+
+        if (!$installer->tableExists(PostTagResource::MAIN_TABLE)) {
+            $table = $installer->getConnection()->newTable(
+                $installer->getTable(PostTagResource::MAIN_TABLE)
+            )
+                ->addColumn(
+                    PostTag::ID, Table::TYPE_INTEGER, null,
+                    [
+                        'identity' => true,
+                        'nullable' => false,
+                        'primary' => true,
+                    ], 'ID'
+                )
+                ->addColumn(
+                    PostTag::POST_ID, Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'Post id'
+                )
+                ->addColumn(
+                    PostTag::TAG_ID, Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'Tag id'
+                )
+                ->addForeignKey(
+                    $installer->getFkName(
+                        PostResource::MAIN_TABLE, Post::ID, PostTagResource::MAIN_TABLE,
+                        PostTag::POST_ID
+                    ),
+                    PostTag::POST_ID,
+                    $installer->getTable(PostResource::MAIN_TABLE),
+                    Post::ID,
+                    Table::ACTION_CASCADE
+                )
+                ->addForeignKey(
+                    $installer->getFkName(
+                        TagResource::MAIN_TABLE, Tag::ID, PostTagResource::MAIN_TABLE,
+                        PostTag::TAG_ID
+                    ),
+                    PostTag::TAG_ID,
+                    $installer->getTable(TagResource::MAIN_TABLE),
+                    Tag::ID,
+                    Table::ACTION_CASCADE
+                )
+                ->setComment('Post Tag');
             $installer->getConnection()->createTable($table);
         }
         $installer->endSetup();

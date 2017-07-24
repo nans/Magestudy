@@ -2,64 +2,43 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
-use Magento\Backend\App\Action\Context;
-use Magento\Ui\Component\MassAction\Filter;
-use Magento\Framework\Controller\ResultFactory;
 use Magestudy\Crud\Api\PostRepositoryInterface;
+use Magestudy\Crud\Controller\Adminhtml\AbstractMassDelete;
 use Magestudy\Crud\Helper\AclResources;
+use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Model\ResourceModel\Post\Collection as PostCollection;
-use Magento\Backend\App\Action;
 
-class MassDelete extends Action
+class MassDelete extends AbstractMassDelete
 {
     /**
-     * @var Filter
+     * @return string
      */
-    protected $_filter;
-
-    /**
-     * @param Context $context
-     * @param Filter $filter
-     */
-    public function __construct(
-        Context $context,
-        Filter $filter
-    ) {
-        $this->_filter = $filter;
-        parent::__construct($context);
+    protected function _getAclResource()
+    {
+        return AclResources::POST_DELETE;
     }
 
     /**
-     * Execute action
-     *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     * @throws \Magento\Framework\Exception\LocalizedException|\Exception
+     * @return string
      */
-    public function execute()
+    protected function _getEntityTitle()
     {
-        /** @var PostRepositoryInterface $repository */
-        $repository = $this->_objectManager->get(PostRepositoryInterface::class);
-
-        /** @var PostCollection $collection */
-        $collection = $this->_filter->getCollection($this->_objectManager->create(PostCollection::class));
-        $collectionSize = $collection->getSize();
-        if ($collectionSize > 0) {
-            foreach ($collection as $item) {
-                $repository->delete($item);
-            }
-        }
-        $this->messageManager->addSuccessMessage(__('A total of %1 record(s) have been deleted.', $collectionSize));
-
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        return $resultRedirect->setPath('*/*/');
+        return Post::ENTITY_TITLE;
     }
 
     /**
-     * @return boolean
+     * @return string
      */
-    protected function _isAllowed()
+    protected function _getCollectionClass()
     {
-        return $this->_authorization->isAllowed(AclResources::POST_DELETE);
+        return PostCollection::class;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getRepositoryClass()
+    {
+        return PostRepositoryInterface::class;
     }
 }

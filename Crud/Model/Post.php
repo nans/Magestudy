@@ -4,9 +4,10 @@ namespace Magestudy\Crud\Model;
 
 use Magestudy\Crud\Api\Data\PostInterface;
 use Magento\Framework\Model\AbstractModel;
+use Magestudy\Crud\Api\Data\StatusSwitch;
 use Magestudy\Crud\Model\ResourceModel\Post as ResourceModel;
 
-class Post extends AbstractModel implements PostInterface
+class Post extends AbstractModel implements PostInterface, StatusSwitch
 {
     const ID = 'post_id';
     const TITLE = 'title';
@@ -19,6 +20,7 @@ class Post extends AbstractModel implements PostInterface
     const VIEWS = 'views';
     const CREATION_TIME = 'creation_time';
     const UPDATE_TIME = 'update_time';
+    const TAG = 'tag';
 
     const ENTITY_TITLE = 'Post';
 
@@ -26,13 +28,6 @@ class Post extends AbstractModel implements PostInterface
     const DISABLED_STATUS = 0;
 
     /**
-     * @var string
-     */
-    protected $_urlBuilder;
-
-    /**
-     * Initialize resource model
-     *
      * @return void
      */
     protected function _construct()
@@ -166,5 +161,15 @@ class Post extends AbstractModel implements PostInterface
     public function setViews($views)
     {
         $this->setData(self::VIEWS, $views);
+    }
+
+    public function activate()
+    {
+        $this->setIsActive(self::ENABLED_STATUS);
+    }
+
+    public function deactivate()
+    {
+        $this->setIsActive(self::DISABLED_STATUS);
     }
 }

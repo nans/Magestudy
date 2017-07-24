@@ -12,6 +12,10 @@
                         <resource id="Magestudy_Crud::save_category" title="Save"/>
                         <resource id="Magestudy_Crud::delete_category" title="Delete"/>
                     </resource>
+                    <resource id="Magestudy_Crud::tag" title="Tag">
+                        <resource id="Magestudy_Crud::save_tag" title="Save"/>
+                        <resource id="Magestudy_Crud::delete_tag" title="Delete"/>
+                    </resource>
                 </resource>
             </resource>
         </resources>

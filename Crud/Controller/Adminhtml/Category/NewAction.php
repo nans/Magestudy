@@ -2,46 +2,25 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Category;
 
-use Magento\Backend\App\Action\Context;
-use Magento\Framework\Controller\Result\ForwardFactory;
+use Magestudy\Crud\Controller\Adminhtml\AbstractNewAction;
 use Magestudy\Crud\Helper\AclResources;
-use Magento\Framework\Controller\Result\Forward;
-use Magento\Backend\App\Action;
+use Magestudy\Crud\Model\Category;
 
-class NewAction extends Action
+class NewAction extends AbstractNewAction
 {
     /**
-     * @var ForwardFactory
+     * @return string
      */
-    protected $_resultForwardFactory;
-
-    /**
-     * @param Context $context
-     * @param ForwardFactory $resultForwardFactory
-     */
-    public function __construct(
-        Context $context,
-        ForwardFactory $resultForwardFactory
-    ) {
-        $this->_resultForwardFactory = $resultForwardFactory;
-        parent::__construct($context);
+    protected function _getAclResource()
+    {
+        return AclResources::CATEGORY_SAVE;
     }
 
     /**
-     * @return Forward
+     * @return string
      */
-    public function execute()
+    protected function _getEntityTitle()
     {
-        /** @var Forward $resultForward */
-        $resultForward = $this->_resultForwardFactory->create();
-        return $resultForward->forward('edit');
-    }
-
-    /**
-     * @return boolean
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed(AclResources::CATEGORY_SAVE);
+        return Category::ENTITY_TITLE;
     }
 }

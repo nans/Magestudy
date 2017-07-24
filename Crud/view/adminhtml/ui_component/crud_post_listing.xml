@@ -321,7 +321,7 @@
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="Magestudy\Crud\Ui\Component\Listing\Column\PostActions">
+        <actionsColumn name="actions" class="Magestudy\Crud\Ui\Component\Listing\Column\PostAction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
