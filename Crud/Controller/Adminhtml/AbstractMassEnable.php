@@ -3,7 +3,7 @@
 namespace Magestudy\Crud\Controller\Adminhtml;
 
 
-use Magestudy\Crud\Api\Data\StatusSwitch;
+use Magestudy\Crud\Api\Data\StatusSwitchInterface;
 
 abstract class AbstractMassEnable extends AbstractMassAction
 {
@@ -17,7 +17,7 @@ abstract class AbstractMassEnable extends AbstractMassAction
     }
 
     /**
-     * @param StatusSwitch $item
+     * @param StatusSwitchInterface $item
      * @return void
      */
     protected function _updateItem(&$item)

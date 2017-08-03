@@ -147,7 +147,13 @@ class Form extends Generic
         $fieldset->addField(
             Post::VIEWS,
             'text',
-            ['name' => Post::VIEWS, 'label' => __('Views'), 'title' => __('Views'), 'required' => false]
+            [
+                'name' => Post::VIEWS,
+                'label' => __('Views'),
+                'title' => __('Views'),
+                'required' => false,
+                'class' => 'validate-zero-or-greater'
+            ]
         );
 
         $fieldset->addField(

@@ -51,13 +51,25 @@ class Form extends Generic
         $fieldset->addField(
             Category::TITLE,
             'text',
-            ['name' => Category::TITLE, 'label' => __('Title'), 'title' => __('Title'), 'required' => true]
+            [
+                'name' => Category::TITLE,
+                'label' => __('Title'),
+                'title' => __('Title'),
+                'required' => true,
+                'class' => 'validate-no-test-value'
+            ]
         );
 
         $fieldset->addField(
             Category::DESCRIPTION,
             'text',
-            ['name' => Category::DESCRIPTION, 'label' => __('Description'), 'title' => __('Description'), 'required' => true]
+            [
+                'name' => Category::DESCRIPTION,
+                'label' => __('Description'),
+                'title' => __('Description'),
+                'required' => true,
+                'class' => 'validate-no-html-tags'
+            ]
         );
 
         $fieldset->addField(
@@ -68,12 +80,11 @@ class Form extends Generic
                 'title' => __('Enabled'),
                 'name' => Category::IS_ACTIVE,
                 'required' => true,
-                'value' => $model->getIsActive(),
                 'values' => [Category::ENABLED_STATUS => __('Yes'), Category::DISABLED_STATUS => __('No')]
             ]
         );
 
-        if($model->getId()){
+        if ($model->getId()) {
             $fieldset->addField(
                 Category::UPDATE_TIME,
                 'label',

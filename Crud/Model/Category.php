@@ -4,10 +4,10 @@ namespace Magestudy\Crud\Model;
 
 use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magento\Framework\Model\AbstractModel;
-use Magestudy\Crud\Api\Data\StatusSwitch;
+use Magestudy\Crud\Api\Data\StatusSwitchInterface;
 use Magestudy\Crud\Model\ResourceModel\Category as ResourceModel;
 
-class Category extends AbstractModel implements CategoryInterface, StatusSwitch
+class Category extends AbstractModel implements CategoryInterface, StatusSwitchInterface
 {
     const ID = 'category_id';
     const TITLE = 'title';
@@ -101,5 +101,13 @@ class Category extends AbstractModel implements CategoryInterface, StatusSwitch
     public function deactivate()
     {
         $this->setIsActive(self::DISABLED_STATUS);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isActive()
+    {
+        return $this->getIsActive() == self::ENABLED_STATUS;
     }
 }

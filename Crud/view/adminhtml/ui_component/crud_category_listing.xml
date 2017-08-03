@@ -245,7 +245,7 @@
                 </item>
             </argument>
         </column>
-        <column name="title">
+        <column name="title" class="Magestudy\Crud\Ui\Component\Listing\Column\Category\Title">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>

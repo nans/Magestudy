@@ -4,10 +4,10 @@ namespace Magestudy\Crud\Model;
 
 use Magestudy\Crud\Api\Data\PostInterface;
 use Magento\Framework\Model\AbstractModel;
-use Magestudy\Crud\Api\Data\StatusSwitch;
+use Magestudy\Crud\Api\Data\StatusSwitchInterface;
 use Magestudy\Crud\Model\ResourceModel\Post as ResourceModel;
 
-class Post extends AbstractModel implements PostInterface, StatusSwitch
+class Post extends AbstractModel implements PostInterface, StatusSwitchInterface
 {
     const ID = 'post_id';
     const TITLE = 'title';
@@ -171,5 +171,13 @@ class Post extends AbstractModel implements PostInterface, StatusSwitch
     public function deactivate()
     {
         $this->setIsActive(self::DISABLED_STATUS);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isActive()
+    {
+        return $this->getIsActive() == self::ENABLED_STATUS;
     }
 }

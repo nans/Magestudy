@@ -2,6 +2,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="editor"/>
+    <head>
+        <script src="Magestudy_Crud::js/no-test-in-the-title.js"/>
+    </head>
     <body>
         <referenceContainer name="content">
             <block class="Magestudy\Crud\Block\Adminhtml\Category\Edit" name="crud_category_edit"/>

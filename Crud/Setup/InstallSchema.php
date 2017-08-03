@@ -7,14 +7,6 @@ use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\DB\Ddl\Table;
-use Magestudy\Crud\Model\Category;
-use Magestudy\Crud\Model\ResourceModel\Category as CategoryResource;
-use Magestudy\Crud\Model\Post;
-use Magestudy\Crud\Model\ResourceModel\Post as PostResource;
-use Magestudy\Crud\Model\Tag;
-use Magestudy\Crud\Model\ResourceModel\Tag as TagResource;
-use Magestudy\Crud\Model\PostTag;
-use Magestudy\Crud\Model\ResourceModel\PostTag as PostTagResource;
 
 class InstallSchema implements InstallSchemaInterface
 {
@@ -30,16 +22,26 @@ class InstallSchema implements InstallSchemaInterface
         SchemaSetupInterface $setup,
         ModuleContextInterface $context
     ) {
-        $installer = $setup;
+        $setup->startSetup();
+        $this->_createCategoryTable($setup);
+        $this->_createPostTable($setup);
+        $this->_createTagTable($setup);
+        $this->_createPostTagTable($setup);
+        $setup->endSetup();
+    }
 
-        $installer->startSetup();
-
-        if (!$installer->tableExists(CategoryResource::MAIN_TABLE)) {
-            $table = $installer->getConnection()->newTable(
-                $installer->getTable(CategoryResource::MAIN_TABLE)
-            )
+    /**
+     * @param SchemaSetupInterface $setup
+     */
+    private function _createCategoryTable($setup)
+    {
+        /** @var \Magento\Framework\DB\Adapter\AdapterInterface $connection */
+        $connection = $setup->getConnection();
+        $tableName = 'crud_category';
+        if (!$setup->tableExists($tableName)) {
+            $table = $connection->newTable($setup->getTable($tableName))
                 ->addColumn(
-                    Category::ID, Table::TYPE_INTEGER, null,
+                    'category_id', Table::TYPE_INTEGER, null,
                     [
                         'identity' => true,
                         'nullable' => false,
@@ -47,57 +49,66 @@ class InstallSchema implements InstallSchemaInterface
                     ], 'ID'
                 )
                 ->addColumn(
-                    Category::IS_ACTIVE, Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1],
+                    'is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1],
                     'Is Active'
                 )
                 ->addColumn(
-                    Category::TITLE, Table::TYPE_TEXT, 255, ['nullable' => false],
+                    'title', Table::TYPE_TEXT, 255, ['nullable' => false],
                     'Title'
                 )
                 ->addColumn(
-                    Category::DESCRIPTION, Table::TYPE_TEXT, 1000, ['nullable' => false],
+                    'description', Table::TYPE_TEXT, 1000, ['nullable' => false],
                     'Description'
                 )
                 ->addColumn(
-                    Category::CREATION_TIME,
+                    'creation_time',
                     Table::TYPE_TIMESTAMP,
                     null,
                     ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
                     'Creation Time'
                 )
                 ->addColumn(
-                    Category::UPDATE_TIME,
+                    'update_time',
                     Table::TYPE_TIMESTAMP,
                     null,
                     ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Modification Time'
                 )
                 ->addIndex(
-                    $installer->getIdxName(
-                        CategoryResource::MAIN_TABLE,
-                        [Category::TITLE],
+                    $setup->getIdxName(
+                        $tableName,
+                        ['title'],
                         AdapterInterface::INDEX_TYPE_UNIQUE
                     ),
-                    [Category::TITLE],
+                    ['title'],
                     ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
                 )
                 ->setComment('Category');
-            $installer->getConnection()->createTable($table);
+            $connection->createTable($table);
 
-            $installer->getConnection()->addIndex(CategoryResource::MAIN_TABLE,
-                $installer->getIdxName(
-                    CategoryResource::MAIN_TABLE,
-                    [Category::TITLE],
+            $connection->addIndex($tableName,
+                $setup->getIdxName(
+                    $tableName,
+                    ['title'],
                     AdapterInterface::INDEX_TYPE_FULLTEXT
-                ), [Category::TITLE], AdapterInterface::INDEX_TYPE_FULLTEXT);
+                ), ['title'], AdapterInterface::INDEX_TYPE_FULLTEXT);
         }
+    }
 
-        if (!$installer->tableExists(PostResource::MAIN_TABLE)) {
-            $table = $installer->getConnection()->newTable(
-                $installer->getTable(PostResource::MAIN_TABLE)
+    /**
+     * @param SchemaSetupInterface $setup
+     */
+    private function _createPostTable($setup)
+    {
+        /** @var \Magento\Framework\DB\Adapter\AdapterInterface $connection */
+        $connection = $setup->getConnection();
+        $tableName = 'crud_post';
+        if (!$setup->tableExists($tableName)) {
+            $table = $connection->newTable(
+                $setup->getTable($tableName)
             )
                 ->addColumn(
-                    Post::ID, Table::TYPE_INTEGER, null,
+                    'post_id', Table::TYPE_INTEGER, null,
                     [
                         'identity' => true,
                         'nullable' => false,
@@ -105,83 +116,92 @@ class InstallSchema implements InstallSchemaInterface
                     ], 'ID'
                 )
                 ->addColumn(
-                    Post::CATEGORY_ID, Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'category_id', Table::TYPE_INTEGER, null, ['nullable' => false],
                     'Category Id'
                 )
                 ->addColumn(
-                    Post::IS_ACTIVE, Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1],
+                    'is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1],
                     'Is Active'
                 )
                 ->addColumn(
-                    Post::TITLE, Table::TYPE_TEXT, 255, ['nullable' => false],
+                    'title', Table::TYPE_TEXT, 255, ['nullable' => false],
                     'Title'
                 )
                 ->addColumn(
-                    Post::CONTENT, Table::TYPE_TEXT, '1M', ['nullable' => false],
+                    'content', Table::TYPE_TEXT, '1M', ['nullable' => false],
                     'Content'
                 )
                 ->addColumn(
-                    Post::VIEWS, Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 0],
+                    'views', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 0],
                     'Views'
                 )
                 ->addColumn(
-                    Post::IMAGE, Table::TYPE_TEXT, 500, ['nullable' => true],
+                    'image', Table::TYPE_TEXT, 500, ['nullable' => true],
                     'Image'
                 )
                 ->addColumn(
-                    Post::STORE_IDS, Table::TYPE_TEXT, 255, ['nullable' => false, 'default' => "0"],
+                    'store_ids', Table::TYPE_TEXT, 255, ['nullable' => false, 'default' => "0"],
                     'Store Ids'
                 )
                 ->addColumn(
-                    Post::PUBLICATION_DATE,
+                    'publication_date',
                     Table::TYPE_DATETIME,
                     null,
                     ['nullable' => true],
                     'Publication Time'
                 )
                 ->addColumn(
-                    Post::UPDATE_TIME,
+                    'update_time',
                     Table::TYPE_TIMESTAMP,
                     null,
                     ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Modification Time'
                 )
                 ->addIndex(
-                    $installer->getIdxName(
-                        PostResource::MAIN_TABLE,
-                        [Post::TITLE],
+                    $setup->getIdxName(
+                        $tableName,
+                        ['title'],
                         AdapterInterface::INDEX_TYPE_UNIQUE
                     ),
-                    [Post::TITLE],
+                    ['title'],
                     ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
                 )
                 ->addForeignKey(
-                    $installer->getFkName(
-                        CategoryResource::MAIN_TABLE, Category::ID, PostResource::MAIN_TABLE,
-                        Post::CATEGORY_ID
+                    $setup->getFkName(
+                        'crud_category', 'category_id', $tableName,
+                        'category_id'
                     ),
-                    Post::CATEGORY_ID,
-                    $installer->getTable(CategoryResource::MAIN_TABLE),
-                    Post::CATEGORY_ID,
+                    'category_id',
+                    $setup->getTable('crud_category'),
+                    'category_id',
                     Table::ACTION_CASCADE
                 )
                 ->setComment('Post');
-            $installer->getConnection()->createTable($table);
+            $connection->createTable($table);
 
-            $installer->getConnection()->addIndex(PostResource::MAIN_TABLE,
-                $installer->getIdxName(
-                    PostResource::MAIN_TABLE,
-                    [Post::TITLE, Post::IMAGE],
+            $connection->addIndex($tableName,
+                $setup->getIdxName(
+                    $tableName,
+                    ['title', 'image'],
                     AdapterInterface::INDEX_TYPE_FULLTEXT
-                ), [Category::TITLE, Post::IMAGE], AdapterInterface::INDEX_TYPE_FULLTEXT);
+                ), ['title', 'image'], AdapterInterface::INDEX_TYPE_FULLTEXT);
         }
+    }
 
-        if (!$installer->tableExists(TagResource::MAIN_TABLE)) {
-            $table = $installer->getConnection()->newTable(
-                $installer->getTable(TagResource::MAIN_TABLE)
+    /**
+     * @param SchemaSetupInterface $setup
+     */
+    private function _createTagTable($setup)
+    {
+        $tableName = 'crud_tag';
+        /** @var \Magento\Framework\DB\Adapter\AdapterInterface $connection */
+        $connection = $setup->getConnection();
+        if (!$setup->tableExists($tableName)) {
+            $table = $connection->newTable(
+                $setup->getTable($tableName)
             )
                 ->addColumn(
-                    Tag::ID, Table::TYPE_INTEGER, null,
+                    'tag_id', Table::TYPE_INTEGER, null,
                     [
                         'identity' => true,
                         'nullable' => false,
@@ -189,28 +209,37 @@ class InstallSchema implements InstallSchemaInterface
                     ], 'ID'
                 )
                 ->addColumn(
-                    Tag::TITLE, Table::TYPE_TEXT, 255, ['nullable' => false],
+                    'title', Table::TYPE_TEXT, 255, ['nullable' => false],
                     'Title'
                 )
                 ->addIndex(
-                    $installer->getIdxName(
-                        TagResource::MAIN_TABLE,
-                        [Tag::TITLE],
+                    $setup->getIdxName(
+                        $tableName,
+                        ['title'],
                         AdapterInterface::INDEX_TYPE_UNIQUE
                     ),
-                    [Tag::TITLE],
+                    ['title'],
                     ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
                 )
                 ->setComment('Tag');
-            $installer->getConnection()->createTable($table);
+            $connection->createTable($table);
         }
+    }
 
-        if (!$installer->tableExists(PostTagResource::MAIN_TABLE)) {
-            $table = $installer->getConnection()->newTable(
-                $installer->getTable(PostTagResource::MAIN_TABLE)
+    /**
+     * @param SchemaSetupInterface $setup
+     */
+    private function _createPostTagTable($setup)
+    {
+        $tableName = 'crud_post_tag';
+        /** @var \Magento\Framework\DB\Adapter\AdapterInterface $connection */
+        $connection = $setup->getConnection();
+        if (!$setup->tableExists($tableName)) {
+            $table = $connection->newTable(
+                $setup->getTable($tableName)
             )
                 ->addColumn(
-                    PostTag::ID, Table::TYPE_INTEGER, null,
+                    'post_tag_id', Table::TYPE_INTEGER, null,
                     [
                         'identity' => true,
                         'nullable' => false,
@@ -218,36 +247,35 @@ class InstallSchema implements InstallSchemaInterface
                     ], 'ID'
                 )
                 ->addColumn(
-                    PostTag::POST_ID, Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'post_id', Table::TYPE_INTEGER, null, ['nullable' => false],
                     'Post id'
                 )
                 ->addColumn(
-                    PostTag::TAG_ID, Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'tag_id', Table::TYPE_INTEGER, null, ['nullable' => false],
                     'Tag id'
                 )
                 ->addForeignKey(
-                    $installer->getFkName(
-                        PostResource::MAIN_TABLE, Post::ID, PostTagResource::MAIN_TABLE,
-                        PostTag::POST_ID
+                    $setup->getFkName(
+                        'crud_post', 'post_id', $tableName,
+                        'post_id'
                     ),
-                    PostTag::POST_ID,
-                    $installer->getTable(PostResource::MAIN_TABLE),
-                    Post::ID,
+                    'post_id',
+                    $setup->getTable('crud_post'),
+                    'post_id',
                     Table::ACTION_CASCADE
                 )
                 ->addForeignKey(
-                    $installer->getFkName(
-                        TagResource::MAIN_TABLE, Tag::ID, PostTagResource::MAIN_TABLE,
-                        PostTag::TAG_ID
+                    $setup->getFkName(
+                        'crud_tag', 'tag_id', $tableName,
+                        'tag_id'
                     ),
-                    PostTag::TAG_ID,
-                    $installer->getTable(TagResource::MAIN_TABLE),
-                    Tag::ID,
+                    'tag_id',
+                    $setup->getTable('crud_tag'),
+                    'tag_id',
                     Table::ACTION_CASCADE
                 )
                 ->setComment('Post Tag');
-            $installer->getConnection()->createTable($table);
+            $connection->createTable($table);
         }
-        $installer->endSetup();
     }
 }
