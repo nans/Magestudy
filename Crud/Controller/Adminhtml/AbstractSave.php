@@ -23,17 +23,21 @@ abstract class AbstractSave extends AbstractAction
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            $data = $this->_updateData($data);
+            try {
+                $data = $this->_updateData($data);
+            } catch (Exception $exception) {
+                $this->_showErrorMessage($exception);
+                return $this->_getEditRedirect($resultRedirect);
+            }
+
             $id = $this->getRequest()->getParam($this->_getIdField());
             /** @var AbstractModel $model */
             if ($id) {
                 try {
                     $model = $this->_loadEditData($id);
                 } catch (Exception $exception) {
-                    $this->messageManager->addExceptionMessage($exception,
-                        __('Something went wrong while saving the data.'));
-                    return $resultRedirect->setPath('*/*/edit',
-                        ['id' => $this->getRequest()->getParam($this->_getIdField())]);
+                    $this->_showErrorMessage($exception);
+                    return $this->_getEditRedirect($resultRedirect);
                 }
             } else {
                 $model = $this->_createEditData();
@@ -54,16 +58,31 @@ abstract class AbstractSave extends AbstractAction
                 $this->messageManager->addErrorMessage($e->getMessage());
             } catch (\RuntimeException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
-            } catch (Exception $e) {
-                $this->messageManager->addErrorMessage($e,
-                    __('Something went wrong while saving') . ' ' . strtolower($this->_getEntityTitle()));
+            } catch (Exception $exception) {
+                $this->_showErrorMessage($exception);
             }
-
             $this->_getSession()->setFormData($data);
-            return $resultRedirect->setPath('*/*/edit',
-                ['id' => $this->getRequest()->getParam($this->_getIdField())]);
+            return $this->_getEditRedirect($resultRedirect);
         }
         return $resultRedirect->setPath('*/*/');
+    }
+
+    /**
+     * @param Exception
+     */
+    protected function _showErrorMessage($exception)
+    {
+        $this->messageManager->addExceptionMessage($exception,
+            __('Something went wrong while saving the data.'));
+    }
+
+    /**
+     * @param \Magento\Backend\Model\View\Result\Redirect
+     * @return \Magento\Backend\Model\View\Result\Redirect
+     */
+    protected function _getEditRedirect($resultRedirect)
+    {
+        return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam($this->_getIdField())]);
     }
 
     /**

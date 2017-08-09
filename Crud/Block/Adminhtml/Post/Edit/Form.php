@@ -67,7 +67,8 @@ class Form extends Generic
                 'data' => [
                     'id' => 'edit_form',
                     'action' => $this->getData('action'),
-                    'method' => 'post'
+                    'method' => 'post',
+                    'enctype' => 'multipart/form-data'
                 ]
             ]
         );
@@ -158,8 +159,12 @@ class Form extends Generic
 
         $fieldset->addField(
             Post::IMAGE,
-            'text',
-            ['name' => Post::IMAGE, 'label' => __('Image'), 'title' => __('Image'), 'required' => false]
+            'image',
+            ['name' => Post::IMAGE,
+                'label' => __('Image'),
+                'title' => __('Image'),
+                'required' => false
+            ]
         );
 
         $fieldset->addField(
