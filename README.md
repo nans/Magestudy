@@ -1,40 +1,40 @@
 # Magestudy
-Magento 2 Example extensions
+**Magento 2 Example extensions**
 
-ConfigExample
+### ConfigExample
 Shows how create and update Configuration in Magento 2 (programmatically)
 
-ConsoleCommand
+### ConsoleCommand
 Shows how create console command in Magento 2
 
-Controller
+### Controller
 Shows how create controller in Magento 2
 
-CronExample
+### CronExample
 Shows how create Cron tasks and Cron groups in Magento 2
 
-Event
+### Event
 Shows how use events in Magento 2
 
-LogRepository
+### LogRepository
 Shows how use repository pattern in Magento 2
 
-Menu
+### Menu
 Shows how create menu in Magento 2
 
-Page
+### Page
 Shows how create simple page in Magento 2
 
-Rest
+### Rest
 Shows how create REST API in Magento 2
 
-Test
+### Test
 Shows how create Unit test in Magento 2
 
-Customjs
+### Customjs
 Shows how use requirejs in Magento 2
 
-Crud
+### Crud
 Shows how create CRUD in Magento 2:
 - Validation;
 - Image loading;
@@ -46,3 +46,7 @@ Shows how create CRUD in Magento 2:
 - Create DB schema;
 - Admin menu;
 - Repository pattern.
+
+License
+----
+MIT
