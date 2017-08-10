@@ -4,9 +4,37 @@ namespace Magestudy\Crud\Block\Adminhtml\Category\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magestudy\Crud\Model\Category;
+use Magento\Backend\Block\Template\Context;
+use Magento\Framework\Data\FormFactory;
+use Magento\Framework\Registry;
+use Magestudy\Crud\Helper\Data as DataHelper;
 
 class Form extends Generic
 {
+    /**
+     * @var DataHelper
+     */
+    protected $_dataHelper;
+
+    /**
+     * @param Context $context
+     * @param Registry $registry
+     * @param FormFactory $formFactory
+     * @param DataHelper $dataHelper
+     * @param array $data
+     */
+    public function __construct(
+        Context $context,
+        Registry $registry,
+        FormFactory $formFactory,
+        DataHelper $dataHelper,
+        array $data = []
+    ) {
+
+        $this->_dataHelper = $dataHelper;
+        parent::__construct($context, $registry, $formFactory, $data);
+    }
+
     /**
      * @return void
      */
@@ -80,7 +108,7 @@ class Form extends Generic
                 'title' => __('Enabled'),
                 'name' => Category::IS_ACTIVE,
                 'required' => true,
-                'values' => [Category::ENABLED_STATUS => __('Yes'), Category::DISABLED_STATUS => __('No')]
+                'values' => $this->_dataHelper->getBooleanOptions()->toOptionArray()
             ]
         );
 

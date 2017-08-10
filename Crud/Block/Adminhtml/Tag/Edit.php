@@ -2,19 +2,14 @@
 
 namespace Magestudy\Crud\Block\Adminhtml\Tag;
 
-use Magento\Backend\Block\Widget\Form\Container;
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Registry;
+use Magestudy\Crud\Block\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\Tag;
 
-class Edit extends Container
+class Edit extends AbstractEdit
 {
-    /**
-     * @var \Magento\Framework\Registry
-     */
-    protected $_coreRegistry = null;
-
     /**
      * @param Context $context
      * @param Registry $registry
@@ -25,84 +20,55 @@ class Edit extends Container
         Registry $registry,
         array $data = []
     ) {
-        $this->_coreRegistry = $registry;
-        parent::__construct($context, $data);
-    }
-
-
-    /**
-     * @return \Magento\Framework\Phrase
-     */
-    public function getHeaderText()
-    {
-        /** @var Tag $model */
-        $model = $this->_coreRegistry->registry(strtolower(Tag::ENTITY_TITLE));
-        if ($model->getId()) {
-            return __("Edit " . Tag::ENTITY_TITLE . " '%1'", $this->escapeHtml($model->getTitle()));
-        } else {
-            return __('New ' . Tag::ENTITY_TITLE);
-        }
+        parent::__construct($context, $registry, $data);
     }
 
     /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_objectId = Tag::ID;
-        $this->_blockGroup = 'Magestudy_Crud';
-        $this->_controller = 'adminhtml_tag';
-
-        parent::_construct();
-
-        if ($this->_isAllowedAction(AclResources::TAG_SAVE)) {
-            $this->buttonList->update('save', 'label', __('Save'));
-            $this->buttonList->add(
-                'saveandcontinue',
-                [
-                    'label' => __('Save and Continue Edit'),
-                    'class' => 'save',
-                    'data_attribute' => [
-                        'mage-init' => [
-                            'button' => [
-                                'event' => 'saveAndContinueEdit',
-                                'target' => '#edit_form'
-                            ],
-                        ],
-                    ]
-                ],
-                -100
-            );
-        } else {
-            $this->buttonList->remove('save');
-        }
-
-        if ($this->_isAllowedAction(AclResources::TAG_DELETE)) {
-            $this->buttonList->update('delete', 'label', __('Delete'));
-        } else {
-            $this->buttonList->remove('delete');
-        }
-    }
-
-    /**
-     * Check permission for passed action
-     *
-     * @param string $resourceId
-     * @return bool
-     */
-    protected function _isAllowedAction($resourceId)
-    {
-        return $this->_authorization->isAllowed($resourceId);
-    }
-
-    /**
-     * Getter of url for "Save and Continue" button
-     * tab_id will be replaced by desired by JS later
-     *
      * @return string
      */
-    protected function _getSaveAndContinueUrl()
+    protected function _getDeleteAcl()
     {
-        return $this->getUrl('*/*/save', ['_current' => true, 'back' => 'edit', 'active_tab' => '']);
+        return AclResources::TAG_DELETE;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getSaveAcl()
+    {
+        return AclResources::TAG_SAVE;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getEntityTitle()
+    {
+        return Tag::ENTITY_TITLE;
+    }
+
+    /**
+     * @param Tag $model
+     * @return string
+     */
+    protected function _getTitle($model)
+    {
+        return $model->getTitle();
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getController()
+    {
+        return 'tag';
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getId()
+    {
+        return Tag::ID;
     }
 }

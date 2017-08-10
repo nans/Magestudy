@@ -160,7 +160,8 @@ class Form extends Generic
         $fieldset->addField(
             Post::IMAGE,
             'image',
-            ['name' => Post::IMAGE,
+            [
+                'name' => Post::IMAGE,
                 'label' => __('Image'),
                 'title' => __('Image'),
                 'required' => false
