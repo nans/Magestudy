@@ -46,10 +46,11 @@ class InstallSchema implements InstallSchemaInterface
                         'identity' => true,
                         'nullable' => false,
                         'primary' => true,
+                        'unsigned' => true
                     ], 'ID'
                 )
                 ->addColumn(
-                    'is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1],
+                    'is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1, 'unsigned' => true],
                     'Is Active'
                 )
                 ->addColumn(
@@ -113,14 +114,15 @@ class InstallSchema implements InstallSchemaInterface
                         'identity' => true,
                         'nullable' => false,
                         'primary' => true,
+                        'unsigned' => true
                     ], 'ID'
                 )
                 ->addColumn(
-                    'category_id', Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'category_id', Table::TYPE_INTEGER, null, ['nullable' => false, 'unsigned' => true],
                     'Category Id'
                 )
                 ->addColumn(
-                    'is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1],
+                    'is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 1, 'unsigned' => true],
                     'Is Active'
                 )
                 ->addColumn(
@@ -132,7 +134,7 @@ class InstallSchema implements InstallSchemaInterface
                     'Content'
                 )
                 ->addColumn(
-                    'views', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => 0],
+                    'views', Table::TYPE_INTEGER, null, ['nullable' => false, 'default' => 0, 'unsigned' => true],
                     'Views'
                 )
                 ->addColumn(
@@ -206,6 +208,7 @@ class InstallSchema implements InstallSchemaInterface
                         'identity' => true,
                         'nullable' => false,
                         'primary' => true,
+                        'unsigned' => true
                     ], 'ID'
                 )
                 ->addColumn(
@@ -244,14 +247,15 @@ class InstallSchema implements InstallSchemaInterface
                         'identity' => true,
                         'nullable' => false,
                         'primary' => true,
+                        'unsigned' => true
                     ], 'ID'
                 )
                 ->addColumn(
-                    'post_id', Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'post_id', Table::TYPE_INTEGER, null, ['nullable' => false, 'unsigned' => true],
                     'Post id'
                 )
                 ->addColumn(
-                    'tag_id', Table::TYPE_INTEGER, null, ['nullable' => false],
+                    'tag_id', Table::TYPE_INTEGER, null, ['nullable' => false, 'unsigned' => true],
                     'Tag id'
                 )
                 ->addForeignKey(
