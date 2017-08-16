@@ -6,17 +6,11 @@ use Magestudy\LogRepository\Api\Data\LogInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magestudy\LogRepository\Model\ResourceModel\Log as ResourceModel;
 
-class Log extends AbstractModel
-    implements LogInterface
+class Log extends AbstractModel implements LogInterface
 {
     const ID = 'study_log_id';
     const DATE = 'date';
     const CONTENT = 'content';
-
-    /**
-     * @var string
-     */
-    protected $_urlBuilder;
 
     /**
      * Initialize resource model
@@ -26,23 +20,6 @@ class Log extends AbstractModel
     protected function _construct()
     {
         $this->_init(ResourceModel::class);
-    }
-
-    /**
-     * @param int $id
-     * @return void
-     */
-    public function setId($id)
-    {
-        $this->setData(self::ID, $id);
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->getData(self::ID);
     }
 
     /**
