@@ -2,7 +2,6 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml;
 
-
 abstract class AbstractMassDelete extends AbstractMassAction
 {
     /**

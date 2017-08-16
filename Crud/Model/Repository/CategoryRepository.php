@@ -9,7 +9,7 @@ use Magento\Framework\Exception\StateException;
 use Magento\Framework\Exception\ValidatorException;
 use Magestudy\Crud\Api\CategoryRepositoryInterface;
 use Magestudy\Crud\Api\Data\CategoryInterface;
-use Magestudy\Crud\Model\Factory\CategoryFactory;
+use Magestudy\Crud\Model\CategoryFactory;
 use Magestudy\Crud\Model\ResourceModel\Category;
 
 class CategoryRepository implements CategoryRepositoryInterface

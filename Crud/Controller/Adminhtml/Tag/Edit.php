@@ -8,7 +8,7 @@ use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\Tag;
-use Magestudy\Crud\Model\Factory\TagFactory;
+use Magestudy\Crud\Model\TagFactory;
 
 class Edit extends AbstractEdit
 {

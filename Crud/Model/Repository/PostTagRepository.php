@@ -9,7 +9,7 @@ use Magento\Framework\Exception\StateException;
 use Magento\Framework\Exception\ValidatorException;
 use Magestudy\Crud\Api\PostTagRepositoryInterface;
 use Magestudy\Crud\Api\Data\PostTagInterface;
-use Magestudy\Crud\Model\Factory\PostTagFactory;
+use Magestudy\Crud\Model\PostTagFactory;
 use Magestudy\Crud\Model\ResourceModel\PostTag;
 use Magestudy\Crud\Model\PostTag as PostTagModel;
 use Magestudy\Crud\Model\ResourceModel\PostTag\Collection as PostTagCollection;

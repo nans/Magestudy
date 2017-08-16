@@ -2,7 +2,6 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml;
 
-
 use Magestudy\Crud\Api\Data\StatusSwitchInterface;
 
 abstract class AbstractMassEnable extends AbstractMassAction

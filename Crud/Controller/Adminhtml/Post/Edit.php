@@ -9,7 +9,7 @@ use Magestudy\Crud\Api\PostTagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\Post;
-use Magestudy\Crud\Model\Factory\PostFactory;
+use Magestudy\Crud\Model\PostFactory;
 
 class Edit extends AbstractEdit
 {

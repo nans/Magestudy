@@ -7,7 +7,7 @@ use Magestudy\Crud\Controller\Adminhtml\AbstractSave;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Helper\ImageLoader;
 use Magestudy\Crud\Model\Post;
-use Magestudy\Crud\Model\Factory\PostFactory;
+use Magestudy\Crud\Model\PostFactory;
 
 class Save extends AbstractSave
 {

@@ -5,7 +5,7 @@ namespace Magestudy\Crud\Observer\Post;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magestudy\Crud\Api\PostTagRepositoryInterface;
-use Magestudy\Crud\Model\Factory\PostTagFactory;
+use Magestudy\Crud\Model\PostTagFactory;
 use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Model\ResourceModel\PostTag\Collection as PostTagCollection;
 use Magestudy\Crud\Model\PostTag;

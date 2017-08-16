@@ -9,7 +9,6 @@ use Magento\Framework\Model\AbstractModel;
 use Magento\Backend\Model\Session;
 use Magento\Framework\Exception\LocalizedException;
 
-
 abstract class AbstractSave extends AbstractAction
 {
     protected $_repository;

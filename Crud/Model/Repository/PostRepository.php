@@ -9,7 +9,7 @@ use Magento\Framework\Exception\StateException;
 use Magento\Framework\Exception\ValidatorException;
 use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Api\PostRepositoryInterface;
-use Magestudy\Crud\Model\Factory\PostFactory;
+use Magestudy\Crud\Model\PostFactory;
 use Magestudy\Crud\Model\ResourceModel\Post;
 
 class PostRepository implements PostRepositoryInterface

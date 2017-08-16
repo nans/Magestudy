@@ -6,7 +6,7 @@ use Magestudy\Crud\Api\CategoryRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractSave;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\Category;
-use Magestudy\Crud\Model\Factory\CategoryFactory;
+use Magestudy\Crud\Model\CategoryFactory;
 
 class Save extends AbstractSave
 {

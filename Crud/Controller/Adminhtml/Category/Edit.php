@@ -8,7 +8,7 @@ use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\Category;
-use Magestudy\Crud\Model\Factory\CategoryFactory;
+use Magestudy\Crud\Model\CategoryFactory;
 
 class Edit extends AbstractEdit
 {

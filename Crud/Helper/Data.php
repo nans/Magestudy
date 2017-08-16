@@ -1,6 +1,7 @@
 <?php
 
 namespace Magestudy\Crud\Helper;
+
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Model\Config\Source\Yesno;
 use Magento\Framework\Data\FormFactory;
@@ -64,28 +65,32 @@ class Data
     /**
      * @return CategoryCollection
      */
-    public function getCategoryCollection(){
+    public function getCategoryCollection()
+    {
         return $this->_categoryCollection;
     }
 
     /**
      * @return TagCollection
      */
-    public function getTagCollection(){
+    public function getTagCollection()
+    {
         return $this->_tagCollection;
     }
 
     /**
      * @return Store
      */
-    public function getSystemStore(){
+    public function getSystemStore()
+    {
         return $this->_systemStore;
     }
 
     /**
      * @return Yesno
      */
-    public function getBooleanOptions(){
+    public function getBooleanOptions()
+    {
         return $this->_booleanOptions;
     }
 }

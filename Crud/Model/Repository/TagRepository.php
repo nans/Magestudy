@@ -9,7 +9,7 @@ use Magento\Framework\Exception\StateException;
 use Magento\Framework\Exception\ValidatorException;
 use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Api\Data\TagInterface;
-use Magestudy\Crud\Model\Factory\TagFactory;
+use Magestudy\Crud\Model\TagFactory;
 use Magestudy\Crud\Model\ResourceModel\Tag;
 
 class TagRepository implements TagRepositoryInterface
