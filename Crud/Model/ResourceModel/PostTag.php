@@ -7,14 +7,11 @@ use Magestudy\Crud\Model\PostTag as Model;
 
 class PostTag extends AbstractDb
 {
-    const MAIN_TABLE = 'crud_post_tag';
-
     /**
-     * @return void
+     * @return string
      */
-    protected function _construct()
-    {
-        $this->_init(self::MAIN_TABLE, Model::ID);
+    public static function getTableName(){
+        return 'crud_post_tag';
     }
 
     /**
@@ -26,9 +23,17 @@ class PostTag extends AbstractDb
     {
         $select = $this->getConnection()
             ->select()
-            ->from(['main_table' => $this->getConnection()->getTableName(self::MAIN_TABLE)],Model::ID)
+            ->from(['main_table' => $this->getConnection()->getTableName($this->getMainTable())],Model::ID)
             ->where('main_table.' . Model::POST_ID . ' = ?', $postId)
             ->where('main_table.' . Model::TAG_ID . ' = ?', $tagId);
         return $this->getConnection()->fetchOne($select);
+    }
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init($this->getTableName(), Model::ID);
     }
 }

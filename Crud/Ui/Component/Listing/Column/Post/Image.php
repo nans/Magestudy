@@ -11,8 +11,6 @@ use Magestudy\Crud\Helper\Data;
 use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Ui\Component\Listing\Column\PostAction;
 
-use Magento\Cms\Model\Wysiwyg\Config;
-
 class Image extends Column
 {
     const DEFAULT_IMG = 'thumbnail_empty.jpg';

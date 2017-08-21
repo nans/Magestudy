@@ -7,13 +7,19 @@ use Magestudy\Crud\Model\Category as Model;
 
 class Category extends AbstractDb
 {
-    const MAIN_TABLE = 'crud_category';
+    /**
+     * @return string
+     */
+    public static function getTableName()
+    {
+        return 'crud_category';
+    }
 
     /**
      * @return void
      */
     protected function _construct()
     {
-        $this->_init(self::MAIN_TABLE, Model::ID);
+        $this->_init($this->getTableName(), Model::ID);
     }
 }

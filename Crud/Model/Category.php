@@ -22,14 +22,6 @@ class Category extends AbstractModel implements CategoryInterface, StatusSwitchI
     const DISABLED_STATUS = 0;
 
     /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init(ResourceModel::class);
-    }
-
-    /**
      * @return string|null
      */
     public function getTitle()
@@ -109,5 +101,13 @@ class Category extends AbstractModel implements CategoryInterface, StatusSwitchI
     public function isActive()
     {
         return $this->getIsActive() == self::ENABLED_STATUS;
+    }
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(ResourceModel::class);
     }
 }

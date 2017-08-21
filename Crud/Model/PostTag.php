@@ -13,14 +13,6 @@ class PostTag extends AbstractModel implements PostTagInterface
     const TAG_ID = 'tag_id';
 
     /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init(ResourceModel::class);
-    }
-
-    /**
      * @return int|null
      */
     public function getPostId()
@@ -50,5 +42,13 @@ class PostTag extends AbstractModel implements PostTagInterface
     public function setTagId($id)
     {
         $this->setData(self::TAG_ID, $id);
+    }
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(ResourceModel::class);
     }
 }

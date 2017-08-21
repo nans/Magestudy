@@ -28,14 +28,6 @@ class Post extends AbstractModel implements PostInterface, StatusSwitchInterface
     const DISABLED_STATUS = 0;
 
     /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init(ResourceModel::class);
-    }
-
-    /**
      * @return string
      */
     public function getTitle()
@@ -179,5 +171,13 @@ class Post extends AbstractModel implements PostInterface, StatusSwitchInterface
     public function isActive()
     {
         return $this->getIsActive() == self::ENABLED_STATUS;
+    }
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(ResourceModel::class);
     }
 }

@@ -9,11 +9,6 @@ use Magestudy\Crud\Model\ResourceModel\Post as ResourceModel;
 class Collection extends AbstractCollection
 {
     /**
-     * @var string
-     */
-    protected $_idFieldName = Model::ID;
-
-    /**
      * @return void
      */
     protected function _construct()

@@ -14,14 +14,6 @@ class Tag extends AbstractModel implements TagInterface
     const ENTITY_TITLE = 'Tag';
 
     /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init(ResourceModel::class);
-    }
-
-    /**
      * @return string|null
      */
     public function getTitle()
@@ -35,5 +27,13 @@ class Tag extends AbstractModel implements TagInterface
     public function setTitle($title)
     {
         $this->setData(self::TITLE, $title);
+    }
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(ResourceModel::class);
     }
 }

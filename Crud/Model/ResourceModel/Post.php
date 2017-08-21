@@ -11,8 +11,6 @@ use \Magento\Framework\Model\ResourceModel\Db\Context;
 
 class Post extends AbstractDb
 {
-    const MAIN_TABLE = 'crud_post';
-
     /**
      * @var EventManager
      */
@@ -33,11 +31,18 @@ class Post extends AbstractDb
     }
 
     /**
+     * @return string
+     */
+    public static function getTableName(){
+        return 'crud_post';
+    }
+
+    /**
      * @return void
      */
     protected function _construct()
     {
-        $this->_init(self::MAIN_TABLE, Model::ID);
+        $this->_init($this->getTableName(), Model::ID);
     }
 
     /**
