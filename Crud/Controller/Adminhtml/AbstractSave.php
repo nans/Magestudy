@@ -11,6 +11,9 @@ use Magento\Framework\Exception\LocalizedException;
 
 abstract class AbstractSave extends AbstractAction
 {
+    /**
+     * @var RepositoryInterface
+     */
     protected $_repository;
 
     /**
@@ -94,11 +97,6 @@ abstract class AbstractSave extends AbstractAction
         }
         return $this->_repository;
     }
-
-    /**
-     * @return string
-     */
-    abstract protected function _getRepositoryInterface();
 
     /**
      * @param int $id

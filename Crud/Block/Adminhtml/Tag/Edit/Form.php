@@ -3,6 +3,7 @@
 namespace Magestudy\Crud\Block\Adminhtml\Tag\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
+use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Model\Tag;
 
 class Form extends Generic
@@ -22,7 +23,7 @@ class Form extends Generic
      */
     protected function _prepareForm()
     {
-        /** @var Tag $model */
+        /** @var TagInterface $model */
         $model = $this->_coreRegistry->registry(strtolower(Tag::ENTITY_TITLE));
 
         /** @var \Magento\Framework\Data\Form $form */

@@ -2,6 +2,7 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml;
 
+use Magestudy\Crud\Api\RepositoryInterface;
 use Magestudy\Crud\Helper\Data;
 
 abstract class AbstractDelete extends AbstractAction
@@ -31,5 +32,9 @@ abstract class AbstractDelete extends AbstractAction
     /**
      * @param int $id
      */
-    abstract protected function _deleteById($id);
+    protected function _deleteById($id){
+        /** @var RepositoryInterface $repository */
+        $repository = $this->_objectManager->get($this->_getRepositoryInterface());
+        $repository->deleteById($id);
+    }
 }

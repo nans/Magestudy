@@ -17,18 +17,19 @@ class Delete extends AbstractDelete
         return AclResources::TAG_DELETE;
     }
 
-    protected function _deleteById($id)
-    {
-        /** @var TagRepositoryInterface $repository */
-        $repository = $this->_objectManager->get(TagRepositoryInterface::class);
-        $repository->deleteById($id);
-    }
-
     /**
      * @return string
      */
     protected function _getEntityTitle()
     {
         return Tag::ENTITY_TITLE;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getRepositoryInterface()
+    {
+        return TagRepositoryInterface::class;
     }
 }

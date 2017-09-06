@@ -23,7 +23,7 @@ class PostTag extends AbstractDb
     {
         $select = $this->getConnection()
             ->select()
-            ->from(['main_table' => $this->getConnection()->getTableName($this->getMainTable())],Model::ID)
+            ->from(['main_table' => $this->getConnection()->getTableName(self::getMainTable())],Model::ID)
             ->where('main_table.' . Model::POST_ID . ' = ?', $postId)
             ->where('main_table.' . Model::TAG_ID . ' = ?', $tagId);
         return $this->getConnection()->fetchOne($select);
@@ -34,6 +34,6 @@ class PostTag extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init($this->getTableName(), Model::ID);
+        $this->_init(self::getTableName(), Model::ID);
     }
 }

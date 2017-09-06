@@ -17,18 +17,19 @@ class Delete extends AbstractDelete
         return AclResources::CATEGORY_DELETE;
     }
 
-    protected function _deleteById($id)
-    {
-        /** @var CategoryRepositoryInterface $repository */
-        $repository = $this->_objectManager->get(CategoryRepositoryInterface::class);
-        $repository->deleteById($id);
-    }
-
     /**
      * @return string
      */
     protected function _getEntityTitle()
     {
         return Category::ENTITY_TITLE;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getRepositoryInterface()
+    {
+        return CategoryRepositoryInterface::class;
     }
 }

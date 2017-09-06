@@ -23,4 +23,9 @@ abstract class AbstractAction extends Action
      * @return string
      */
     abstract protected function _getEntityTitle();
+
+    /**
+     * @return string
+     */
+    abstract protected function _getRepositoryInterface();
 }

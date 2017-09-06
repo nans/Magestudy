@@ -45,7 +45,7 @@ class Save extends AbstractSave
      */
     protected function _getEntityTitle()
     {
-        return Post::ENTITY_TITLE;
+        return __(Post::ENTITY_TITLE);
     }
 
     /**

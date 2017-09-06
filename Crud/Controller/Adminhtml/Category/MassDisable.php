@@ -37,7 +37,7 @@ class MassDisable extends AbstractMassDisable
     /**
      * @return string
      */
-    protected function _getRepositoryClass()
+    protected function _getRepositoryInterface()
     {
         return CategoryRepositoryInterface::class;
     }

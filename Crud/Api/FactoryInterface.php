@@ -8,7 +8,7 @@ interface FactoryInterface
      * Create class instance with specified parameters
      *
      * @param array $data
-     * @return object
+     * @return Object
      */
     public function create(array $data = []);
 }

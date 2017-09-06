@@ -2,7 +2,6 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Tag;
 
-use Magento\Framework\Model\AbstractModel;
 use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
@@ -13,7 +12,7 @@ use Magestudy\Crud\Model\TagFactory;
 class Edit extends AbstractEdit
 {
     /**
-     * @param AbstractModel|TagInterface $model
+     * @param TagInterface $model
      * @return string
      */
     protected function getTitle($model)
@@ -38,23 +37,18 @@ class Edit extends AbstractEdit
     }
 
     /**
-     * @param int $id
-     * @return AbstractModel|TagInterface
+     * @return string
      */
-    protected function _loadEditData($id)
+    protected function _getRepositoryInterface()
     {
-        /** @var TagRepositoryInterface $repository */
-        $repository = $this->_objectManager->get(TagRepositoryInterface::class);
-        return $repository->getById($id);
+        return TagRepositoryInterface::class;
     }
 
     /**
-     * @return AbstractModel|TagInterface
+     * @return string
      */
-    protected function _createEditData()
+    protected function _getFactory()
     {
-        /** @var TagFactory $factory */
-        $factory = $this->_objectManager->get(TagFactory::class);
-        return $factory->create();
+        return TagFactory::class;
     }
 }

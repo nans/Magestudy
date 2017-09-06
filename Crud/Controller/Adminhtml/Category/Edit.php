@@ -2,7 +2,6 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Category;
 
-use Magento\Framework\Model\AbstractModel;
 use Magestudy\Crud\Api\CategoryRepositoryInterface;
 use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
@@ -29,17 +28,6 @@ class Edit extends AbstractEdit
     }
 
     /**
-     * @param int $id
-     * @return AbstractModel|CategoryInterface
-     */
-    protected function _loadEditData($id)
-    {
-        /** @var CategoryRepositoryInterface $repository */
-        $repository = $this->_objectManager->get(CategoryRepositoryInterface::class);
-        return $repository->getById($id);
-    }
-
-    /**
      * @param CategoryInterface $model
      * @return string
      */
@@ -49,12 +37,18 @@ class Edit extends AbstractEdit
     }
 
     /**
-     * @return AbstractModel|CategoryInterface
+     * @return string
      */
-    protected function _createEditData()
+    protected function _getRepositoryInterface()
     {
-        /** @var CategoryFactory $factory */
-        $factory = $this->_objectManager->get(CategoryFactory::class);
-        return $factory->create();
+        return CategoryRepositoryInterface::class;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getFactory()
+    {
+        return CategoryFactory::class;
     }
 }

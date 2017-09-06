@@ -113,6 +113,7 @@ class UpdateTag implements ObserverInterface
      */
     protected function _saveTags($postId, $idsForSave)
     {
+        /** @var PostTag $postTag */
         if (count($idsForSave) > 0) {
             foreach ($idsForSave as $tagId) {
                 $postTag = $this->_postTagFactory->create();

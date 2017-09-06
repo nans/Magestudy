@@ -23,7 +23,7 @@ class MassDelete extends AbstractMassDelete
      */
     protected function _getEntityTitle()
     {
-        return Post::ENTITY_TITLE;
+        return __(Post::ENTITY_TITLE);
     }
 
     /**
@@ -37,7 +37,7 @@ class MassDelete extends AbstractMassDelete
     /**
      * @return string
      */
-    protected function _getRepositoryClass()
+    protected function _getRepositoryInterface()
     {
         return PostRepositoryInterface::class;
     }

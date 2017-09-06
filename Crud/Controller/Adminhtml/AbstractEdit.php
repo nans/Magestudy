@@ -7,6 +7,8 @@ use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Registry;
 use Magento\Framework\ObjectManagerInterface;
+use Magestudy\Crud\Api\FactoryInterface;
+use Magestudy\Crud\Api\RepositoryInterface;
 use Magestudy\Crud\Helper\Data;
 use Magento\Framework\Model\AbstractModel;
 
@@ -118,12 +120,25 @@ abstract class AbstractEdit extends AbstractAction
 
     /**
      * @param int $id
-     * @return AbstractModel
+     * @return AbstractModel|Object
      */
-    abstract protected function _loadEditData($id);
+    protected function _loadEditData($id){
+        /** @var RepositoryInterface $repository */
+        $repository = $this->_objectManager->get($this->_getRepositoryInterface());
+        return $repository->getById($id);
+    }
 
     /**
-     * @return AbstractModel
+     * @return AbstractModel|Object
      */
-    abstract protected function _createEditData();
+    protected function _createEditData(){
+        /** @var FactoryInterface $factory */
+        $factory = $this->_objectManager->get($this->_getFactory());
+        return $factory->create();
+    }
+
+    /**
+     * @return string
+     */
+    abstract protected function _getFactory();
 }

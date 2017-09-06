@@ -9,6 +9,11 @@ use Magestudy\Crud\Model\ResourceModel\Category as ResourceModel;
 class Collection extends AbstractCollection
 {
     /**
+     * @var string
+     */
+    protected $_idFieldName = Model::ID;
+
+    /**
      * @return void
      */
     protected function _construct()
@@ -25,14 +30,8 @@ class Collection extends AbstractCollection
      * @param array $additional
      * @return array
      */
-    protected function _toOptionArray($valueField = null, $labelField = null, $additional = [])
+    protected function _toOptionArray($valueField = Model::ID, $labelField = Model::TITLE, $additional = [])
     {
-        if (!$valueField) {
-            $valueField = Model::ID;
-        }
-        if (!$labelField) {
-            $labelField = Model::TITLE;
-        }
         return parent::_toOptionArray($valueField, $labelField, $additional);
     }
 }

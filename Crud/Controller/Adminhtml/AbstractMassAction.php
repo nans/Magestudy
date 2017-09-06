@@ -17,7 +17,7 @@ abstract class AbstractMassAction extends AbstractAction
     /**
      * @var RepositoryInterface
      */
-    protected $_repository;
+    private $_repository;
 
     /**
      * @param Context $context
@@ -54,11 +54,13 @@ abstract class AbstractMassAction extends AbstractAction
         return $resultRedirect->setPath('*/*/');
     }
 
-
+    /**
+     * @return RepositoryInterface
+     */
     protected function _getRepository()
     {
-        if (!$this->_objectManager->get($this->_getRepositoryClass())) {
-            $this->_repository = $this->_objectManager->get($this->_getRepositoryClass());
+        if (!$this->_repository) {
+            $this->_repository = $this->_objectManager->get($this->_getRepositoryInterface());
         }
         return $this->_repository;
     }
@@ -67,11 +69,6 @@ abstract class AbstractMassAction extends AbstractAction
      * @return string
      */
     abstract protected function _getCollectionClass();
-
-    /**
-     * @return string
-     */
-    abstract protected function _getRepositoryClass();
 
     /**
      * @param int $collectionSize

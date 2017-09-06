@@ -6,6 +6,7 @@ use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Registry;
 use Magestudy\Crud\Block\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
+use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Model\Tag;
 
 class Edit extends AbstractEdit
@@ -48,7 +49,7 @@ class Edit extends AbstractEdit
     }
 
     /**
-     * @param Tag $model
+     * @param TagInterface $model
      * @return string
      */
     protected function _getTitle($model)

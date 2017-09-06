@@ -2,7 +2,6 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
-use Magento\Framework\Model\AbstractModel;
 use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Api\PostRepositoryInterface;
 use Magestudy\Crud\Api\PostTagRepositoryInterface;
@@ -35,17 +34,17 @@ class Edit extends AbstractEdit
      */
     protected function _getEntityTitle()
     {
-        return Post::ENTITY_TITLE;
+        return __(Post::ENTITY_TITLE);
     }
 
     /**
      * @param int $id
-     * @return AbstractModel|PostInterface
+     * @return PostInterface
      */
     protected function _loadEditData($id)
     {
         /** @var PostRepositoryInterface $repository */
-        $repository = $this->_objectManager->get(PostRepositoryInterface::class);
+        $repository = $this->_objectManager->get($this->_getRepositoryInterface());
         $model = $repository->getById($id);
         /** @var PostTagRepositoryInterface $postTagRepository */
         $postTagRepository = $this->_objectManager->get(PostTagRepositoryInterface::class);
@@ -54,12 +53,18 @@ class Edit extends AbstractEdit
     }
 
     /**
-     * @return AbstractModel|PostInterface
+     * @return string
      */
-    protected function _createEditData()
+    protected function _getRepositoryInterface()
     {
-        /** @var PostFactory $factory */
-        $factory = $this->_objectManager->get(PostFactory::class);
-        return $factory->create();
+        return PostRepositoryInterface::class;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getFactory()
+    {
+        return PostFactory::class;
     }
 }

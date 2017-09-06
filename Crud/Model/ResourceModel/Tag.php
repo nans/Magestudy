@@ -19,6 +19,6 @@ class Tag extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init($this->getTableName(), Model::ID);
+        $this->_init(self::getTableName(), Model::ID);
     }
 }

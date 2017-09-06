@@ -11,8 +11,7 @@
   "version": "1.0.0",
   "authors": [
     {
-      "name": "NAnS",
-      "homepage": "http://propractice.ru/"
+      "name": "NAnS"
     }
   ],
   "autoload": {

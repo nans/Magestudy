@@ -37,7 +37,7 @@ class MassDelete extends AbstractMassDelete
     /**
      * @return string
      */
-    protected function _getRepositoryClass()
+    protected function _getRepositoryInterface()
     {
         return CategoryRepositoryInterface::class;
     }
