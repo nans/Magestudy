@@ -54,10 +54,19 @@
             <tab>magestudy_tab</tab> <!--tab value == main tab id-->
             <resource>Magestudy_Config::config</resource>
             <group id="global" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Text item value</label>
+                <label>Requed text item value with dropdown</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Google url <a href="https://code.google.com/" target="_bank">here</a>]]></comment>
+                </field>
                 <field id="text_item" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy_2/global/text_item-->
                     <label>Text</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
                 </field>
             </group>
         </section>
