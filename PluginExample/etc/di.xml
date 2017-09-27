@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="get_product" xsi:type="object">Magestudy\PluginExample\Console\Command\GetProductCommand</item>
+                <item name="save_product" xsi:type="object">Magestudy\PluginExample\Console\Command\SaveProductCommand</item>
+                <item name="set_product_price" xsi:type="object">Magestudy\PluginExample\Console\Command\SetProductPriceCommand</item>
+                <item name="set_product_title" xsi:type="object">Magestudy\PluginExample\Console\Command\SetProductTitleCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magestudy\PluginExample\Model\Product">
+        <plugin name="product_plugin_example" type="Magestudy\PluginExample\Plugin\Model\ProductPlugin" />
+    </type>
+</config>
