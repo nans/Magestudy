@@ -32,7 +32,7 @@ Shows how create REST API in Magento 2
 Shows how create Unit test in Magento 2
 
 ### Customjs
-Shows how use requirejs in Magento 2
+Shows how use RequireJS and Knockout.js in Magento 2
 
 ### Crud
 Shows how create CRUD in Magento 2:
