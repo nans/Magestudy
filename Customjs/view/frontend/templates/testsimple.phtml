@@ -1,0 +1,54 @@
+<?php
+/** @var \Magestudy\Customjs\Block\Test\Simple $block */
+?>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "simple_example": {
+                    "component"     : "Magestudy_Customjs/js/simple_example",
+                    "baseUrl"       : "<?=$block->getBaseUrl()?>",
+                    "indexUrl"      : "<?=$block->getUrl('test/simple')?>",
+                    "exampleData"   : <?=$block->getExampleData()?>,
+                    "userData"      : <?=$block->getUserData()?>
+                }
+            }
+        }
+    }
+}
+</script>
+
+<div id="trip-builder-wrapper" data-bind="scope: 'simple_example'">
+    <p><b>Index url</b>: <span data-bind="text: indexUrlFromConfig"></span></p>
+    <hr>
+    <input title="Base url" name="base_url" data-bind="value: baseUrlFromConfig"/>
+    <p><b>Value from input</b>: <span data-bind="text: baseUrlFromConfig"></span></p>
+    <hr>
+    <p><b>Change every second</b>: <span data-bind="text: changingVariable"></span></p>
+    <hr>
+    <!-- ko if: showDataForUser && isNeedToShow() -->
+    <p><b>Show text by showDataForUser and isNeedToShow() conditions.</b></p>
+    <!-- /ko -->
+    <hr>
+    <p><b>Show array values from array</b>:</p>
+    <!-- ko foreach: allRecords -->
+    <span data-bind="text: itemName"></span><br>
+    <!-- /ko -->
+    <hr>
+    <p><b>Form example</b>:</p>
+    <form>
+        <table>
+          <tr><td>Id</td><td>Name</td><td>Role</td><td>Email</td></tr>
+        <!-- ko foreach: users -->
+            <tr>
+                <td><span data-bind="text:id"></span></td>
+                <td><input title="Name" data-bind="value: name"/></td>
+                <td><input title="Role" data-bind="value: role"/></td>
+                <td><input title="Email" data-bind="value: email"/></td>
+            </tr>
+        <!-- /ko -->
+        </table>
+    </form>
+</div>

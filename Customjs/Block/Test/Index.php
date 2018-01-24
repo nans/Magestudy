@@ -1,12 +1,12 @@
 <?php
 
-namespace Magestudy\Customjs\Block;
+namespace Magestudy\Customjs\Block\Test;
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 
-class Page extends Template implements IdentityInterface
+class Index extends Template implements IdentityInterface
 {
     /**
      * Construct

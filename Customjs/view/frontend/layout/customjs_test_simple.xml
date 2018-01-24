@@ -3,7 +3,7 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Magestudy\Customjs\Block\Test\Index" name="page.test" template="Magestudy_Customjs::testindex.phtml"/>
+            <block class="Magestudy\Customjs\Block\Test\Simple" name="page.simple" template="Magestudy_Customjs::testsimple.phtml"/>
         </referenceContainer>
     </body>
 </page>
