@@ -12,7 +12,7 @@ class Collection extends AbstractCollection
      * @var string
      */
     protected $_idFieldName = Model::ID;
-    
+
     /**
      * @return void
      */

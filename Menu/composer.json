@@ -1,11 +1,11 @@
 {
   "name": "magestudy/menu",
-  "description": "Admin menu example",
+  "description": "Magento 2 Extension - Admin menu example",
   "require": {
-    "php": "~5.6|~7.0.0"
+    "php": ">=5.6"
   },
   "license": [
-    "OSL-3.0"
+    "MIT"
   ],
   "type": "magento2-module",
   "version": "1.0.0",
