@@ -2,11 +2,11 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Tag;
 
+use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractMassDelete;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Model\ResourceModel\Tag\Collection as TagCollection;
-use Magestudy\Crud\Model\Tag;
 
 class MassDelete extends AbstractMassDelete
 {
@@ -23,7 +23,7 @@ class MassDelete extends AbstractMassDelete
      */
     protected function _getEntityTitle()
     {
-        return Tag::ENTITY_TITLE;
+        return TagInterface::ENTITY_TITLE;
     }
 
     /**

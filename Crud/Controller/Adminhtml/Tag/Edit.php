@@ -6,7 +6,6 @@ use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Tag;
 use Magestudy\Crud\Model\TagFactory;
 
 class Edit extends AbstractEdit
@@ -33,7 +32,7 @@ class Edit extends AbstractEdit
      */
     protected function _getEntityTitle()
     {
-        return Tag::ENTITY_TITLE;
+        return TagInterface::ENTITY_TITLE;
     }
 
     /**

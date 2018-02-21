@@ -3,9 +3,9 @@
 namespace Magestudy\Crud\Controller\Adminhtml\Category;
 
 use Magestudy\Crud\Api\CategoryRepositoryInterface;
+use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractSave;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Category;
 use Magestudy\Crud\Model\CategoryFactory;
 
 class Save extends AbstractSave
@@ -23,7 +23,7 @@ class Save extends AbstractSave
      */
     protected function _getEntityTitle()
     {
-        return Category::ENTITY_TITLE;
+        return CategoryInterface::ENTITY_TITLE;
     }
 
     /**
@@ -39,7 +39,7 @@ class Save extends AbstractSave
      */
     protected function _getIdField()
     {
-        return Category::ID;
+        return CategoryInterface::ID;
     }
 
     /**

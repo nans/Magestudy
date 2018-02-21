@@ -6,7 +6,6 @@ use Magestudy\Crud\Api\CategoryRepositoryInterface;
 use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Category;
 use Magestudy\Crud\Model\CategoryFactory;
 
 class Edit extends AbstractEdit
@@ -24,7 +23,7 @@ class Edit extends AbstractEdit
      */
     protected function _getEntityTitle()
     {
-        return Category::ENTITY_TITLE;
+        return CategoryInterface::ENTITY_TITLE;
     }
 
     /**
@@ -43,7 +42,6 @@ class Edit extends AbstractEdit
     {
         return CategoryRepositoryInterface::class;
     }
-
     /**
      * @return string
      */

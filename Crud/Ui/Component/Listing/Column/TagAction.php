@@ -5,7 +5,7 @@ namespace Magestudy\Crud\Ui\Component\Listing\Column;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\UrlInterface;
-use Magestudy\Crud\Model\Tag;
+use Magestudy\Crud\Api\Data\TagInterface;
 
 class TagAction extends AbstractAction
 {
@@ -42,21 +42,21 @@ class TagAction extends AbstractAction
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
                 $name = $this->getData('name');
-                if (isset($item[Tag::ID])) {
+                if (isset($item[TagInterface::ID])) {
                     $item[$name]['edit'] = [
                         'href' => $this->_urlBuilder->getUrl(
-                            $this->_editUrl, [self::FRONTEND_ID => $item[Tag::ID]]
+                            $this->_editUrl, [self::FRONTEND_ID => $item[TagInterface::ID]]
                         ),
                         'label' => __('Edit')
                     ];
                     $item[$name]['delete'] = [
                         'href' => $this->_urlBuilder->getUrl(
                             self::PATH_DELETE,
-                            [self::FRONTEND_ID => $item[Tag::ID]]
+                            [self::FRONTEND_ID => $item[TagInterface::ID]]
                         ),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete') . ' ' . $item[Tag::TITLE],
+                            'title' => __('Delete') . ' ' . $item[TagInterface::TITLE],
                             'message' => __(
                                 'Are you sure you wan\'t to delete a record?'
                             )

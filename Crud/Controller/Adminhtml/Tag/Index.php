@@ -2,10 +2,10 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Tag;
 
+use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractIndex;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Tag;
 
 class Index extends AbstractIndex
 {
@@ -22,7 +22,7 @@ class Index extends AbstractIndex
      */
     protected function _getEntityTitle()
     {
-        return __(Tag::ENTITY_TITLE);
+        return __(TagInterface::ENTITY_TITLE);
     }
 
     /**

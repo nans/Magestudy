@@ -6,7 +6,7 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
-use Magestudy\Crud\Model\Post;
+use Magestudy\Crud\Api\Data\PostInterface;
 
 class PostActions extends Column
 {
@@ -55,21 +55,21 @@ class PostActions extends Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
                 $name = $this->getData('name');
-                if (isset($item[Post::ID])) {
+                if (isset($item[PostInterface::ID])) {
                     $item[$name]['edit'] = [
                         'href' => $this->_urlBuilder->getUrl(
-                            $this->_editUrl, [Post::ID => $item[Post::ID]]
+                            $this->_editUrl, [PostInterface::ID => $item[PostInterface::ID]]
                         ),
                         'label' => __('Edit')
                     ];
                     $item[$name]['delete'] = [
                         'href' => $this->_urlBuilder->getUrl(
                             self::PATH_DELETE,
-                            [Post::ID => $item[Post::ID]]
+                            [PostInterface::ID => $item[PostInterface::ID]]
                         ),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete') . ' ' . $item[Post::TITLE],
+                            'title' => __('Delete') . ' ' . $item[PostInterface::TITLE],
                             'message' => __(
                                 'Are you sure you wan\'t to delete a record?'
                             )

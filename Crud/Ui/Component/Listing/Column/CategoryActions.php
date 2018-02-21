@@ -6,7 +6,7 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
-use Magestudy\Crud\Model\Category;
+use Magestudy\Crud\Api\Data\CategoryInterface;
 
 class CategoryActions extends Column
 {
@@ -55,21 +55,21 @@ class CategoryActions extends Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
                 $name = $this->getData('name');
-                if (isset($item[Category::ID])) {
+                if (isset($item[CategoryInterface::ID])) {
                     $item[$name]['edit'] = [
                         'href' => $this->_urlBuilder->getUrl(
-                            $this->_editUrl, [Category::ID => $item[Category::ID]]
+                            $this->_editUrl, [CategoryInterface::ID => $item[CategoryInterface::ID]]
                         ),
                         'label' => __('Edit')
                     ];
                     $item[$name]['delete'] = [
                         'href' => $this->_urlBuilder->getUrl(
                             self::PATH_DELETE,
-                            [Category::ID => $item[Category::ID]]
+                            [CategoryInterface::ID => $item[CategoryInterface::ID]]
                         ),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete') . ' ' . $item[Category::TITLE],
+                            'title' => __('Delete') . ' ' . $item[CategoryInterface::TITLE],
                             'message' => __(
                                 'Are you sure you wan\'t to delete a record?'
                             )

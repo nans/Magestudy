@@ -2,10 +2,10 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
+use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractMassDisable;
 use Magestudy\Crud\Api\PostRepositoryInterface;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Model\ResourceModel\Post\Collection as PostCollection;
 
 class MassDisable extends AbstractMassDisable
@@ -23,7 +23,7 @@ class MassDisable extends AbstractMassDisable
      */
     protected function _getEntityTitle()
     {
-        return __(Post::ENTITY_TITLE);
+        return __(PostInterface::ENTITY_TITLE);
     }
 
     /**

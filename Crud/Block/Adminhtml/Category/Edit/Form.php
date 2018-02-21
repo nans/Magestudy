@@ -3,11 +3,18 @@
 namespace Magestudy\Crud\Block\Adminhtml\Category\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
-use Magestudy\Crud\Model\Category;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Data\FormFactory;
+use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Registry;
+use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Helper\Data as DataHelper;
+use Magento\Framework\Data\Form as DataForm;
+
+/**
+ * @method setId(string $id)
+ * @method setTitle(string $title)
+ */
 
 class Form extends Generic
 {
@@ -42,7 +49,7 @@ class Form extends Generic
     {
         parent::_construct();
         $this->setId('category_form');
-        $this->setTitle(__(Category::ENTITY_TITLE . ' Information'));
+        $this->setTitle(__(CategoryInterface::ENTITY_TITLE . ' Information'));
     }
 
     /**
@@ -50,10 +57,10 @@ class Form extends Generic
      */
     protected function _prepareForm()
     {
-        /** @var Category $model */
-        $model = $this->_coreRegistry->registry(strtolower(Category::ENTITY_TITLE));
+        /** @var CategoryInterface|AbstractModel $model */
+        $model = $this->_coreRegistry->registry(strtolower(CategoryInterface::ENTITY_TITLE));
 
-        /** @var \Magento\Framework\Data\Form $form */
+        /** @var DataForm $form */
         $form = $this->_formFactory->create(
             [
                 'data' => [
@@ -64,7 +71,7 @@ class Form extends Generic
             ]
         );
 
-        $form->setHtmlIdPrefix(strtolower(Category::ENTITY_TITLE) . '_');
+        $form->setHtmlIdPrefix(strtolower(CategoryInterface::ENTITY_TITLE) . '_');
         $form->setUseContainer(true);
 
         $fieldset = $form->addFieldset(
@@ -73,14 +80,14 @@ class Form extends Generic
         );
 
         if ($model->getId()) {
-            $fieldset->addField(Category::ID, 'hidden', ['name' => Category::ID]);
+            $fieldset->addField(CategoryInterface::ID, 'hidden', ['name' => CategoryInterface::ID]);
         }
 
         $fieldset->addField(
-            Category::TITLE,
+            CategoryInterface::TITLE,
             'text',
             [
-                'name' => Category::TITLE,
+                'name' => CategoryInterface::TITLE,
                 'label' => __('Title'),
                 'title' => __('Title'),
                 'required' => true,
@@ -89,10 +96,10 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Category::DESCRIPTION,
+            CategoryInterface::DESCRIPTION,
             'text',
             [
-                'name' => Category::DESCRIPTION,
+                'name' => CategoryInterface::DESCRIPTION,
                 'label' => __('Description'),
                 'title' => __('Description'),
                 'required' => true,
@@ -101,12 +108,12 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Category::IS_ACTIVE,
+            CategoryInterface::IS_ACTIVE,
             'select',
             [
                 'label' => __('Enabled'),
                 'title' => __('Enabled'),
-                'name' => Category::IS_ACTIVE,
+                'name' => CategoryInterface::IS_ACTIVE,
                 'required' => true,
                 'values' => $this->_dataHelper->getBooleanOptions()->toOptionArray()
             ]
@@ -114,7 +121,7 @@ class Form extends Generic
 
         if ($model->getId()) {
             $fieldset->addField(
-                Category::UPDATE_TIME,
+                CategoryInterface::UPDATE_TIME,
                 'label',
                 ['label' => __('Last update'), 'title' => __('Last update')]
             );

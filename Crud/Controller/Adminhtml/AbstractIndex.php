@@ -3,6 +3,7 @@
 namespace Magestudy\Crud\Controller\Adminhtml;
 
 use Magento\Backend\App\Action\Context;
+use Magento\Backend\Model\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 
 abstract class AbstractIndex extends AbstractAction
@@ -27,13 +28,13 @@ abstract class AbstractIndex extends AbstractAction
     /**
      * Index action
      *
-     * @return \Magento\Backend\Model\View\Result\Page
+     * @return Page
      */
     public function execute()
     {
         $manageEntity = __('Manage') . ' ' . $this->_getEntityTitle();
 
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        /** @var Page $resultPage */
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->addBreadcrumb($this->_getEntityTitle(), $this->_getEntityTitle());
         $resultPage->addBreadcrumb($manageEntity, $manageEntity);

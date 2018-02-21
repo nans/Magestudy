@@ -3,6 +3,9 @@
 namespace Magestudy\Crud\Controller\Adminhtml;
 
 use Magento\Backend\App\Action\Context;
+use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Magento\Ui\Component\MassAction\Filter;
 use Magento\Framework\Controller\ResultFactory;
 use Magestudy\Crud\Api\RepositoryInterface;
@@ -34,12 +37,12 @@ abstract class AbstractMassAction extends AbstractAction
     /**
      * Execute action
      *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     * @throws \Magento\Framework\Exception\LocalizedException|\Exception
+     * @return Redirect
+     * @throws LocalizedException|\Exception
      */
     public function execute()
     {
-        /** @var \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection $collection */
+        /** @var AbstractCollection $collection */
         $collection = $this->_filter->getCollection($this->_objectManager->create($this->_getCollectionClass()));
         $collectionSize = $collection->getSize();
         if ($collectionSize > 0) {
@@ -49,7 +52,7 @@ abstract class AbstractMassAction extends AbstractAction
         }
         $this->messageManager->addSuccessMessage($this->_getSuccessMessage($collectionSize));
 
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
     }

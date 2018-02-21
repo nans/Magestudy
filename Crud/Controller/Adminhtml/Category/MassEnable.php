@@ -3,9 +3,9 @@
 namespace Magestudy\Crud\Controller\Adminhtml\Category;
 
 use Magestudy\Crud\Api\CategoryRepositoryInterface;
+use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractMassEnable;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Category;
 use Magestudy\Crud\Model\ResourceModel\Category\Collection as CategoryCollection;
 
 class MassEnable extends AbstractMassEnable
@@ -23,7 +23,7 @@ class MassEnable extends AbstractMassEnable
      */
     protected function _getEntityTitle()
     {
-        return Category::ENTITY_TITLE;
+        return CategoryInterface::ENTITY_TITLE;
     }
 
     /**

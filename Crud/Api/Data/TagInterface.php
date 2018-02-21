@@ -4,6 +4,10 @@ namespace Magestudy\Crud\Api\Data;
 
 interface TagInterface
 {
+    const ID = 'tag_id';
+    const TITLE = 'title';
+    const ENTITY_TITLE = 'Tag';
+
     /**
      * @return int|null
      */

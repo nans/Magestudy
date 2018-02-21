@@ -16,11 +16,12 @@ abstract class AbstractMassDisable extends AbstractMassAction
     }
 
     /**
-     * @param StatusSwitchInterface $item
+     * @param StatusSwitchInterface|Object $item
      * @return void
      */
     protected function _updateItem(&$item)
     {
         $item->deactivate();
+        $this->_getRepository()->save($item);
     }
 }

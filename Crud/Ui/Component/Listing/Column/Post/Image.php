@@ -7,8 +7,8 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Ui\Component\Listing\Columns\Column;
+use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Helper\Data;
-use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Ui\Component\Listing\Column\PostAction;
 
 class Image extends Column
@@ -63,13 +63,13 @@ class Image extends Column
                 if ($item[$fieldName] != '') {
                     $url = $baseUrl . $item[$fieldName];
                 } else {
-                    $url = $baseUrl . self::UPLOAD_FOLDER . '/' . strtolower(Post::ENTITY_TITLE) . '/' . self::DEFAULT_IMG;
+                    $url = $baseUrl . self::UPLOAD_FOLDER . '/' . strtolower(PostInterface::ENTITY_TITLE) . '/' . self::DEFAULT_IMG;
                 }
 
                 $item[$fieldName . '_src'] = $url;
                 $item[$fieldName . '_alt'] = $this->getAlt($item) ?: '';
                 $item[$fieldName . '_link'] = $this->_urlBuilder->getUrl(PostAction::PATH_EDIT,
-                    [Data::FRONTEND_ID => $item[Post::ID]]
+                    [Data::FRONTEND_ID => $item[PostInterface::ID]]
                 );
                 $item[$fieldName . '_orig_src'] = $url;
             }
@@ -84,7 +84,7 @@ class Image extends Column
      */
     protected function getAlt($row)
     {
-        $altField = $this->getData('config/altField') ?: Post::TITLE;
+        $altField = $this->getData('config/altField') ?: PostInterface::TITLE;
         return isset($row[$altField]) ? $row[$altField] : null;
     }
 }

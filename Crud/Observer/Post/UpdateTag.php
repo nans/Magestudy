@@ -4,11 +4,11 @@ namespace Magestudy\Crud\Observer\Post;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magestudy\Crud\Api\Data\PostInterface;
+use Magestudy\Crud\Api\Data\PostTagInterface;
 use Magestudy\Crud\Api\PostTagRepositoryInterface;
 use Magestudy\Crud\Model\PostTagFactory;
-use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Model\ResourceModel\PostTag\Collection as PostTagCollection;
-use Magestudy\Crud\Model\PostTag;
 
 class UpdateTag implements ObserverInterface
 {
@@ -48,8 +48,8 @@ class UpdateTag implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        $id = $observer->getData(Post::ID);
-        $tags = $observer->getData(Post::TAG);
+        $id = $observer->getData(PostInterface::ID);
+        $tags = $observer->getData(PostInterface::TAG);
         if ($id) {
             $this->_updatePostTags($id, $tags);
         }
@@ -65,9 +65,9 @@ class UpdateTag implements ObserverInterface
             $newTagsArray = [];
         }
 
-        $oldTagsArray = $this->_postTagCollection->getItemsByColumnValue(PostTag::POST_ID, $postId);
+        $oldTagsArray = $this->_postTagCollection->getItemsByColumnValue(PostTagInterface::POST_ID, $postId);
         $oldIds = [];
-        /** @var PostTag $postTag */
+        /** @var PostTagInterface $postTag */
         foreach ($oldTagsArray as $postTag) {
             $oldIds[] = $postTag->getTagId();
         }
@@ -113,7 +113,7 @@ class UpdateTag implements ObserverInterface
      */
     protected function _saveTags($postId, $idsForSave)
     {
-        /** @var PostTag $postTag */
+        /** @var PostTagInterface $postTag */
         if (count($idsForSave) > 0) {
             foreach ($idsForSave as $tagId) {
                 $postTag = $this->_postTagFactory->create();

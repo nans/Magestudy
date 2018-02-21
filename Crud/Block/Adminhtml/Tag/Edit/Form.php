@@ -3,8 +3,14 @@
 namespace Magestudy\Crud\Block\Adminhtml\Tag\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
+use Magento\Framework\Model\AbstractModel;
 use Magestudy\Crud\Api\Data\TagInterface;
-use Magestudy\Crud\Model\Tag;
+use Magento\Framework\Data\Form as DataForm;
+
+/**
+ * @method setId(string $id)
+ * @method setTitle(string $title)
+ */
 
 class Form extends Generic
 {
@@ -15,7 +21,7 @@ class Form extends Generic
     {
         parent::_construct();
         $this->setId('tag_form');
-        $this->setTitle(__(Tag::ENTITY_TITLE . ' Information'));
+        $this->setTitle(__(TagInterface::ENTITY_TITLE . ' Information'));
     }
 
     /**
@@ -23,10 +29,10 @@ class Form extends Generic
      */
     protected function _prepareForm()
     {
-        /** @var TagInterface $model */
-        $model = $this->_coreRegistry->registry(strtolower(Tag::ENTITY_TITLE));
+        /** @var TagInterface|AbstractModel $model */
+        $model = $this->_coreRegistry->registry(strtolower(TagInterface::ENTITY_TITLE));
 
-        /** @var \Magento\Framework\Data\Form $form */
+        /** @var DataForm $form */
         $form = $this->_formFactory->create(
             [
                 'data' => [
@@ -37,7 +43,7 @@ class Form extends Generic
             ]
         );
 
-        $form->setHtmlIdPrefix(strtolower(Tag::ENTITY_TITLE) . '_');
+        $form->setHtmlIdPrefix(strtolower(TagInterface::ENTITY_TITLE) . '_');
         $form->setUseContainer(true);
 
         $fieldset = $form->addFieldset(
@@ -46,13 +52,13 @@ class Form extends Generic
         );
 
         if ($model->getId()) {
-            $fieldset->addField(Tag::ID, 'hidden', ['name' => Tag::ID]);
+            $fieldset->addField(TagInterface::ID, 'hidden', ['name' => TagInterface::ID]);
         }
 
         $fieldset->addField(
-            Tag::TITLE,
+            TagInterface::TITLE,
             'text',
-            ['name' => Tag::TITLE, 'label' => __('Title'), 'title' => __('Title'), 'required' => true]
+            ['name' => TagInterface::TITLE, 'label' => __('Title'), 'title' => __('Title'), 'required' => true]
         );
 
         $form->setValues($model->getData());

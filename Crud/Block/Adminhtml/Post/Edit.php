@@ -4,9 +4,9 @@ namespace Magestudy\Crud\Block\Adminhtml\Post;
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Registry;
+use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Block\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Post;
 
 class Edit extends AbstractEdit
 {
@@ -44,11 +44,11 @@ class Edit extends AbstractEdit
      */
     protected function _getEntityTitle()
     {
-        return Post::ENTITY_TITLE;
+        return PostInterface::ENTITY_TITLE;
 }
 
     /**
-     * @param Post $model
+     * @param PostInterface $model
      * @return string
      */
     protected function _getTitle($model)
@@ -69,6 +69,6 @@ class Edit extends AbstractEdit
      */
     protected function _getId()
     {
-        return Post::ID;
+        return PostInterface::ID;
     }
 }

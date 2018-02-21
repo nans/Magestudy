@@ -3,12 +3,19 @@
 namespace Magestudy\Crud\Block\Adminhtml\Post\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
-use Magestudy\Crud\Model\Post;
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Data\FormFactory;
+use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Registry;
 use Magestudy\Crud\Helper\Data as DataHelper;
+use Magestudy\Crud\Api\Data\PostInterface;
+use Magento\Framework\Data\Form as DataForm;
+
+/**
+ * @method setId(string $id)
+ * @method setTitle(string $title)
+ */
 
 class Form extends Generic
 {
@@ -50,7 +57,7 @@ class Form extends Generic
     {
         parent::_construct();
         $this->setId('post_form');
-        $this->setTitle(__(Post::ENTITY_TITLE . ' Information'));
+        $this->setTitle(__(PostInterface::ENTITY_TITLE . ' Information'));
     }
 
     /**
@@ -58,10 +65,10 @@ class Form extends Generic
      */
     protected function _prepareForm()
     {
-        /** @var Post $model */
-        $model = $this->_coreRegistry->registry(strtolower(Post::ENTITY_TITLE));
+        /** @var PostInterface|AbstractModel $model */
+        $model = $this->_coreRegistry->registry(strtolower(PostInterface::ENTITY_TITLE));
 
-        /** @var \Magento\Framework\Data\Form $form */
+        /** @var DataForm $form */
         $form = $this->_formFactory->create(
             [
                 'data' => [
@@ -73,7 +80,7 @@ class Form extends Generic
             ]
         );
 
-        $form->setHtmlIdPrefix(strtolower(Post::ENTITY_TITLE) . '_');
+        $form->setHtmlIdPrefix(strtolower(PostInterface::ENTITY_TITLE) . '_');
         $form->setUseContainer(true);
 
         $fieldset = $form->addFieldset(
@@ -82,20 +89,20 @@ class Form extends Generic
         );
 
         if ($model->getId()) {
-            $fieldset->addField(Post::ID, 'hidden', ['name' => Post::ID]);
+            $fieldset->addField(PostInterface::ID, 'hidden', ['name' => PostInterface::ID]);
         }
 
         $fieldset->addField(
-            Post::TITLE,
+            PostInterface::TITLE,
             'text',
-            ['name' => Post::TITLE, 'label' => __('Title'), 'title' => __('Title'), 'required' => true]
+            ['name' => PostInterface::TITLE, 'label' => __('Title'), 'title' => __('Title'), 'required' => true]
         );
 
         $fieldset->addField(
-            Post::CONTENT,
+            PostInterface::CONTENT,
             'editor',
             [
-                'name' => Post::CONTENT,
+                'name' => PostInterface::CONTENT,
                 'label' => __('Content'),
                 'title' => __('Content'),
                 'required' => true,
@@ -107,22 +114,22 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Post::CATEGORY_ID,
+            PostInterface::CATEGORY_ID,
             'select',
             [
                 'label' => __('Category'),
                 'title' => __('Category'),
-                'name' => Post::CATEGORY_ID,
+                'name' => PostInterface::CATEGORY_ID,
                 'required' => true,
                 'values' => $this->_dataHelper->getCategoryCollection()->toOptionArray()
             ]
         );
 
         $fieldset->addField(
-            Post::IS_ACTIVE,
+            PostInterface::IS_ACTIVE,
             'select',
             [
-                'name' => Post::IS_ACTIVE,
+                'name' => PostInterface::IS_ACTIVE,
                 'label' => __('Enabled'),
                 'title' => __('Enabled'),
                 'required' => true,
@@ -131,10 +138,10 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Post::STORE_IDS,
+            PostInterface::STORE_IDS,
             'multiselect',
             [
-                'name' => Post::STORE_IDS,
+                'name' => PostInterface::STORE_IDS,
                 'label' => __('Store Views'),
                 'title' => __('Store Views'),
                 'note' => __('Select Store Views'),
@@ -146,10 +153,10 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Post::VIEWS,
+            PostInterface::VIEWS,
             'text',
             [
-                'name' => Post::VIEWS,
+                'name' => PostInterface::VIEWS,
                 'label' => __('Views'),
                 'title' => __('Views'),
                 'required' => false,
@@ -158,10 +165,10 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Post::IMAGE,
+            PostInterface::IMAGE,
             'image',
             [
-                'name' => Post::IMAGE,
+                'name' => PostInterface::IMAGE,
                 'label' => __('Image'),
                 'title' => __('Image'),
                 'required' => false
@@ -169,10 +176,10 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Post::PUBLICATION_DATE,
+            PostInterface::PUBLICATION_DATE,
             'date',
             [
-                'name' => Post::PUBLICATION_DATE,
+                'name' => PostInterface::PUBLICATION_DATE,
                 'label' => __('Publication date'),
                 'date_format' => 'yyyy-MM-dd',
                 'time_format' => 'hh:mm:ss',
@@ -181,10 +188,10 @@ class Form extends Generic
         );
 
         $fieldset->addField(
-            Post::TAG,
+            PostInterface::TAG,
             'multiselect',
             [
-                'name' => Post::TAG,
+                'name' => PostInterface::TAG,
                 'label' => __('Tags'),
                 'title' => __('Tags'),
                 'note' => __('Select Tags'),

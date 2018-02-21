@@ -4,12 +4,13 @@ namespace Magestudy\Crud\Block\Adminhtml;
 
 use Magento\Backend\Block\Widget\Form\Container;
 use Magento\Backend\Block\Widget\Context;
+use Magento\Framework\Phrase;
 use Magento\Framework\Registry;
 
 abstract class AbstractEdit extends Container
 {
     /**
-     * @var \Magento\Framework\Registry
+     * @var Registry
      */
     protected $_coreRegistry = null;
 
@@ -29,7 +30,7 @@ abstract class AbstractEdit extends Container
 
 
     /**
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
     public function getHeaderText()
     {
@@ -54,7 +55,8 @@ abstract class AbstractEdit extends Container
         $this->_addButtons();
     }
 
-    protected function _addButtons(){
+    protected function _addButtons()
+    {
         if ($this->_isAllowedAction($this->_getSaveAcl())) {
             $this->buttonList->update('save', 'label', __('Save'));
             $this->buttonList->add(

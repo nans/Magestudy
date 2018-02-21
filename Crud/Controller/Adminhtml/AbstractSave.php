@@ -3,11 +3,15 @@
 namespace Magestudy\Crud\Controller\Adminhtml;
 
 use Exception;
-use Magestudy\Crud\Api\FactoryInterface;
-use Magestudy\Crud\Api\RepositoryInterface;
+use RuntimeException;
+use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Backend\Model\Session;
 use Magento\Framework\Exception\LocalizedException;
+use Magestudy\Crud\Api\FactoryInterface;
+use Magestudy\Crud\Api\RepositoryInterface;
+
 
 abstract class AbstractSave extends AbstractAction
 {
@@ -17,12 +21,12 @@ abstract class AbstractSave extends AbstractAction
     protected $_repository;
 
     /**
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
     public function execute()
     {
         $data = $this->getRequest()->getParams();
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
             try {
@@ -58,7 +62,7 @@ abstract class AbstractSave extends AbstractAction
                 return $resultRedirect->setPath('*/*/');
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
-            } catch (\RuntimeException $e) {
+            } catch (RuntimeException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
             } catch (Exception $exception) {
                 $this->_showErrorMessage($exception);
@@ -79,8 +83,8 @@ abstract class AbstractSave extends AbstractAction
     }
 
     /**
-     * @param \Magento\Backend\Model\View\Result\Redirect
-     * @return \Magento\Backend\Model\View\Result\Redirect
+     * @param Redirect
+     * @return Redirect
      */
     protected function _getEditRedirect($resultRedirect)
     {

@@ -2,10 +2,10 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
+use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Api\PostRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractDelete;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Post;
 
 class Delete extends AbstractDelete
 {
@@ -22,7 +22,7 @@ class Delete extends AbstractDelete
      */
     protected function _getEntityTitle()
     {
-        return __(Post::ENTITY_TITLE);
+        return __(PostInterface::ENTITY_TITLE);
     }
 
     /**

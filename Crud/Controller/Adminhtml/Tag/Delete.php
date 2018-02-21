@@ -2,10 +2,10 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Tag;
 
+use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractDelete;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Tag;
 
 class Delete extends AbstractDelete
 {
@@ -22,7 +22,7 @@ class Delete extends AbstractDelete
      */
     protected function _getEntityTitle()
     {
-        return Tag::ENTITY_TITLE;
+        return TagInterface::ENTITY_TITLE;
     }
 
     /**

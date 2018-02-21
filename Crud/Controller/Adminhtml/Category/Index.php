@@ -3,9 +3,9 @@
 namespace Magestudy\Crud\Controller\Adminhtml\Category;
 
 use Magestudy\Crud\Api\CategoryRepositoryInterface;
+use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractIndex;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Category;
 
 class Index extends AbstractIndex
 {
@@ -22,7 +22,7 @@ class Index extends AbstractIndex
      */
     protected function _getEntityTitle()
     {
-        return __(Category::ENTITY_TITLE);
+        return __(CategoryInterface::ENTITY_TITLE);
     }
 
     /**

@@ -4,9 +4,9 @@ namespace Magestudy\Crud\Block\Adminhtml\Category;
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Registry;
+use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Block\Adminhtml\AbstractEdit;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Category;
 
 class Edit extends AbstractEdit
 {
@@ -44,11 +44,11 @@ class Edit extends AbstractEdit
      */
     protected function _getEntityTitle()
     {
-        return Category::ENTITY_TITLE;
+        return CategoryInterface::ENTITY_TITLE;
     }
 
     /**
-     * @param Category $model
+     * @param CategoryInterface $model
      * @return string
      */
     protected function _getTitle($model)
@@ -69,6 +69,6 @@ class Edit extends AbstractEdit
      */
     protected function _getId()
     {
-        return Category::ID;
+        return CategoryInterface::ID;
     }
 }

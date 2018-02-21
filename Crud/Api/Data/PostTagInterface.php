@@ -4,6 +4,10 @@ namespace Magestudy\Crud\Api\Data;
 
 interface PostTagInterface
 {
+    const ID = 'post_tag_id';
+    const POST_ID = 'post_id';
+    const TAG_ID = 'tag_id';
+
     /**
      * @return int|null
      */

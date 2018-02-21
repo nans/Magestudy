@@ -4,6 +4,8 @@ namespace Magestudy\Crud\Controller\Adminhtml;
 
 use Exception;
 use Magento\Backend\App\Action;
+use Magento\Backend\Model\View\Result\Page;
+use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Registry;
 use Magento\Framework\ObjectManagerInterface;
@@ -26,9 +28,9 @@ abstract class AbstractEdit extends AbstractAction
 
     /**
      * @param Action\Context $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\ObjectManagerInterface $objectManager
+     * @param PageFactory $resultPageFactory
+     * @param Registry $registry
+     * @param ObjectManagerInterface $objectManager
      */
     public function __construct(
         Action\Context $context,
@@ -43,7 +45,7 @@ abstract class AbstractEdit extends AbstractAction
     }
 
     /**
-     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
+     * @return Page|Redirect
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function execute()
@@ -69,7 +71,7 @@ abstract class AbstractEdit extends AbstractAction
 
         $this->_coreRegistry->register(strtolower($this->_getEntityTitle()), $model);
 
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        /** @var Page $resultPage */
         $resultPage = $this->_initAction();
 
         $newTitle = __('New') . ' ' . $this->_getEntityTitle();
@@ -93,12 +95,12 @@ abstract class AbstractEdit extends AbstractAction
     abstract protected function getTitle($model);
 
     /**
-     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
+     * @return Page|Redirect
      */
     protected function _getError()
     {
         $this->messageManager->addErrorMessage(__('This ' . strtolower($this->_getEntityTitle()) . ' no longer exists.'));
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         return $resultRedirect->setPath('*/*/');
     }
@@ -106,12 +108,12 @@ abstract class AbstractEdit extends AbstractAction
     /**
      * Init actions
      *
-     * @return \Magento\Backend\Model\View\Result\Page
+     * @return Page
      */
     protected function _initAction()
     {
         $manageTitle = __('Manage') . ' ' . $this->_getEntityTitle();
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        /** @var Page $resultPage */
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->addBreadcrumb($this->_getEntityTitle(), $this->_getEntityTitle());
         $resultPage->addBreadcrumb($manageTitle, $manageTitle);

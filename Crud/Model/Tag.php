@@ -8,11 +8,6 @@ use Magestudy\Crud\Model\ResourceModel\Tag as ResourceModel;
 
 class Tag extends AbstractModel implements TagInterface
 {
-    const ID = 'tag_id';
-    const TITLE = 'title';
-
-    const ENTITY_TITLE = 'Tag';
-
     /**
      * @return string|null
      */

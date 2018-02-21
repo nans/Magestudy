@@ -2,10 +2,10 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Tag;
 
+use Magestudy\Crud\Api\Data\TagInterface;
 use Magestudy\Crud\Api\TagRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractNewAction;
 use Magestudy\Crud\Helper\AclResources;
-use Magestudy\Crud\Model\Tag;
 
 class NewAction extends AbstractNewAction
 {
@@ -22,7 +22,7 @@ class NewAction extends AbstractNewAction
      */
     protected function _getEntityTitle()
     {
-        return Tag::ENTITY_TITLE;
+        return TagInterface::ENTITY_TITLE;
     }
 
     /**

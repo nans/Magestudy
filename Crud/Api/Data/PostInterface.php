@@ -2,8 +2,19 @@
 
 namespace Magestudy\Crud\Api\Data;
 
-interface PostInterface
+interface PostInterface extends  ChangeDateInterface, StatusSwitchInterface
 {
+    const ID = 'post_id';
+    const TITLE = 'title';
+    const CONTENT = 'content';
+    const STORE_IDS = 'store_ids';
+    const PUBLICATION_DATE = 'publication_date';
+    const CATEGORY_ID = 'category_id';
+    const IMAGE = 'image';
+    const VIEWS = 'views';
+    const TAG = 'tag';
+    const ENTITY_TITLE = 'Post';
+
     /**
      * @return int
      */
@@ -18,11 +29,6 @@ interface PostInterface
      * @return string
      */
     public function getContent();
-
-    /**
-     * @return int
-     */
-    public function getIsActive();
 
     /**
      * @return string
@@ -50,16 +56,6 @@ interface PostInterface
     public function getViews();
 
     /**
-     * @return string
-     */
-    public function getCreationTime();
-
-    /**
-     * @return string
-     */
-    public function getUpdateTime();
-
-    /**
      * @param int $id
      */
     public function setId($id);
@@ -73,11 +69,6 @@ interface PostInterface
      * @param string $content
      */
     public function setContent($content);
-
-    /**
-     * @param int $isActive
-     */
-    public function setIsActive($isActive);
 
     /**
      * @param string $storeIds

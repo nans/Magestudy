@@ -5,8 +5,8 @@ namespace Magestudy\Crud\Ui\Component\Listing\Column\Post;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
-use Magestudy\Crud\Model\Post;
 use Magento\Store\Model\System\Store;
+use Magestudy\Crud\Api\Data\PostInterface;
 
 class PostStores extends Column
 {
@@ -44,9 +44,9 @@ class PostStores extends Column
         /** @var \Magento\Store\Model\Store $store */
         $stores = $this->_systemStore->getStoreCollection();
         if (isset($dataSource['data']['items'])) {
-            /** @var Post $item */
+            /** @var PostInterface $item */
             foreach ($dataSource['data']['items'] as &$item) {
-                $ids = explode(",", $item[Post::STORE_IDS]);
+                $ids = explode(",", $item[PostInterface::STORE_IDS]);
                 $storesNames = [];
                 if(in_array(0, $ids)){
                     $storesNames[] = __('All');

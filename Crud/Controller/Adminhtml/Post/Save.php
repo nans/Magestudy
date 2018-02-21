@@ -2,11 +2,11 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml\Post;
 
+use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Api\PostRepositoryInterface;
 use Magestudy\Crud\Controller\Adminhtml\AbstractSave;
 use Magestudy\Crud\Helper\AclResources;
 use Magestudy\Crud\Helper\ImageLoader;
-use Magestudy\Crud\Model\Post;
 use Magestudy\Crud\Model\PostFactory;
 
 class Save extends AbstractSave
@@ -21,14 +21,14 @@ class Save extends AbstractSave
     {
         $image = null;
         if (key_exists('image', $data)) {
-            $image = $data[Post::IMAGE]['value'];
+            $image = $data[PostInterface::IMAGE]['value'];
         }
 
         /** @var ImageLoader $imageLoader */
         $imageLoader = $this->_objectManager->get(ImageLoader::class);
-        $data[Post::IMAGE] = $imageLoader->loadImage(self::IMAGE_PATH, $image);
+        $data[PostInterface::IMAGE] = $imageLoader->loadImage(self::IMAGE_PATH, $image);
 
-        $data[Post::STORE_IDS] = implode(',', $data[Post::STORE_IDS]);
+        $data[PostInterface::STORE_IDS] = implode(',', $data[PostInterface::STORE_IDS]);
         return $data;
     }
 
@@ -45,7 +45,7 @@ class Save extends AbstractSave
      */
     protected function _getEntityTitle()
     {
-        return __(Post::ENTITY_TITLE);
+        return __(PostInterface::ENTITY_TITLE);
     }
 
     /**
@@ -61,7 +61,7 @@ class Save extends AbstractSave
      */
     protected function _getIdField()
     {
-        return Post::ID;
+        return PostInterface::ID;
     }
 
     /**

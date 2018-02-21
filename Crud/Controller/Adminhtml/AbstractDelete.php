@@ -2,18 +2,20 @@
 
 namespace Magestudy\Crud\Controller\Adminhtml;
 
+use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Framework\Controller\ResultInterface;
 use Magestudy\Crud\Api\RepositoryInterface;
 use Magestudy\Crud\Helper\Data;
 
 abstract class AbstractDelete extends AbstractAction
 {
     /**
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
     public function execute()
     {
         $id = $this->getRequest()->getParam(Data::FRONTEND_ID);
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {

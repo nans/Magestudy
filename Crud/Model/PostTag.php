@@ -2,16 +2,12 @@
 
 namespace Magestudy\Crud\Model;
 
-use Magestudy\Crud\Api\Data\PostTagInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magestudy\Crud\Model\ResourceModel\PostTag as ResourceModel;
+use Magestudy\Crud\Api\Data\PostTagInterface;
 
 class PostTag extends AbstractModel implements PostTagInterface
 {
-    const ID = 'post_tag_id';
-    const POST_ID = 'post_id';
-    const TAG_ID = 'tag_id';
-
     /**
      * @return int|null
      */

@@ -5,8 +5,8 @@ namespace Magestudy\Crud\Ui\Component\Listing\Column\Post;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
-use Magestudy\Crud\Model\Category;
-use Magestudy\Crud\Model\Post;
+use Magestudy\Crud\Api\Data\CategoryInterface;
+use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Model\ResourceModel\Category\Collection;
 
 class PostCategory extends Column
@@ -45,9 +45,12 @@ class PostCategory extends Column
         $allIds = $this->_collection->getAllIds();
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
-                if (!empty($item[Post::CATEGORY_ID]) && in_array($item[Post::CATEGORY_ID], $allIds)) {
-                    /** @var Category $category */
-                    $category = $this->_collection->getItemByColumnValue(Category::ID, $item[Post::CATEGORY_ID]);
+                if (!empty($item[PostInterface::CATEGORY_ID]) && in_array($item[PostInterface::CATEGORY_ID], $allIds)) {
+                    /** @var CategoryInterface $category */
+                    $category = $this->_collection->getItemByColumnValue(
+                        CategoryInterface::ID,
+                        $item[PostInterface::CATEGORY_ID]
+                    );
                     $item[$this->getName()] = $category->getTitle();
                 }
             }

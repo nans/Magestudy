@@ -2,25 +2,12 @@
 
 namespace Magestudy\Crud\Model;
 
-use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magento\Framework\Model\AbstractModel;
-use Magestudy\Crud\Api\Data\StatusSwitchInterface;
+use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Model\ResourceModel\Category as ResourceModel;
 
-class Category extends AbstractModel implements CategoryInterface, StatusSwitchInterface
+class Category extends AbstractModel implements CategoryInterface
 {
-    const ID = 'category_id';
-    const TITLE = 'title';
-    const DESCRIPTION = 'description';
-    const IS_ACTIVE = 'is_active';
-    const CREATION_TIME = 'creation_time';
-    const UPDATE_TIME = 'update_time';
-
-    const ENTITY_TITLE = 'Category';
-
-    const ENABLED_STATUS = 1;
-    const DISABLED_STATUS = 0;
-
     /**
      * @return string|null
      */

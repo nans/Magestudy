@@ -2,31 +2,12 @@
 
 namespace Magestudy\Crud\Model;
 
-use Magestudy\Crud\Api\Data\PostInterface;
 use Magento\Framework\Model\AbstractModel;
-use Magestudy\Crud\Api\Data\StatusSwitchInterface;
 use Magestudy\Crud\Model\ResourceModel\Post as ResourceModel;
+use Magestudy\Crud\Api\Data\PostInterface;
 
-class Post extends AbstractModel implements PostInterface, StatusSwitchInterface
+class Post extends AbstractModel implements PostInterface
 {
-    const ID = 'post_id';
-    const TITLE = 'title';
-    const CONTENT = 'content';
-    const IS_ACTIVE = 'is_active';
-    const STORE_IDS = 'store_ids';
-    const PUBLICATION_DATE = 'publication_date';
-    const CATEGORY_ID = 'category_id';
-    const IMAGE = 'image';
-    const VIEWS = 'views';
-    const CREATION_TIME = 'creation_time';
-    const UPDATE_TIME = 'update_time';
-    const TAG = 'tag';
-
-    const ENTITY_TITLE = 'Post';
-
-    const ENABLED_STATUS = 1;
-    const DISABLED_STATUS = 0;
-
     /**
      * @return string
      */
