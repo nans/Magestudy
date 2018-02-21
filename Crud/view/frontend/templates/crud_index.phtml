@@ -1,0 +1,10 @@
+<?php
+/** @var \Magestudy\Crud\Block\Index\Index $block */
+$posts = $block->getPosts();
+
+foreach ($posts as $post){?>
+    <p><?=__('Title') . ': ' . $post['title'];?></p>
+    <p><?=__('Category') . ': ' . $post['category'];?> <?=__('Date') . ': ' . $post['publication_date'];?></p>
+    <p><?=$post['content'];?></p>
+    <hr>
+<?}?>
