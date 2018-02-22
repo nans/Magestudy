@@ -3,23 +3,9 @@
 namespace Magestudy\Page\Block;
 
 use Magento\Framework\View\Element\Template;
-use Magento\Framework\View\Element\Template\Context;
 
 class Page extends Template
 {
-    /**
-     * Construct
-     *
-     * @param Context $context
-     * @param array $data
-     */
-    public function __construct(
-        Context $context,
-        array $data = []
-    ) {
-        parent::__construct($context, $data);
-    }
-
     /**
      * @return string
      */

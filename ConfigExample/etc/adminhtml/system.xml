@@ -45,7 +45,7 @@
                 <field id="select_item_2" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy/second_group/select_item_2-->
                     <label>Select example 2</label>
-                    <source_model>Magestudy\Config\Model\Config\Source\Items\SelectType</source_model>
+                    <source_model>Magestudy\ConfigExample\Model\Config\Source\Items\SelectType</source_model>
                 </field>
             </group>
         </section>

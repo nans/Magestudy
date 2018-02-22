@@ -3,37 +3,18 @@
 namespace Magestudy\Customjs\Controller\Test;
 
 use Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\Controller\ResultInterface;
 
 class Index extends Action
 {
     /**
-     * @var PageFactory
-     */
-    protected $_resultPageFactory;
-
-    /**
-     * Constructor
-     *
-     * @param Context $context
-     * @param PageFactory $resultPageFactory
-     */
-    public function __construct(
-        Context $context,
-        PageFactory $resultPageFactory
-    ) {
-        $this->_resultPageFactory = $resultPageFactory;
-        parent::__construct($context);
-    }
-
-    /**
      * Execute view action
      * @url domain/customjs/test
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
     public function execute()
     {
-        return $this->_resultPageFactory->create();
+        return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
     }
 }

@@ -2,8 +2,9 @@ define([
         'jquery',
         'ko',
         'user',
+        'helper',
         'jquery/ui'
-    ], function ($, ko, user) {
+    ], function ($, ko, user, helper) {
         'use strict';
 
         return function (config) {
@@ -20,7 +21,7 @@ define([
 
             self.sumOfValues = ko.pureComputed({
                 read: function () {
-                    return Number(self.firstValue()) + Number(self.secondValue());
+                    return helper.sum(self.firstValue(), self.secondValue());
                 },
                 write: function (value) {
                     value = Number(value);
