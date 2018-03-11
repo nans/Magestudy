@@ -73,6 +73,9 @@ magestudy:save_product
 magestudy:set_product_price  
 magestudy:set_product_title  
 
+### CustomerAttribute
+Shows how add new customer attribute to grid and form.
+
 License
 ----
 MIT
