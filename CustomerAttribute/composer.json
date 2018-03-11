@@ -1,0 +1,25 @@
+{
+  "name": "magestudy/customer-attribute",
+  "description": "Add new attribute to customer (grid/form)",
+  "require": {
+    "php": ">=5.6"
+  },
+  "license": [
+    "MIT"
+  ],
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "NAnS"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magestudy\\CustomerAttribute\\": ""
+    }
+  }
+}
