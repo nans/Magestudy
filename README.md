@@ -46,7 +46,8 @@ Links for test in \Magestudy\Rest\Model\Shop.php
 Shows how create Unit test in Magento 2  
 In \dev\tests\unit\phpunit.xml (remove .dist if file name is phpunit.xml.dist)  
 Add line: <directory suffix="Test.php">../../../app/code/Magestudy/UnitTestExample/Test/Unit</directory>  
-To block: <testsuite name="Magento Unit Tests"></testsuite>
+To block: testsuite  
+Run command in console.
 
 ### Customjs
 Shows how use RequireJS and Knockout.js (bindings) in Magento 2  
