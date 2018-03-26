@@ -42,8 +42,11 @@ Link: yourDomain/index.php/page/test/
 Shows how create REST API in Magento 2  
 Links for test in \Magestudy\Rest\Model\Shop.php
 
-### Test
-Shows how create Unit test in Magento 2
+### UnitTestExample
+Shows how create Unit test in Magento 2  
+In \dev\tests\unit\phpunit.xml (remove .dist if file name is phpunit.xml.dist)  
+Add line: <directory suffix="Test.php">../../../app/code/Magestudy/UnitTestExample/Test/Unit</directory>  
+To block: <testsuite name="Magento Unit Tests"></testsuite>
 
 ### Customjs
 Shows how use RequireJS and Knockout.js (bindings) in Magento 2  
