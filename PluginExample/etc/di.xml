@@ -14,4 +14,8 @@
     <type name="Magestudy\PluginExample\Model\Product">
         <plugin name="product_plugin_example" type="Magestudy\PluginExample\Plugin\Model\ProductPlugin" />
     </type>
+
+    <type name="Magento\Customer\Model\AccountManagement">
+        <plugin name="account_management_plugin_example" type="Magestudy\PluginExample\Plugin\Customer\Model\AccountManagementPlugin" />
+    </type>
 </config>
