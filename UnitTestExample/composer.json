@@ -1,5 +1,5 @@
 {
-  "name": "magestudy/test",
+  "name": "magestudy/unit-test-example",
   "description": "Unit test example",
   "require": {
     "php": ">=5.6"
@@ -19,7 +19,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "Magestudy\\Test\\": ""
+      "Magestudy\\UnitTestExample\\": ""
     }
   }
 }
