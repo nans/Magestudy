@@ -88,6 +88,7 @@ Shows how add new customer attribute to grid and create/edit form.
 
 ### SystemCustomField  
 Shows how add custom fields in Stores->Settings->Configuration  
+Backend: Stores -> Settings -> Configuration -> Magestudy example -> Field with custom model
 
 License
 ----
