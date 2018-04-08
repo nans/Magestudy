@@ -3,6 +3,7 @@
 namespace Magestudy\CustomerAttribute\Setup;
 
 use Magento\Customer\Setup\CustomerSetup;
+use Magento\Eav\Model\Entity\Attribute\Source\Boolean;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -27,12 +28,13 @@ class InstallData implements InstallDataInterface
      * Init
      *
      * @param CustomerSetupFactory $customerSetupFactory
-     * @param AttributeSetFactory  $attributeSetFactory
+     * @param AttributeSetFactory $attributeSetFactory
      */
     public function __construct(
         CustomerSetupFactory $customerSetupFactory,
         AttributeSetFactory $attributeSetFactory
-    ) {
+    )
+    {
         $this->_customerSetupFactory = $customerSetupFactory;
         $this->_attributeSetFactory = $attributeSetFactory;
     }
@@ -58,31 +60,37 @@ class InstallData implements InstallDataInterface
         $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
 
         $customerSetup->addAttribute(
-            Customer::ENTITY, 'approved', [
-                'type'            => 'int',
-                'label'           => 'Approved',
-                'input'           => 'select',
-                'required'        => false,
-                'visible'         => true,
-                'user_defined'    => true,
-                'sort_order'      => 1001,
-                'position'        => 1001,
+            Customer::ENTITY, 'enabled', [
+                'type' => 'int',
+                'label' => 'Enabled',
+                'input' => 'select',
+                'required' => false,
+                'visible' => true,
+                'user_defined' => true,
+                'sort_order' => 600,
+                'position' => 600,
                 'is_used_in_grid' => true,
-                'system'          => 0,
-                'source'          => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
-                'adminhtml_only'  => 1,
-                'default'         => 0
+                'is_visible_in_grid' => true,
+                'is_filterable_in_grid' => true,
+                'is_searchable_in_grid' => true,
+                'system' => false,
+                'source' => Boolean::class,
+                'adminhtml_only' => 1,
+                'default' => 1,
+                'unique' => false,
+                'frontend_input' => 'select',
             ]
         );
 
-        $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, 'approved')
+        $attribute = $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, 'enabled')
             ->addData(
                 [
-                    'attribute_set_id'   => $attributeSetId,
+                    'attribute_set_id' => $attributeSetId,
                     'attribute_group_id' => $attributeGroupId,
-                    'used_in_forms'      => ['adminhtml_customer'],
+                    'used_in_forms' => ['adminhtml_customer'],
                 ]
             );
+        $attribute->save();
         $setup->endSetup();
     }
 }
