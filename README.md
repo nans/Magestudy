@@ -1,6 +1,11 @@
 # Magestudy
 **Magento 2 Example extensions**
 
+## Installation Instruction  
+* Copy the content of the repo to the Magento 2: app/code/Magestudy  
+* Run command: php bin/magento setup:upgrade   
+* Run Command: php bin/magento cache:flush  
+
 ### ConfigExample
 Shows how create and update Configuration in Magento 2 (programmatically)  
 Admin panel: Menu - Stores - Settings - Configuration - Magestudy example
@@ -77,8 +82,10 @@ magestudy:save_product
 magestudy:set_product_price  
 magestudy:set_product_title  
 
-### CustomerAttribute
-Shows how add new customer attribute to grid and form.
+Also check create new customer fom frontend and sign in.
+
+### CustomerAttribute  
+Shows how add new customer attribute to grid and create/edit form.
 
 License
 ----
