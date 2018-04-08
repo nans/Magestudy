@@ -7,7 +7,7 @@
         <section id="magestudy" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>First item</label>
             <tab>magestudy_tab</tab> <!--tab value == main tab id-->
-            <resource>Magestudy_Config::config</resource>
+            <resource>Magestudy_ConfigExample::config</resource>
             <group id="global" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <!--Core config path: magestudy/global/text_item-->
                 <label>Slider with text input</label>

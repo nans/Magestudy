@@ -1,0 +1,25 @@
+<?php
+/** @var Magestudy\SystemCustomField\Block\System\Config\Example $block */
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "example_fields": {
+                    "component"     : "Magestudy_SystemCustomField/js/example_model",
+                    "value"         : "<?=$block->getValue();?>",
+                    "last_update"   : "<?=$block->getLastUpdate();?>"
+                }
+            }
+        }
+    }
+}
+</script>
+
+<div data-bind="scope: 'example_fields'">
+    <input title="Example field" type="text" name="groups[example][fields][validated_input][value]" data-bind="value: exampleValue">
+    <input type="hidden" name="groups[example][fields][last_update][value]" data-bind="value: lastUpdate">
+    <p><span data-bind="text: validateMessage()"></span></p>
+    <p>Last update timestamp: <span data-bind="text: lastUpdate"></span></p>
+</div>

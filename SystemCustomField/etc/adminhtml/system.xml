@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magestudy_tab" translate="label" sortOrder="100"> <!--main tab-->
+            <label>Magestudy example</label>
+        </tab>
+        <section id="custom_field" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Custom field</label>
+            <tab>magestudy_tab</tab>
+            <resource>Magestudy_SystemCustomField::config</resource>
+
+            <group id="example" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Field with custom model</label>
+                <field id="validated_input" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Example</label>
+                    <frontend_model>Magestudy\SystemCustomField\Block\System\Config\Example</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -5,7 +5,7 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
-                            <resource id="Magestudy_ConfigExample::config" title="Magestudy config" sortOrder="50" />
+                        <resource id="Magestudy_SystemCustomField::config" title="Config example"/>
                     </resource>
                 </resource>
             </resource>
