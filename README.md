@@ -1,5 +1,4 @@
-# Magestudy
-**Magento 2 Example extensions**
+# Magestudy - Magento 2 Example extensions
 
 ## Installation Instruction  
 * Copy the content of the repo to the Magento 2: app/code/Magestudy  
