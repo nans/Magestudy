@@ -1,0 +1,25 @@
+{
+  "name": "magestudy/customer-account-tab",
+  "description": "Magento 2 - New tab in customer account page",
+  "require": {
+    "php": ">=7.0"
+  },
+  "license": [
+    "MIT"
+  ],
+  "type": "magento2-module",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "N.An.S."
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magestudy\\CustomerAccountTab\\": ""
+    }
+  }
+}
