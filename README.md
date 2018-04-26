@@ -83,12 +83,16 @@ magestudy:set_product_title
 
 Also check create new customer fom frontend and sign in.
 
-### CustomerAttribute - Customer
-Shows how add new customer attribute to grid and create/edit form.
+### CustomerAttribute - Customer  
+Shows how add new customer (custom) attribute to grid and create/edit form.
 
 ### SystemCustomField  
 Shows how add custom fields in Stores->Settings->Configuration  
 Backend: Stores -> Settings -> Configuration -> Magestudy example -> Field with custom model
+
+### CustomerAccountTab  
+Shows how add new tab (page, menu item) in customer account (frontend).    
+"Example tab" in left menu.  
 
 License
 ----
