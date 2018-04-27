@@ -18,4 +18,8 @@
     <type name="Magento\Customer\Model\AccountManagement">
         <plugin name="account_management_plugin_example" type="Magestudy\PluginExample\Plugin\Customer\Model\AccountManagementPlugin" />
     </type>
+
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="customer_repository_plugin_example" type="Magestudy\PluginExample\Plugin\Customer\Model\CustomerRepositoryPlugin" />
+    </type>
 </config>
