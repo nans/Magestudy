@@ -1,6 +1,43 @@
 <?php
 /** @var \Magestudy\CustomerAccountTab\Block\Frontend\Example $block */
-echo $block->getExampleText();
-//todo add form save example
 ?>
-<p><b>Some static text</b></p>
+
+<form
+        class="col-xs-12"
+        action="<?=$block->getFormAction(); ?>"
+        id="sample-form"
+        method="post"
+        data-hasrequired="<?=__('* Required Fields') ?>"
+        data-mage-init='{"validation":{}}'
+>
+    <div class="row">
+        <fieldset>
+            <div class="section">
+
+                <div class="col-xs-12 no-padding-tablet">
+                    <div class="col-xs-12">
+                        <h1 class="title" style="margin-top: 0;"><?=__('Example form') ?></h1>
+                    </div>
+                </div>
+                <div class="clr40"></div>
+
+                <div class="col-lg-8 col-md-7 col-xs-12  no-padding-tablet">
+
+                    <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <label for="example_field"><?=__('Some field'); ?><span class="required-star">*</span></label>
+                        <input name="example_field" id="example_field" type="text" value="<?=$block->getValue(); ?>" data-validate="{required:true}" />
+                    </div>
+                    </div>
+                </div>
+
+                <div class="clr25"></div>
+                <div class="col-xs-12 no-padding-tablet">
+                    <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12 pull-left">
+                        <button type="submit" class="btn col-xs-12"><?=__('Submit') ?></button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</form>
