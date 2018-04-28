@@ -8,6 +8,7 @@
             <label>First item</label>
             <tab>magestudy_tab</tab> <!--tab value == main tab id-->
             <resource>Magestudy_ConfigExample::config</resource>
+
             <group id="global" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <!--Core config path: magestudy/global/text_item-->
                 <label>Slider with text input</label>
@@ -15,33 +16,42 @@
                     <label>Text</label>
                 </field>
             </group>
+
             <group id="first_group" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Slider with boolean\text input</label>
+
                 <field id="select_item" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy/first_group/select_item-->
                     <label>Select example</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <validate>validate-select</validate> <!--Select validation-->
                 </field>
+
                 <field id="text_item" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy/first_group/text_item-->
                     <label>Another text item</label>
                 </field>
             </group>
+
             <group id="second_group" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                 <comment>
                     <![CDATA[Group comment example.]]>
                 </comment>
                 <label>Slider with select</label>
+
                 <field id="select_item_1" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy/second_group/select_item_1-->
                     <label>Select example 1</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Field comment.</comment>
                 </field>
+
                 <field id="text_item" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy/second_group/text_item-->
-                    <label>Text</label>
+                    <label>Number greater than zero</label>
+                    <validate>validate-greater-than-zero</validate> <!--Field validation-->
                 </field>
+
                 <field id="select_item_2" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy/second_group/select_item_2-->
                     <label>Select example 2</label>
@@ -49,17 +59,21 @@
                 </field>
             </group>
         </section>
+
         <section id="magestudy_2" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Second item</label>
             <tab>magestudy_tab</tab> <!--tab value == main tab id-->
             <resource>Magestudy_Config::config</resource>
+
             <group id="global" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Requed text item value with dropdown</label>
+
                 <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[Google url <a href="https://code.google.com/" target="_bank">here</a>]]></comment>
                 </field>
+
                 <field id="text_item" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <!--Core config path: magestudy_2/global/text_item-->
                     <label>Text</label>
