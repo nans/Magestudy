@@ -5,15 +5,15 @@
 * Run command: php bin/magento setup:upgrade   
 * Run Command: php bin/magento cache:flush  
 
-### ConfigExample
+## ConfigExample
 Shows how create and update Configuration in Magento 2 (programmatically)  
 Admin panel: Menu - Stores - Settings - Configuration - Magestudy example
 
-### ConsoleCommand
+## ConsoleCommand
 Shows how create console command in Magento 2  
 Command: magestudy:first_test_command
 
-### Controller
+## Controller
 Shows how create controller in Magento 2  
 Links:  
 yourDomain/index.php/controller/hello  
@@ -21,44 +21,44 @@ yourDomain/index.php/controller/hello/world
 yourDomain/index.php/controller/test  
 yourDomain/index.php/controller/test/check
 
-### CronExample
+## CronExample
 Shows how create Cron tasks and Cron groups in Magento 2  
 Result in /var/log/.debug.log: "Cron task was started at ..."
 
-### Event
+## Event
 Shows how use events in Magento 2  
 Links:  
 yourDomain/index.php/event/example/index  
 yourDomain/index.php/event/example/second
 
-### LogRepository
+## LogRepository
 Shows how use repository pattern in Magento 2
 
-### Menu
-Shows how create menu in Magento 2  
+## Menu
+Shows how create menu in Magento 2 admin panel  
 Admin panel: Menu - MAIN LABEL
 
-### Page
+## Page
 Shows how create simple page in Magento 2  
 Link: yourDomain/index.php/page/test/
 
-### Rest
+## Rest
 Shows how create REST API in Magento 2  
 Links for test in \Magestudy\Rest\Model\Shop.php
 
-### UnitTestExample
+## UnitTestExample
 Shows how create Unit test in Magento 2  
 In \dev\tests\unit\phpunit.xml (remove .dist if file name is phpunit.xml.dist)  
 Add line: <directory suffix="Test.php">../../../app/code/Magestudy/UnitTestExample/Test/Unit</directory>  
 To block: testsuite  
 Run command in console.
 
-### Customjs
+## Customjs
 Shows how use RequireJS and Knockout.js (bindings) in Magento 2  
 Console: yourDomain/index.php/customjs/test  
 Frontend: yourDomain/index.php/customjs/test/simple
 
-### Crud
+## Crud
 Admin panel: Menu - CRUD  
 Frontend, url: yourDomain/index.php/crud  
 #### Shows how create CRUD in Magento 2:
@@ -73,7 +73,7 @@ Frontend, url: yourDomain/index.php/crud
 - Admin menu;
 - Repository pattern.
 
-### PluginExample
+## PluginExample
 Shows how use plugins in Magento 2  
 Commands for test:  
 magestudy:get_product  
@@ -83,15 +83,17 @@ magestudy:set_product_title
 
 Also check create new customer fom frontend and sign in.
 
-### CustomerAttribute - Customer  
+## CustomerAttribute - Customer  
+![Sample](https://github.com/nans/Magestudy/blob/master/doc/CustomerAttribute_GRID.png "CustomerAttribute screenshot")
+![Sample](https://github.com/nans/Magestudy/blob/master/doc/CustomerAttribute_FIELD.png "CustomerAttribute screenshot")
 Shows how add new customer (custom) attribute to grid and create/edit form.
 
-### SystemCustomField  
+## SystemCustomField  
 ![Sample](https://github.com/nans/Magestudy/blob/master/doc/SystemCustomField.png "SystemCustomField screenshot")
 Shows how add custom fields in Stores->Settings->Configuration  
 Backend: Stores -> Settings -> Configuration -> Magestudy example -> Field with custom model
 
-### CustomerAccountTab  
+## CustomerAccountTab  
 ![Sample](https://github.com/nans/Magestudy/blob/master/doc/CustomerAccountTab.png "CustomerAccountTab screenshot")  
 Shows how add new tab (page, menu item) in customer account (frontend).    
 "Example tab" in left menu.  
