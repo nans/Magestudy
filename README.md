@@ -6,6 +6,7 @@
 * Run Command: php bin/magento cache:flush  
 
 ## ConfigExample
+![Sample](https://github.com/nans/Magestudy/blob/master/doc/ConfigExample.png "ConfigExample screenshot")
 Shows how create and update Configuration in Magento 2 (programmatically)  
 Admin panel: Menu - Stores - Settings - Configuration - Magestudy example
 
