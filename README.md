@@ -6,7 +6,7 @@
 * Run Command: php bin/magento cache:flush  
 
 ## ConfigExample
-![Sample](https://github.com/nans/Magestudy/blob/master/doc/ConfigExample.png "ConfigExample screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/ConfigExample.png "ConfigExample screenshot")
 Shows how create and update Configuration in Magento 2 (programmatically)  
 Admin panel: Menu - Stores - Settings - Configuration - Magestudy example
 
@@ -36,12 +36,14 @@ yourDomain/index.php/event/example/second
 Shows how use repository pattern in Magento 2
 
 ## Menu
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Menu.png "Menu screenshot")
 Shows how create menu in Magento 2 admin panel  
 Admin panel: Menu - MAIN LABEL
 
 ## Page
-Shows how create simple page in Magento 2  
-Link: yourDomain/index.php/page/test/
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Page.png "Frontend page screenshot")
+Shows how create simple page (frontend) in Magento 2  
+Link: http:://YOUR_SITE.domain/index.php/page/test/
 
 ## Rest
 Shows how create REST API in Magento 2  
@@ -55,8 +57,9 @@ To block: testsuite
 Run command in console.
 
 ## Customjs
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Customjs.png "Customjs page screenshot")
 Shows how use RequireJS and Knockout.js (bindings) in Magento 2  
-Console: yourDomain/index.php/customjs/test  
+Result in console: yourDomain/index.php/customjs/test  
 Frontend: yourDomain/index.php/customjs/test/simple
 
 ## Crud
@@ -85,17 +88,17 @@ magestudy:set_product_title
 Also check create new customer fom frontend and sign in.
 
 ## CustomerAttribute - Customer  
-![Sample](https://github.com/nans/Magestudy/blob/master/doc/CustomerAttribute_GRID.png "CustomerAttribute screenshot")
-![Sample](https://github.com/nans/Magestudy/blob/master/doc/CustomerAttribute_FIELD.png "CustomerAttribute screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_GRID.png "CustomerAttribute screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_FIELD.png "CustomerAttribute screenshot")
 Shows how add new customer (custom) attribute to grid and create/edit form.
 
 ## SystemCustomField  
-![Sample](https://github.com/nans/Magestudy/blob/master/doc/SystemCustomField.png "SystemCustomField screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SystemCustomField.png "SystemCustomField screenshot")
 Shows how add custom fields in Stores->Settings->Configuration  
 Backend: Stores -> Settings -> Configuration -> Magestudy example -> Field with custom model
 
 ## CustomerAccountTab  
-![Sample](https://github.com/nans/Magestudy/blob/master/doc/CustomerAccountTab.png "CustomerAccountTab screenshot")  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAccountTab.png "CustomerAccountTab screenshot")  
 Shows how add new tab (page, menu item) in customer account (frontend).    
 "Example tab" in left menu.  
 
