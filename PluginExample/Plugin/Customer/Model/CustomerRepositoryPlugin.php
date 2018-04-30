@@ -25,7 +25,7 @@ class CustomerRepositoryPlugin
         callable $proceed,
         CustomerInterface $customer,
         $passwordHash = null
-    ): CustomerInterface {
+    ) {
         $this->messageManager->addNoticeMessage('Message before save customer');
         $savedCustomer = $proceed($customer, $passwordHash);
         $this->messageManager->addNoticeMessage('Message after save customer');

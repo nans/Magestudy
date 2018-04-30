@@ -99,8 +99,15 @@ Backend: Stores -> Settings -> Configuration -> Magestudy example -> Field with 
 
 ## CustomerAccountTab  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAccountTab.png "CustomerAccountTab screenshot")  
-Shows how add new tab (page, menu item) in customer account (frontend).    
-"Example tab" in left menu.  
+Shows how add new tab (page, menu item) in customer account (frontend).     
+
+## CustomerEditButton  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerEditButton.png "CustomerEditButton screenshot")  
+Shows how add new button in customer edit page (admin panel).    
+ 
+## CustomerEditTab  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerEditTab.png "CustomerEditTab screenshot")  
+Shows how add new tab\page\menu item in customer edit section (admin panel). 
 
 License
 ----

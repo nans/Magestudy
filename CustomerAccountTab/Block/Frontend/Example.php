@@ -48,7 +48,7 @@ class Example extends Template
     /**
      * @return string
      */
-    public function getFormAction(): string
+    public function getFormAction()
     {
         return $this->getUrl('custom/example/post', ['_secure' => true]);
     }
@@ -56,7 +56,7 @@ class Example extends Template
     /**
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         $select = $this->connection
             ->select()

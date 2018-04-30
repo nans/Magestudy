@@ -4,13 +4,11 @@ namespace Magestudy\Crud\Setup;
 
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Framework\Setup\SetupInterface;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magestudy\Crud\Api\Data\CategoryInterface;
 use Magestudy\Crud\Api\Data\PostInterface;
 use Magestudy\Crud\Model\ResourceModel\Category;
 use Magestudy\Crud\Model\ResourceModel\Post;
-use Magestudy\Crud\Model\ResourceModel\Tag;
 
 class UpgradeData implements UpgradeDataInterface
 {

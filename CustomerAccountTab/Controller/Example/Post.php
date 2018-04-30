@@ -2,17 +2,14 @@
 
 namespace Magestudy\CustomerAccountTab\Controller\Example;
 
+use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Mail\Template\TransportBuilder;
-use Magento\Framework\Translate\Inline\StateInterface;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\Config\Model\ResourceModel\Config;
 
 /**
  * Code in this class is not good, because it is very simple and don't use best practise
  */
-class Post extends \Magento\Contact\Controller\Index\Post
+class Post extends Action
 {
     /**
      * @var Config
@@ -21,13 +18,9 @@ class Post extends \Magento\Contact\Controller\Index\Post
 
     public function __construct(
         Context $context,
-        TransportBuilder $transportBuilder,
-        StateInterface $inlineTranslation,
-        ScopeConfigInterface $scopeConfig,
-        StoreManagerInterface $storeManager,
         Config $config
     ) {
-        parent::__construct($context, $transportBuilder, $inlineTranslation, $scopeConfig, $storeManager);
+        parent::__construct($context);
         $this->config = $config;
     }
 

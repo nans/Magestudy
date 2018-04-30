@@ -1,0 +1,13 @@
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="buttons" xsi:type="array">
+            <item name="example_button" xsi:type="string">Magestudy\CustomerEditButton\Block\Adminhtml\Edit\ExampleButton</item>
+        </item>
+    </argument>
+    <!--For Magento 2.2+ - 2.3+ possible use settings-->
+    <!--<settings>
+        <buttons>
+            <button name="example_button" class="Magestudy\CustomerEditButton\Block\Adminhtml\Edit\ExampleButton"/>
+        </buttons>
+    </settings>-->
+</form>

@@ -1,6 +1,6 @@
 {
-  "name": "magestudy/customer-account-tab",
-  "description": "Magento 2 - New tab in customer account page",
+  "name": "magestudy/customer-edit-button",
+  "description": "Magento 2 - Add button to customer edit page",
   "require": {
     "php": ">=5.6"
   },
@@ -8,10 +8,10 @@
     "MIT"
   ],
   "type": "magento2-module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "authors": [
     {
-      "name": "N.An.S."
+      "name": "NAnS"
     }
   ],
   "autoload": {
@@ -19,7 +19,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "Magestudy\\CustomerAccountTab\\": ""
+      "Magestudy\\CustomerEditButton\\": ""
     }
   }
 }

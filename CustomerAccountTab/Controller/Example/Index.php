@@ -11,7 +11,7 @@ class Index extends Action
     /**
      * @return ResultInterface
      */
-    public function execute():ResultInterface
+    public function execute()
     {
         return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
     }
