@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="example" xsi:type="const">Magestudy\PaymentMethod\Model\Payment\Example::CODE</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="example_payment_config_provider" xsi:type="object">Magestudy\PaymentMethod\Model\ConfigProvider\ExampleConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

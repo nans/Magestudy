@@ -1,0 +1,8 @@
+<?php
+/**
+ * @var $block \Magestudy\PaymentMethod\Block\Form\ExamplePayment
+ */
+$methodCode = $block->escapeHtml($block->getMethodCode());
+?>
+<fieldset class="fieldset items <?= /* @noEscape */ $methodCode ?>" id="payment_form_<?= /* @noEscape */ $methodCode ?>" style="display: none">
+</fieldset>

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @var $block \Magestudy\PaymentMethod\Block\Info\ExamplePaymentInfo
+ */
+?>
+<div class="order-payment-method-name"><?= $block->escapeHtml($block->getMethod()->getTitle()) ?></div>
+<p><?= __('Data from block');?>: <strong><?=$block->someDataFromBlock(); ?></strong></p>

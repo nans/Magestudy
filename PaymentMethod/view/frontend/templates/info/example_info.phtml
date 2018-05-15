@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var $block \Magestudy\PaymentMethod\Block\Info\ExamplePaymentInfo
+ */
+?>
+<dl class="payment-method example limit">
+    <dt class="title"><?= $block->escapeHtml($block->getMethod()->getTitle()) ?></dt>
+    <dd class="content">
+        <p><?= __('Data from block');?>: <strong><?=$block->someDataFromBlock(); ?></strong></p>
+    </dd>
+</dl>
