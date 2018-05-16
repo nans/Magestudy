@@ -7,8 +7,6 @@
                 <model>Magestudy\PaymentMethod\Model\Payment\Example</model>
                 <order_status>pending_payment</order_status>
                 <title>Example</title>
-                <allowspecific>0</allowspecific>
-                <group>Offline</group>
             </example>
         </payment>
     </default>
