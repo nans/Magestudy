@@ -1,0 +1,20 @@
+{
+  "name": "magestudy/shipping-method",
+  "description": "Magento 2 - Shipping Method",
+  "require": {
+    "php": ">=5.6"
+  },
+  "license": [
+    "MIT"
+  ],
+  "type": "magento2-module",
+  "version": "0.0.1",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magestudy\\ShippingMethod\\": ""
+    }
+  }
+}

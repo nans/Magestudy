@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <magestudy_shipping_method>
+                <active>0</active>
+                <price>2</price>
+                <model>Magestudy\ShippingMethod\Model\Carrier\ExampleShipping</model>
+                <title>Example Shipping Method</title>
+                <name>Fixed</name>
+                <specificerrmsg>Some message.</specificerrmsg>
+            </magestudy_shipping_method>
+        </carriers>
+    </default>
+</config>
