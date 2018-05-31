@@ -4,6 +4,7 @@
         <arguments>
             <argument name="commands" xsi:type="array">
                 <item name="first_test_command" xsi:type="object">Magestudy\ConsoleCommand\Console\Command\FirstTestCommand</item>
+                <item name="value_command" xsi:type="object">Magestudy\ConsoleCommand\Console\Command\ValueCommand</item>
             </argument>
         </arguments>
     </type>

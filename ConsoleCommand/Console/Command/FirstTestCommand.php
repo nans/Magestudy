@@ -20,6 +20,6 @@ class FirstTestCommand extends Command
 
         }
         $time = microtime(true) - $start;
-        $output->writeln('First test command completed by '.$time.' seconds;');
+        $output->writeln('First test command completed by ' . $time . ' seconds;');
     }
 }
