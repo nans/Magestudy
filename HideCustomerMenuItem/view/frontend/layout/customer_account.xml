@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer-account-navigation-wish-list-link" remove="true"/><!-- static hide for all customers -->
+
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magestudy\HideCustomerMenuItem\Block\Frontend\CustomerLink" name="example-hide-by-block" cacheable="false"><!-- hide by condition in block-->
+                <arguments>
+                    <argument name="path" xsi:type="string">custom/example/index</argument>
+                    <argument name="label" xsi:type="string">Hide by block</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="example-hide-by-config" cacheable="false" ifconfig="analytics/subscription/enabled"><!-- hide by condition in config-->
+                <arguments>
+                    <argument name="path" xsi:type="string">custom/example/index</argument>
+                    <argument name="label" xsi:type="string">Hide by config</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
