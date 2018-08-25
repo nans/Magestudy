@@ -5,4 +5,9 @@
             <schedule>* * * * *</schedule>
         </job>
     </group>
+    <group id="default">
+        <job name="sample_task_run_by_config_value" instance="Magestudy\CronExample\Cron\SampleByConfigTask" method="execute">
+            <config_path>magestudy/cron/task_condition</config_path>
+        </job>
+    </group>
 </config>

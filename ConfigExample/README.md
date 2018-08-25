@@ -1,4 +1,4 @@
-## ConfigExample
+# ConfigExample
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/ConfigExample.png "ConfigExample screenshot")
 Show how create and update Configuration in Magento 2 (programmatically)  
 In example:
