@@ -123,7 +123,12 @@ Shows how create simple shipping method in Magento 2.
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Shipping_Config.png "ShippingMethod screenshot")
 
 ## HideCustomerMenuItem
-Shows how hide/remove menu items in (frontend) customer account page in Magento 2 (programmatically)  
+Shows how hide/remove menu items in (frontend) customer account page in Magento 2 (programmatically)
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/customer_menu_items.png "HideCustomerMenuItem screenshot")
+
+## ProductEditButton
+Shows how add button to product create/edit page in Magento 2
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/product-edit-button.png "ProductEditButton screenshot")
 
 License
 ----

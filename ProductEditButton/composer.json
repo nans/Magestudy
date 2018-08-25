@@ -1,0 +1,25 @@
+{
+  "name": "magestudy/product-edit-button",
+  "description": "Magento 2 - add button to product edit page",
+  "require": {
+    "php": ">=5.6"
+  },
+  "license": [
+    "MIT"
+  ],
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "NAnS"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magestudy\\ProductEditButton\\": ""
+    }
+  }
+}

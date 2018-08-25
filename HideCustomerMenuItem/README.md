@@ -1,5 +1,6 @@
 ## HideCustomerMenuItem
 ####Shows how hide/remove menu items in (frontend) customer account page in Magento 2 (programmatically)  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/customer_menu_items.png "HideCustomerMenuItem screenshot")
 
 ###Remove by config
 Add to block: ifconfig="Your/Config/Path"  
