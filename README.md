@@ -130,6 +130,11 @@ Shows how hide/remove menu items in (frontend) customer account page in Magento 
 Shows how add button to product create/edit page in Magento 2
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/product-edit-button.png "ProductEditButton screenshot")
 
+## LoggerExample
+Shows how create custom logger and write data to new file in Magento 2
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/custom_logger.png "LoggerExample screenshot")
+Sample of injection and using here: Magestudy\LoggerExample\Helper\Data
+
 License
 ----
 MIT
