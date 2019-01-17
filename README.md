@@ -135,6 +135,12 @@ Shows how create custom logger and write data to new file in Magento 2
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/custom_logger.png "LoggerExample screenshot")  
 Sample of injection and using here: Magestudy\LoggerExample\Helper\Data  
 
+## SearchCriteria  
+Shows how to configure and create a SearchCriteria instance using the builder for repositories
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SearchCriteria.png.png "SearchCriteria screenshot")  
+Sample here: Magestudy\SearchCriteria\Controller\Hello\Index.php 
+Frontend url: .../index.php/SearchCriteria/hello/index
+
 License
 ----
 MIT
