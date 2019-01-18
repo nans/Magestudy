@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Customer\Api\Data\CustomerInterface">
+        <attribute code="example_text" type="string" />
+        <attribute code="example_object" type="Magestudy\ExtensionAttributes\Api\Data\ExampleInterface" />
+    </extension_attributes>
+</config>

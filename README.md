@@ -6,7 +6,7 @@
 * Run Command: php bin/magento cache:flush  
 
 ## ConfigExample
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/ConfigExample.png "ConfigExample screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/ConfigExample.png "ConfigExample screenshot")  
 Shows how create and update Configuration in Magento 2 (programmatically)  
 Admin panel: Menu - Stores - Settings - Configuration - Magestudy example
 
@@ -38,12 +38,12 @@ yourDomain/index.php/event/example/second
 Shows how use repository pattern in Magento 2
 
 ## Menu
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Menu.png "Menu screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Menu.png "Menu screenshot")  
 Shows how create menu in Magento 2 admin panel  
 Admin panel: Menu - MAIN LABEL
 
 ## Page
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Page.png "Frontend page screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Page.png "Frontend page screenshot")  
 Shows how create simple page (frontend) in Magento 2  
 Link: http:://YOUR_SITE.domain/index.php/page/test/
 
@@ -59,7 +59,7 @@ To block: testsuite
 Run command in console.
 
 ## Customjs
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Customjs.png "Customjs page screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Customjs.png "Customjs page screenshot")  
 Shows how use RequireJS and Knockout.js (bindings) in Magento 2  
 Result in console: yourDomain/index.php/customjs/test  
 Frontend: yourDomain/index.php/customjs/test/simple
@@ -90,12 +90,12 @@ magestudy:set_product_title
 Also check create new customer fom frontend and sign in.
 
 ## CustomerAttribute - Customer  
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_GRID.png "CustomerAttribute screenshot")
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_FIELD.png "CustomerAttribute screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_GRID.png "CustomerAttribute screenshot")  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_FIELD.png "CustomerAttribute screenshot")  
 Shows how add new customer (custom) attribute to grid and create/edit form.
 
 ## SystemCustomField  
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SystemCustomField.png "SystemCustomField screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SystemCustomField.png "SystemCustomField screenshot")  
 Shows how add custom fields in Stores->Settings->Configuration  
 Backend: Stores -> Settings -> Configuration -> Magestudy example -> Field with custom model
 
@@ -113,21 +113,21 @@ Shows how add new tab\page\menu item in customer edit section (admin panel).
 
 ## PaymentMethod   
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PaymentMethod_Checkout.png "PaymentMethod screenshot")  
-Shows how create new payment method in Magento 2.
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PaymentMethod_Front.png "PaymentMethod screenshot")
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PaymentMethod_Backend.png "PaymentMethod screenshot")
+Shows how create new payment method in Magento 2.  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PaymentMethod_Front.png "PaymentMethod screenshot")  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PaymentMethod_Backend.png "PaymentMethod screenshot")  
 
 ## ShippingMethod  
 Shows how create simple shipping method in Magento 2.  
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Shipping_front.png "ShippingMethod screenshot")
-![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Shipping_Config.png "ShippingMethod screenshot")
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Shipping_front.png "ShippingMethod screenshot")  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Shipping_Config.png "ShippingMethod screenshot")  
 
 ## HideCustomerMenuItem
-Shows how hide/remove menu items in (frontend) customer account page in Magento 2 (programmatically)
+Shows how hide/remove menu items in (frontend) customer account page in Magento 2 (programmatically)  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/customer_menu_items.png "HideCustomerMenuItem screenshot")
 
 ## ProductEditButton
-Shows how add button to product create/edit page in Magento 2
+Shows how add button to product create/edit page in Magento 2  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/product-edit-button.png "ProductEditButton screenshot")
 
 ## LoggerExample  
@@ -140,6 +140,11 @@ Shows how to configure and create a SearchCriteria instance using the builder fo
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SearchCriteria.png "SearchCriteria screenshot")  
 Sample here: Magestudy\SearchCriteria\Controller\Hello\Index.php  
 Frontend url: .../index.php/SearchCriteria/hello/index
+
+## ExtensionAttributes  
+Shows how to use Extension Attributes  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/ExtensionAttribute.png "ExtensionAttributes screenshot")  
+Frontend url: .../index.php/ExtensionAttribute/hello/index
 
 License
 ----
