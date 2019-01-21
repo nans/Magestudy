@@ -82,6 +82,12 @@
                         <field id="is_enabled">1</field>
                     </depends>
                 </field>
+
+                <field id='api_key_secret' translate='label' type='obscure' sortOrder='30' showInDefault='1' showInWebsite='1' showInStore='1'>
+                    <!-- use \Magento\Framework\Encryption\EncryptorInterface and 'decrypt' method for field -->
+                    <label>Password field</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
             </group>
         </section>
     </system>

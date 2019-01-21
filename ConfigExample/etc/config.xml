@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magestudy>
+            <global>
+                <text_item>Default value</text_item>
+            </global>
+            <second_group>
+                <select_item_1>0</select_item_1>
+            </second_group>
+        </magestudy>
+    </default>
+</config>
