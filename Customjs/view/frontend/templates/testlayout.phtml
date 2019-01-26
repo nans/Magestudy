@@ -1,0 +1,12 @@
+<div id="fromLayout-component" data-bind="scope:'scriptName'">
+    <script type="text/x-magento-init">
+    {
+        "#fromLayout-component": {
+            "Magento_Ui/js/core/app":  <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+        }
+    }
+    </script>
+    <span data-bind="text:getFirstValue()"></span>
+    <br>
+    <span data-bind="text:getSecondValue()"></span>
+</div>

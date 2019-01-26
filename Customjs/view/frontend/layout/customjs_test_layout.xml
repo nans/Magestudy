@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magestudy\Customjs\Block\Test\FromLayout" name="page.fromLayout" template="Magestudy_Customjs::testlayout.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="scriptName" xsi:type="array">
+                                <item name="component" xsi:type="string">Magestudy_Customjs/js/from_layout_example</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="first" xsi:type="string">FirstValueFromXml</item>
+                                    <item name="second" xsi:type="string">SecondValueFromXml</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+
+
+
+
+
