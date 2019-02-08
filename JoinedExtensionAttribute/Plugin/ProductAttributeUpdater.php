@@ -80,7 +80,7 @@ class ProductAttributeUpdater
     }
 
     //TODO The same for afterGet(...)
-    //TODO The for every item in afterGetList()
+    //TODO The same for every item in afterGetList()
 
     /**
      * @param ProductInterface $product
