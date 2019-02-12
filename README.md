@@ -146,6 +146,10 @@ Shows how to use Extension Attributes
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/ExtensionAttribute.png "ExtensionAttributes screenshot")  
 Frontend url: .../index.php/ExtensionAttribute/hello/index
 
+## ProductExtensionAttribute
+Shows how to use Extension Attributes for products  
+Frontend url: .../index.php/ProductExtensionAttribute/hello/index
+
 ## Widget  
 Shows how create simple widget  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Widget.png "Widget screenshot")  
