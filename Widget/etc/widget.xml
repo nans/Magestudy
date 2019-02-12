@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Magestudy\Widget\Block\Widget\SampleBlock" id="magestudy_widget_example">
+        <label>Magestudy Sample Widget</label>
+        <description>Magestudy Sample Widget Descriptions</description>
+        <parameters>
+            <parameter name="label" sort_order="10" visible="true" xsi:type="text">
+                <label>Label</label>
+            </parameter>
+            <parameter name="limit" sort_order="20" visible="true" xsi:type="text">
+                <label>Limit</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

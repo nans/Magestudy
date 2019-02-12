@@ -1,0 +1,9 @@
+<?php
+/** @var \Magestudy\Widget\Block\Widget\SampleBlock $block */
+?>
+<b>Widget label:</b> <?php echo $block->getData('label');
+foreach ($block->getProducts($block->getData('limit')) as $product) {?>
+    <h2 class='posts'><?php echo $product->getName(); ?></h2>
+    <p><?php echo $product->getPrice(); ?></p>
+    <p><?php echo $product->getSku(); ?></p>
+<?php } ?>

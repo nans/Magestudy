@@ -1,0 +1,25 @@
+{
+  "name": "magestudy/widget",
+  "description": "Magento 2 - Widget example",
+  "require": {
+    "php": ">=5.6"
+  },
+  "license": [
+    "MIT"
+  ],
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "NAnS"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magestudy\\Widget\\": ""
+    }
+  }
+}
