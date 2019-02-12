@@ -1,6 +1,6 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Api\Data;
+namespace Magestudy\ProductExtensionAttribute\Api\Data;
 
 use Magento\ExternalLinks\Api\Data\ExternalLinkExtensionInterface;
 use Magento\Framework\Api\ExtensibleDataInterface;

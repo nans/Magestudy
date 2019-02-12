@@ -1,6 +1,6 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Plugin;
+namespace Magestudy\ProductExtensionAttribute\Plugin;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
@@ -8,8 +8,8 @@ use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Api\Search\SearchCriteriaBuilderFactory;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Catalog\Api\Data\ProductExtensionFactory;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationInterface;
-use Magestudy\JoinedExtensionAttribute\Model\Repository\SalesInformationRepository;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
+use Magestudy\ProductExtensionAttribute\Model\Repository\SalesInformationRepository;
 
 class ProductAttributeUpdater
 {

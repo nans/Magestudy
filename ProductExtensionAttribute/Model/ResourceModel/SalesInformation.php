@@ -1,9 +1,9 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Model\ResourceModel;
+namespace Magestudy\ProductExtensionAttribute\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationInterface;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
 
 class SalesInformation extends AbstractDb
 {

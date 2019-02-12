@@ -1,11 +1,11 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Model;
+namespace Magestudy\ProductExtensionAttribute\Model;
 
 use Magento\ExternalLinks\Api\Data\ExternalLinkExtensionInterface;
 use Magento\Framework\Model\AbstractModel;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationInterface;
-use Magestudy\JoinedExtensionAttribute\Model\ResourceModel\SalesInformation as ResourceModel;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
+use Magestudy\ProductExtensionAttribute\Model\ResourceModel\SalesInformation as ResourceModel;
 
 class SalesInformation extends AbstractModel implements SalesInformationInterface
 {

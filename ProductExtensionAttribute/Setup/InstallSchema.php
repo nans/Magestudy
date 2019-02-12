@@ -1,6 +1,6 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Setup;
+namespace Magestudy\ProductExtensionAttribute\Setup;
 
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\Setup\InstallSchemaInterface;

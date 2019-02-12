@@ -1,6 +1,6 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Setup;
+namespace Magestudy\ProductExtensionAttribute\Setup;
 
 use Magento\Catalog\Model\Product\Attribute\Source\Status;
 use Magento\Catalog\Model\Product\Visibility;
@@ -10,9 +10,9 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationInterface;
-use Magestudy\JoinedExtensionAttribute\Model\Repository\SalesInformationRepository;
-use Magestudy\JoinedExtensionAttribute\Model\SalesInformationFactory;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
+use Magestudy\ProductExtensionAttribute\Model\Repository\SalesInformationRepository;
+use Magestudy\ProductExtensionAttribute\Model\SalesInformationFactory;
 use Magento\Catalog\Setup\CategorySetupFactory;
 use Magento\Catalog\Model\Product;
 

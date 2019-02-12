@@ -1,17 +1,17 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Model\Repository;
+namespace Magestudy\ProductExtensionAttribute\Model\Repository;
 
 use Magento\Catalog\Api\Data\ProductExtensionFactory;
 use Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationInterface;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationSearchResultsInterface;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationSearchResultsInterfaceFactory as SearchResultFactory;
-use Magestudy\JoinedExtensionAttribute\Api\SalesInformationRepositoryInterface;
-use Magestudy\JoinedExtensionAttribute\Model\ResourceModel\SalesInformation\Collection;
-use Magestudy\JoinedExtensionAttribute\Model\ResourceModel\SalesInformation\CollectionFactory;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationSearchResultsInterface;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationSearchResultsInterfaceFactory as SearchResultFactory;
+use Magestudy\ProductExtensionAttribute\Api\SalesInformationRepositoryInterface;
+use Magestudy\ProductExtensionAttribute\Model\ResourceModel\SalesInformation\Collection;
+use Magestudy\ProductExtensionAttribute\Model\ResourceModel\SalesInformation\CollectionFactory;
 
 class SalesInformationRepository implements SalesInformationRepositoryInterface
 {

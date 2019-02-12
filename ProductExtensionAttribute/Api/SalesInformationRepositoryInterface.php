@@ -1,9 +1,9 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Api;
+namespace Magestudy\ProductExtensionAttribute\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
-use Magestudy\JoinedExtensionAttribute\Api\Data\SalesInformationSearchResultsInterface;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationSearchResultsInterface;
 
 interface SalesInformationRepositoryInterface
 {

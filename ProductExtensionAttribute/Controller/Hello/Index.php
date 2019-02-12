@@ -1,6 +1,6 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Controller\Hello;
+namespace Magestudy\ProductExtensionAttribute\Controller\Hello;
 
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\App\Action\Action;
@@ -36,7 +36,7 @@ class Index extends Action
     }
 
     /**
-     * URL: .../index.php/JoinedExtensionAttribute/hello/index
+     * URL: .../index.php/ProductExtensionAttribute/hello/index
      */
     public function execute()
     {

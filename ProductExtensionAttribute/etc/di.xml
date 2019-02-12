@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface" type="Magestudy\ProductExtensionAttribute\Model\SalesInformation" />
+
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="add_sales_information_attribute" type="Magestudy\ProductExtensionAttribute\Plugin\ProductAttributeUpdater" />
+    </type>
+
+    <preference for="Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Magestudy\ProductExtensionAttribute\Api\SalesInformationRepositoryInterface" type="Magestudy\ProductExtensionAttribute\Model\Repository\SalesInformationRepository" />
+
+    <type name="Magestudy\ProductExtensionAttribute\Plugin\ProductAttributeUpdater">
+        <arguments>
+            <argument name="orderStatus" xsi:type="string">canceled</argument>
+        </arguments>
+    </type>
+</config>

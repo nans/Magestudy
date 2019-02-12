@@ -1,6 +1,6 @@
 <?php
 
-namespace Magestudy\JoinedExtensionAttribute\Api\Data;
+namespace Magestudy\ProductExtensionAttribute\Api\Data;
 
 interface SalesInformationSearchResultsInterface extends \Magento\Framework\Api\SearchResultsInterface
 {

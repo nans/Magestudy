@@ -2,8 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
-        <route id="extension_attribute" frontName="JoinedExtensionAttribute">
-            <module name="Magestudy_JoinedExtensionAttribute"/>
+        <route id="extension_attribute" frontName="ProductExtensionAttribute">
+            <module name="Magestudy_ProductExtensionAttribute"/>
         </route>
     </router>
 </config>
