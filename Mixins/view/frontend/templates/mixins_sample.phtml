@@ -1,0 +1,19 @@
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "mixins_example": {
+                    "component"     : "Magestudy_Mixins/js/basic"
+                }
+            }
+        }
+    }
+}
+</script>
+
+<div id="some_sample_id" data-bind="scope: 'mixins_example'">
+    <b>Method1:</b> <span data-bind="text: method1()"></span><br>
+    <b>Method2:</b> <span data-bind="text: method2()"></span><br>
+    <b>Method3:</b> <span data-bind="text: method3()"></span>
+</div>

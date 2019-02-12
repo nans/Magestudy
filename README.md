@@ -159,6 +159,12 @@ Shows how create simple widget
 * Go to CONTENT -> Pages -> Home Page: add widget to page
 * Go to main page for result
 
+## Mixins  
+Shows how to use mixins in Magento 2:  
+* Add new method
+* Override method  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Mixins.png "Mixins screenshot")  
+
 License
 ----
 MIT
