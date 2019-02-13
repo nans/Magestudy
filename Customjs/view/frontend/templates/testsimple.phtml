@@ -40,9 +40,10 @@
     <p><b>Form example</b>:</p>
     <form>
         <table>
-          <tr><td>Id</td><td>Name</td><td>Role</td><td>Email</td></tr>
+          <tr><td>Index</td><td>Id</td><td>Name</td><td>Role</td><td>Email</td></tr>
         <!-- ko foreach: users -->
             <tr>
+                <td><span data-bind="text:$index()"></span></td>
                 <td><span data-bind="text:id"></span></td>
                 <td><input title="Name" data-bind="value: name"/></td>
                 <td><input title="Role" data-bind="value: role"/></td>
