@@ -1,4 +1,7 @@
-# Magestudy - Magento 2 Example extensions
+# Magestudy - Magento 2 Example extensions  
+
+Branch for [Magento 2.1 - 2.3](https://github.com/nans/Magestudy/tree/2.1-2.3)  
+Master branch for Magento 2.3  
 
 ## Installation Instruction  
 * Copy the content of the repo to the Magento 2: app/code/Magestudy  
