@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magestudy_SimpleCrud::review_content" title="Simple CRUD" module="Magestudy_SimpleCrud" sortOrder="60" resource="Magestudy_SimpleCrud::module"/>
+        <add id="Magestudy_Crud::review" title="Review" module="Magestudy_SimpleCrud" sortOrder="1" parent="Magestudy_SimpleCrud::review_content" action="review/index" resource="Magestudy_SimpleCrud::review"/>
+    </menu>
+</config>

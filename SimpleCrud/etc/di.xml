@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magestudy\SimpleCrud\Api\Data\ReviewInterface" type="Magestudy\SimpleCrud\Model\Review" />
+    <preference for="Magestudy\SimpleCrud\Api\ReviewRepositoryInterface" type="Magestudy\SimpleCrud\Model\Repository\ReviewRepository" />
+    <preference for="Magestudy\SimpleCrud\Api\Data\ReviewSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+</config>
