@@ -55,8 +55,16 @@ class InstallSchema implements InstallSchemaInterface
                     'Review text'
                 )
                 ->addColumn(
+                    'author', Table::TYPE_TEXT, 255, ['nullable' => false],
+                    'Author'
+                )
+                ->addColumn(
                     'status', Table::TYPE_INTEGER, null, ['nullable' => false, 'unsigned' => true, 'default' => 0],
                     'Status'
+                )
+                ->addColumn(
+                    'rating', Table::TYPE_SMALLINT, null, ['nullable' => false, 'unsigned' => true, 'default' => 0],
+                    'Rating'
                 )
                 ->addColumn(
                     'created_at',

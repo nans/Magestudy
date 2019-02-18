@@ -10,7 +10,6 @@ use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\StateException;
-use Magento\Framework\Exception\ValidatorException;
 use Magento\Framework\Model\AbstractModel;
 use Magestudy\SimpleCrud\Api\Data\ReviewInterface;
 use Magestudy\SimpleCrud\Api\Data\ReviewSearchResultsInterface;
@@ -151,8 +150,6 @@ class ReviewRepository implements ReviewRepositoryInterface
         try {
             unset($this->instances[$id]);
             $this->reviewResource->delete($review);
-        } catch (ValidatorException $e) {
-            throw new CouldNotSaveException(__($e->getMessage()));
         } catch (Exception $e) {
             throw new StateException(__('Unable to remove review %1', $id));
         }

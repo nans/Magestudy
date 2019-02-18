@@ -8,6 +8,8 @@ interface ReviewInterface
     const KEY_PRODUCT_ID = 'product_id';
     const KEY_CONTENT    = 'content';
     const KEY_STATUS     = 'status';
+    const KEY_RATING     = 'rating';
+    const KEY_AUTHOR     = 'author';
     const KEY_CREATED_AT = 'created_at';
     const KEY_UPDATED_AT = 'updated_at';
 
@@ -37,6 +39,16 @@ interface ReviewInterface
     public function getCreatedAt();
 
     /**
+     * @return int
+     */
+    public function getRating();
+
+    /**
+     * @return string
+     */
+    public function getAuthor();
+
+    /**
      * @param int $productId
      * @return void
      */
@@ -53,4 +65,14 @@ interface ReviewInterface
      * @return void
      */
     public function setStatus($status);
+
+    /**
+     * @param string $rating
+     */
+    public function setRating($rating);
+
+    /**
+     * @param int $author
+     */
+    public function setAuthor($author);
 }

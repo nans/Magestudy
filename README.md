@@ -8,6 +8,11 @@ Master branch for Magento 2.3
 * Run command: php bin/magento setup:upgrade   
 * Run Command: php bin/magento cache:flush  
 
+## SimpleCrud  
+Shows how create simple CRUD: grid and form (ui component) without deprecated methods  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SimpleCrudGrid.png "SimpleCrudGrid screenshot")  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SimpleCrudForm.png "SimpleCrudForm screenshot")  
+
 ## ConfigExample
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/ConfigExample.png "ConfigExample screenshot")  
 Shows how create and update Configuration in Magento 2 (programmatically)  

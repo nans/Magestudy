@@ -9,6 +9,21 @@ use Magestudy\SimpleCrud\Model\ResourceModel\Review as ResourceModel;
 class Review extends AbstractModel implements ReviewInterface
 {
     /**
+     * Prefix of model events names
+     *
+     * @var string
+     */
+    protected $_eventPrefix = 'sc_review';
+
+    /**
+     * Parameter name in event
+     * In observe method you can use $observer->getEvent()->getRule() in this case
+     *
+     * @var string
+     */
+    protected $_eventObject = 'review';
+
+    /**
      * @return int
      */
     public function getProductId()
@@ -80,6 +95,52 @@ class Review extends AbstractModel implements ReviewInterface
      */
     protected function _construct()
     {
+        parent::_construct();
         $this->_init(ResourceModel::class);
+    }
+
+    /**
+     * @return int
+     */
+    public function getRating()
+    {
+        return $this->getData(self::KEY_RATING);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->getData(self::KEY_AUTHOR);
+    }
+
+    /**
+     * @param string $rating
+     */
+    public function setRating($rating)
+    {
+        $this->setData(self::KEY_RATING, $rating);
+    }
+
+    /**
+     * @param int $author
+     */
+    public function setAuthor($author)
+    {
+        $this->setData(self::KEY_AUTHOR, $author);
+    }
+
+    public function getId()
+    {
+        return $this->getData(self::KEY_ID);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setId($id)
+    {
+        return $this->setData(self::KEY_ID, $id);
     }
 }
