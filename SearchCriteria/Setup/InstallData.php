@@ -3,7 +3,6 @@
 namespace Magestudy\SearchCriteria\Setup;
 
 use Magento\Customer\Api\CustomerRepositoryInterface;
-use Magento\Framework\App\State;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -24,15 +23,11 @@ class InstallData implements InstallDataInterface
     /**
      * @param CustomerFactory $customerFactory
      * @param CustomerRepositoryInterface $customerRepository
-     * @param State $appState
-     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function __construct(
         CustomerFactory $customerFactory,
-        CustomerRepositoryInterface $customerRepository,
-        State $appState
+        CustomerRepositoryInterface $customerRepository
     ) {
-        $appState->setAreaCode('frontend');
         $this->customerFactory = $customerFactory;
         $this->customerRepository = $customerRepository;
     }

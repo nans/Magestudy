@@ -4,7 +4,6 @@ namespace Magestudy\ProductExtensionAttribute\Setup;
 
 use Magento\Catalog\Model\Product\Attribute\Source\Status;
 use Magento\Catalog\Model\Product\Visibility;
-use Magento\Framework\App\State;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -49,18 +48,14 @@ class InstallData implements InstallDataInterface
      * @param SalesInformationFactory $salesInformationFactory
      * @param SalesInformationRepository $salesInformationRepository
      * @param CategorySetupFactory $categorySetupFactory
-     * @param State $appState
-     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function __construct(
         ProductFactory $productFactory,
         ProductRepositoryInterface $productRepository,
         SalesInformationFactory $salesInformationFactory,
         SalesInformationRepository $salesInformationRepository,
-        CategorySetupFactory $categorySetupFactory,
-        State $appState
+        CategorySetupFactory $categorySetupFactory
     ) {
-        $appState->setAreaCode('frontend');
         $this->productFactory = $productFactory;
         $this->productRepository = $productRepository;
         $this->salesInformationFactory = $salesInformationFactory;
@@ -85,7 +80,7 @@ class InstallData implements InstallDataInterface
         $categorySetup = $this->categorySetupFactory->create();
         $entityTypeId = $categorySetup->getEntityTypeId(Product::ENTITY);
         $defaultAttributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
-
+        /** @var Product $productModel */
         $productModel = $this->productFactory->create();
         $productModel->setTypeId('simple');
         $productModel->setSku('productForSampleExtensionAttribute');
@@ -96,9 +91,17 @@ class InstallData implements InstallDataInterface
         $productModel->setVisibility(Visibility::VISIBILITY_BOTH);
         $productModel->setStatus(Status::STATUS_ENABLED);
         $productModel->setAttributeSetId($defaultAttributeSetId);
+        $productModel->setStockData(
+            array(
+                'use_config_manage_stock' => 0,
+                'manage_stock' => 1,
+                'is_in_stock' => 1,
+                'qty' => 100
+            )
+        );
         $productModel = $this->productRepository->save($productModel);
 
-        $setup->getConnection()->insert("sales_information",[
+        $setup->getConnection()->insert("sales_information", [
             SalesInformationInterface::KEY_QTY          => 10,
             SalesInformationInterface::KEY_ORDER_STATUS => 'canceled',
             SalesInformationInterface::KEY_PRODUCT_ID   => $productModel->getId(),
