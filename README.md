@@ -156,7 +156,10 @@ Frontend url: .../index.php/ExtensionAttribute/hello/index
 
 ## ProductExtensionAttribute
 Shows how to use Extension Attributes for products  
-Frontend url: .../index.php/ProductExtensionAttribute/hello/index
+Added sales information to product object  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PEA_Result.png "ProductExtensionAttribute screenshot")  
+Frontend url: .../index.php/ProductExtensionAttribute/hello/index  
+Sample here: Magestudy\ProductExtensionAttribute\Controller\Hello\Index.php  
 
 ## Widget  
 Shows how create simple widget  

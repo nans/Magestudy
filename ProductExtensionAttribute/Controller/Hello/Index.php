@@ -43,7 +43,9 @@ class Index extends Action
         try {
             $product = $this->productRepository->getById(1); //TODO enter product id for test
             $attributes = $product->getExtensionAttributes();
-            var_dump($attributes);
+            $salesInformation = $attributes->getSalesInformation();
+            echo 'Added information from sales part to product<br>';
+            var_dump($salesInformation);
         } catch (\Throwable $throwable) {
             echo $throwable->getMessage();
         }

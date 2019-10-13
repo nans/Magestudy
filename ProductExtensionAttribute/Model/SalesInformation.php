@@ -2,36 +2,20 @@
 
 namespace Magestudy\ProductExtensionAttribute\Model;
 
-use Magento\ExternalLinks\Api\Data\ExternalLinkExtensionInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
 use Magestudy\ProductExtensionAttribute\Model\ResourceModel\SalesInformation as ResourceModel;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationExtensionInterface as SalesInformationExtensionInterface;
 
 class SalesInformation extends AbstractModel implements SalesInformationInterface
 {
     protected $extenstionAttributes;
 
     /**
-     * @return int
-     */
-    public function getQty()
-    {
-        return $this->getData(self::KEY_QTY);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastOrder()
-    {
-        return $this->getData(self::KEY_UPDATED_AT);
-    }
-
-    /**
-     * @param ExternalLinkExtensionInterface $extensionAttributes
+     * @param SalesInformationExtensionInterface $extensionAttributes
      * @return $this|SalesInformationInterface
      */
-    public function setExtensionAttributes(ExternalLinkExtensionInterface $extensionAttributes)
+    public function setExtensionAttributes(SalesInformationExtensionInterface $extensionAttributes)
     {
         $this->extenstionAttributes = $extensionAttributes;
 
@@ -39,7 +23,7 @@ class SalesInformation extends AbstractModel implements SalesInformationInterfac
     }
 
     /**
-     * @return ExternalLinkExtensionInterface|null
+     * @return SalesInformationExtensionInterface|null
      */
     public function getExtensionAttributes()
     {

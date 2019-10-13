@@ -2,7 +2,7 @@
 
 namespace Magestudy\ProductExtensionAttribute\Api\Data;
 
-use Magento\ExternalLinks\Api\Data\ExternalLinkExtensionInterface;
+use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationExtensionInterface as SalesInformationExtensionInterface;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
 interface SalesInformationInterface extends ExtensibleDataInterface
@@ -14,23 +14,13 @@ interface SalesInformationInterface extends ExtensibleDataInterface
     const KEY_UPDATED_AT   = 'updated_at';
 
     /**
-     * @return int
-     */
-    public function getQty();
-
-    /**
-     * @return string
-     */
-    public function getLastOrder();
-
-    /**
-     * @return ExternalLinkExtensionInterface|null
+     * @return SalesInformationExtensionInterface|null
      */
     public function getExtensionAttributes();
 
     /**
-     * @param ExternalLinkExtensionInterface $extensionAttributes
+     * @param SalesInformationExtensionInterface $extensionAttributes
      * @return self
      */
-    public function setExtensionAttributes(ExternalLinkExtensionInterface $extensionAttributes);
+    public function setExtensionAttributes(SalesInformationExtensionInterface $extensionAttributes);
 }
