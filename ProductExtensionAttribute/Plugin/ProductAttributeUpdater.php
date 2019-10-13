@@ -93,7 +93,12 @@ class ProductAttributeUpdater
         $filterProductId = $this->filterBuilder->create()->setConditionType("eq")->setValue($productId)->setField(SalesInformationInterface::KEY_PRODUCT_ID);
         $filterOrderStatus = $this->filterBuilder->create()->setConditionType("eq")->setValue($this->orderStatus)->setField(SalesInformationInterface::KEY_ORDER_STATUS);
         $searchCriteriaWithFilters = $searchCriteriaBuilder->addFilter($filterProductId)->addFilter($filterOrderStatus)->create();
-        $items = $this->salesInformationRepository->getList($searchCriteriaWithFilters)->getItems();
+
+        try {
+            $items = $this->salesInformationRepository->getList($searchCriteriaWithFilters)->getItems();
+        } catch (\Throwable $throwable) {
+            $items = [];
+        }
 
         $extensionAttributes = $product->getExtensionAttributes();
         if (empty($extensionAttributes)) {
