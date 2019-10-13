@@ -2,39 +2,40 @@
 
 namespace Magestudy\ProductExtensionAttribute\Model;
 
-use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\AbstractExtensibleModel;
 use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
 use Magestudy\ProductExtensionAttribute\Model\ResourceModel\SalesInformation as ResourceModel;
-use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationExtensionInterface as SalesInformationExtensionInterface;
 
-class SalesInformation extends AbstractModel implements SalesInformationInterface
+class SalesInformation extends AbstractExtensibleModel implements SalesInformationInterface
 {
-    protected $extenstionAttributes;
-
     /**
-     * @param SalesInformationExtensionInterface $extensionAttributes
-     * @return $this|SalesInformationInterface
-     */
-    public function setExtensionAttributes(SalesInformationExtensionInterface $extensionAttributes)
-    {
-        $this->extenstionAttributes = $extensionAttributes;
-
-        return $this;
-    }
-
-    /**
-     * @return SalesInformationExtensionInterface|null
+     * {@inheritdoc}
+     * @return \Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationExtensionInterface|null
      */
     public function getExtensionAttributes()
     {
-        return $this->extenstionAttributes;
+        return $this->_getExtensionAttributes();
     }
 
     /**
+     * {@inheritdoc}
+     * @param \Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationExtensionInterface $extensionAttributes
+     * @return $this
+     */
+    public function setExtensionAttributes(
+        \Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationExtensionInterface $extensionAttributes
+    ) {
+        return $this->_setExtensionAttributes($extensionAttributes);
+    }
+
+    /**
+     * Initialize resource model
+     *
      * @return void
      */
     protected function _construct()
     {
         $this->_init(ResourceModel::class);
+        parent::_construct();
     }
 }
