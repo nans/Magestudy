@@ -64,7 +64,9 @@ Shows how create Unit test in Magento 2
 In \dev\tests\unit\phpunit.xml (remove .dist if file name is phpunit.xml.dist)  
 Add line: <directory suffix="Test.php">../../../app/code/Magestudy/UnitTestExample/Test/Unit</directory>  
 To block: testsuite  
-Run command in console.
+Run command in console:  
+* Go to magento directory (like: cd /home/admin/web/mage23.local/public_html/dev/tests/unit)  
+* Run command: php ../../../vendor/phpunit/phpunit/phpunit  
 
 ## Customjs
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Customjs.png "Customjs page screenshot")  
@@ -156,7 +158,7 @@ Frontend url: .../index.php/ExtensionAttribute/hello/index
 
 ## ProductExtensionAttribute
 Shows how to use Extension Attributes for products  
-Added sales information to product object  
+Added sales information to product object (before test need to create order for selected product)   
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PEA_Result.png "ProductExtensionAttribute screenshot")  
 Frontend url: .../index.php/ProductExtensionAttribute/hello/index  
 Sample here: Magestudy\ProductExtensionAttribute\Controller\Hello\Index.php  
