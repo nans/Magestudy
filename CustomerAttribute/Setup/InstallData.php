@@ -44,6 +44,7 @@ class InstallData implements InstallDataInterface
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
+     * @throws \Exception
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {

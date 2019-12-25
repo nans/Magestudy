@@ -104,6 +104,10 @@ Also check create new customer fom frontend and sign in.
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_FIELD.png "CustomerAttribute screenshot")  
 Shows how add new customer (custom) attribute to grid and create/edit form.
 
+## AddCustomerAddressField    
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/AddCustomerAddressField.png "Customer Address Attribute screenshot")  
+Answer on question: How do you add another field to the customer address entity using a setup script?  
+
 ## SystemCustomField  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SystemCustomField.png "SystemCustomField screenshot")  
 Shows how add custom fields in Stores->Settings->Configuration  
