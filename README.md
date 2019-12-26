@@ -115,7 +115,8 @@ Backend: Stores -> Settings -> Configuration -> Magestudy example -> Field with 
 
 ## CustomerAccountTab  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAccountTab.png "CustomerAccountTab screenshot")  
-Shows how add new tab (page, menu item) in customer account (frontend).     
+Shows how add new tab (page, menu item) in customer account (frontend).    
+Answer on question: Describe how to customize the “My Account” section. How do you add a menu item?   
 
 ## CustomerEditButton  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerEditButton.png "CustomerEditButton screenshot")  
@@ -182,6 +183,10 @@ Shows how to use mixins in Magento 2:
 * Override method  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Mixins.png "Mixins screenshot")  
 Frontend url: .../index.php/mixin/index  
+
+## CustomizeOrderHistoryPage  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomizeOrderHistoryPage.png "Сustomize the Order History page in Magento 2 screenshot")  
+Answer on question: How do you customize the order history page?  
 
 License
 ----
