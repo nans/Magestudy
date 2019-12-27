@@ -90,14 +90,16 @@ Frontend, url: yourDomain/index.php/crud
 - Repository pattern.
 
 ## PluginExample
-Shows how use plugins in Magento 2  
-Commands for test:  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PluginExample.png "PluginExample screenshot")  
+#### Commands for test:  
 magestudy:get_product  
 magestudy:save_product  
 magestudy:set_product_price  
 magestudy:set_product_title  
-
-Also check create new customer fom frontend and sign in.
+magestudy:set_product_image 
+###Cases:  
+Login as customer adds next message: "This text added before customer authenticate."  
+Create new customer: "This text added after customer create account."  
 
 ## CustomerAttribute - Customer  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomerAttribute_GRID.png "CustomerAttribute screenshot")  

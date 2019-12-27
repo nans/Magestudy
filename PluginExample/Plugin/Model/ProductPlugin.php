@@ -24,7 +24,24 @@ class ProductPlugin
         if ($returnValue) {
             $this->_logChanges($subject);
         }
+
         return $returnValue;
+    }
+
+    /**
+     * @param Product $subject
+     * @param bool $result
+     * @param string $url
+     * @param int|null $size
+     * @return bool
+     */
+    public function afterAddImage(Product $subject, bool $result, string $url, int $size = null)
+    {
+        if ($result) {
+            $subject->setLog('Added image with url ' . $url . ' and size ' . $size);
+        }
+
+        return $result;
     }
 
     /**

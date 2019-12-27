@@ -2,7 +2,6 @@
 
 namespace Magestudy\PluginExample\Model;
 
-
 class Product
 {
     /**
@@ -25,12 +24,20 @@ class Product
      */
     private $_log;
 
+    /** @var string */
+    protected $imageUrl;
+
+    /** @var int */
+    protected $imageSize;
+
     public function __construct()
     {
         $this->_price = 1000;
         $this->_title = 'Phone';
         $this->_backupCount = 0;
         $this->_log = [];
+        $this->imageUrl = '';
+        $this->imageSize = 30;
     }
 
     /**
@@ -70,6 +77,21 @@ class Product
         $this->_backupCount++;
     }
 
+    /**
+     * @param string $url
+     * @param int|null $size
+     * @return bool
+     */
+    public function addImage(string $url, int $size = null)
+    {
+        $this->imageUrl = $url;
+        if ($size) {
+            $this->imageSize = $size;
+        }
+
+        return true;
+    }
+
     public function save()
     {
         return true;
@@ -91,6 +113,7 @@ class Product
         return 'Price: ' . $this->_price . "\n" .
             'Title: ' . $this->_title . "\n" .
             'Backup: ' . $this->_backupCount . "\n" .
+            'Image Url: ' . $this->imageUrl . "\n" .
             'Logs: ' . json_encode($this->_log);
     }
 }
