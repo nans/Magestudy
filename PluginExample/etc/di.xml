@@ -17,7 +17,8 @@
     </type>
 
     <type name="Magento\Customer\Model\AccountManagement">
-        <plugin name="account_management_plugin_example" type="Magestudy\PluginExample\Plugin\Customer\Model\AccountManagementPlugin" />
+        <plugin name="account_management_plugin_example"        type="Magestudy\PluginExample\Plugin\Customer\Model\AccountManagementPlugin"       sortOrder="10"/>
+        <plugin name="account_management_plugin_example_second" type="Magestudy\PluginExample\Plugin\Customer\Model\SecondAccountManagementPlugin" sortOrder="20" />
     </type>
 
     <type name="Magento\Customer\Api\CustomerRepositoryInterface">
