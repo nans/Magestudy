@@ -32,9 +32,11 @@ yourDomain/index.php/controller/hello/world
 yourDomain/index.php/controller/test  
 yourDomain/index.php/controller/test/check
 
-## CronExample
-Shows how create Cron tasks and Cron groups in Magento 2  
-Result in /var/log/.debug.log: "Cron task was started at ..."
+## CronExample  
+Shows how to create Cron tasks and Cron groups in Magento 2  
+Result in /var/log/.debug.log: "Cron task was started at ..."  
+
+Answer on question: How are scheduled jobs configured?  
 
 ## Event
 Shows how use events in Magento 2  
