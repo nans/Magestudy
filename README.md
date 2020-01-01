@@ -89,7 +89,10 @@ Frontend, url: yourDomain/index.php/crud
 - Highlight rows in grid;
 - Create DB schema;
 - Admin menu;
-- Repository pattern.
+- Repository pattern.  
+
+**Note, this module contains a lot of unnecessary abstractions for Adminhtml controllers.  
+SimpleCrud extension has simple and clean controllers.**  
 
 ## PluginExample
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/PluginExample.png "PluginExample screenshot")  
