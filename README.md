@@ -195,6 +195,11 @@ Frontend url: .../index.php/mixin/index
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CustomizeOrderHistoryPage.png "Сustomize the Order History page in Magento 2 screenshot")  
 Answer on question: How do you customize the order history page?  
 
+## Router  
+An implementation of RouterInterface to create a custom router.  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/Router.png "Router screenshot")  
+Frontend url: .../index.php/sample  
+
 License
 ----
 MIT
