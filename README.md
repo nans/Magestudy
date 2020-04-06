@@ -8,6 +8,8 @@ Master branch for Magento 2.3
 * Run command: php bin/magento setup:upgrade   
 * Run Command: php bin/magento cache:flush  
 
+(On installing on Magento 2.2 need to uncomment rows at Magestudy\ProductExtensionAttribute\Setup\InstallData.php)  
+
 ## SimpleCrud  
 Shows how create simple CRUD: grid and form (ui component) without deprecated methods  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/SimpleCrudGrid.png "SimpleCrudGrid screenshot")  
@@ -38,8 +40,10 @@ Result in /var/log/.debug.log: "Cron task was started at ..."
 
 Answer on question: How are scheduled jobs configured?  
 
-## Event
+## Event  
 Shows how use events in Magento 2  
+[Documentation](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/events-and-observers.html)  
+
 Links:  
 yourDomain/index.php/event/example/index  
 yourDomain/index.php/event/example/second

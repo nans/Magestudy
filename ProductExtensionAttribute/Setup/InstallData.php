@@ -9,11 +9,11 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Catalog\Setup\CategorySetupFactory;
+use Magento\Catalog\Model\Product;
 use Magestudy\ProductExtensionAttribute\Api\Data\SalesInformationInterface;
 use Magestudy\ProductExtensionAttribute\Model\Repository\SalesInformationRepository;
 use Magestudy\ProductExtensionAttribute\Model\SalesInformationFactory;
-use Magento\Catalog\Setup\CategorySetupFactory;
-use Magento\Catalog\Model\Product;
 
 class InstallData implements InstallDataInterface
 {
@@ -54,13 +54,15 @@ class InstallData implements InstallDataInterface
         ProductRepositoryInterface $productRepository,
         SalesInformationFactory $salesInformationFactory,
         SalesInformationRepository $salesInformationRepository,
-        CategorySetupFactory $categorySetupFactory
+        CategorySetupFactory $categorySetupFactory/*,
+        \Magento\Framework\App\State $state*/ //TODO Uncomment for install on Magento 2.2
     ) {
         $this->productFactory = $productFactory;
         $this->productRepository = $productRepository;
         $this->salesInformationFactory = $salesInformationFactory;
         $this->salesInformationRepository = $salesInformationRepository;
         $this->categorySetupFactory = $categorySetupFactory;
+        /*$state->setAreaCode(\Magento\Framework\App\Area::AREA_GLOBAL);*///TODO Uncomment for install on Magento 2.2
     }
 
     /**
@@ -76,7 +78,6 @@ class InstallData implements InstallDataInterface
         ModuleContextInterface $context
     ) {
         $setup->startSetup();
-
         $categorySetup = $this->categorySetupFactory->create();
         $entityTypeId = $categorySetup->getEntityTypeId(Product::ENTITY);
         $defaultAttributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
