@@ -54,15 +54,15 @@ class InstallData implements InstallDataInterface
         ProductRepositoryInterface $productRepository,
         SalesInformationFactory $salesInformationFactory,
         SalesInformationRepository $salesInformationRepository,
-        CategorySetupFactory $categorySetupFactory/*,
-        \Magento\Framework\App\State $state*/ //TODO Uncomment for install on Magento 2.2
+        CategorySetupFactory $categorySetupFactory,
+        \Magento\Framework\App\State $state //TODO Uncomment for install on Magento 2.2
     ) {
         $this->productFactory = $productFactory;
         $this->productRepository = $productRepository;
         $this->salesInformationFactory = $salesInformationFactory;
         $this->salesInformationRepository = $salesInformationRepository;
         $this->categorySetupFactory = $categorySetupFactory;
-        /*$state->setAreaCode(\Magento\Framework\App\Area::AREA_GLOBAL);*///TODO Uncomment for install on Magento 2.2
+        $state->setAreaCode(\Magento\Framework\App\Area::AREA_GLOBAL);//TODO Uncomment for install on Magento 2.2
     }
 
     /**
