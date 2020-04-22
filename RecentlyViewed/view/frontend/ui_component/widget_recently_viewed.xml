@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="widget_columns">
+        <column name="new_one" component="Magestudy_RecentlyViewed/js/product/new_one" sortOrder="6" displayArea="details-area">
+            <settings>
+                <label translate="true">New One</label>
+                <bodyTmpl>Magestudy_RecentlyViewed/product/new_one</bodyTmpl>
+            </settings>
+        </column>
+    </columns>
+</listing>

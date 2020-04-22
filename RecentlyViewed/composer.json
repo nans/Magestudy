@@ -1,0 +1,25 @@
+{
+    "name": "magestudy/recently_viewed_widget",
+    "description": "Magento 2 - Added new field to recently viewed widget",
+    "require": {
+        "php": ">=7.0"
+    },
+    "license": [
+        "MIT"
+    ],
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "NAnS"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magestudy\\RecentlyViewed\\": ""
+        }
+    }
+}
