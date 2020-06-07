@@ -15,6 +15,10 @@ Magestudy\Customjs\view\frontend\layout\customjs_test_layout.xml
 Magestudy\Customjs\view\frontend\templates\testlayout.phtml  
 Magestudy\Customjs\view\frontend\web\js\from_layout_example.js  
 
+###### Subscribe on mage-cache-storage section changes  
+File: Magestudy\Customjs\view\frontend\web\js\subscribeOnCustomerSection.js  
+How to test: Add product to wish list and check notification in the console.  
+
 #### How to add js by layout and head section? (not good practice)  
 
 ##### Files:  

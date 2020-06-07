@@ -1,1 +1,6 @@
-alert('Hello js!');
+define([], function () {
+        'use strict';
+        
+        alert('Hello js!');
+    }
+);
