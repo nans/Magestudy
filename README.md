@@ -1,5 +1,6 @@
 # Magestudy - Magento 2 Example extensions  
 
+Tested on version 2.3.5  
 Branch for [Magento 2.1 - 2.3](https://github.com/nans/Magestudy/tree/2.1-2.3)  
 Master branch for Magento 2.3  
 

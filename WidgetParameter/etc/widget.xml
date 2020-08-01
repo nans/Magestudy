@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Magestudy\WidgetParameter\Block\Widget\CustomParameter" id="magestudy_widget_parameter">
+        <label>Magestudy - Field with additional js logic</label>
+        <description>Magestudy - Configuration widget via js logic</description>
+        <parameters>
+            <parameter name="modified_field" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Modified Field</label>
+                <block class="Magestudy\WidgetParameter\Block\Adminhtml\Widget\Type\CustomField" />
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
