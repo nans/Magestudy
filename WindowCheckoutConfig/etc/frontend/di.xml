@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Tax\Model\TaxConfigProvider">
+        <plugin name="add_new_row_to_window_checkout_config" type="Magestudy\WindowCheckoutConfig\Plugin\ConfigProviderPlugin" sortOrder="10"/>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="add_new_row_to_window_checkout" type="Magestudy\WindowCheckoutConfig\Plugin\Block\Cart\SidebarPlugin" />
+    </type>
+</config>

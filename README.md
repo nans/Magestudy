@@ -215,6 +215,12 @@ Added new field to recently viewed widget
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/WidgetRecentlyViewedAdmin.png "Recently Viewed Widget screenshot")  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/WidgetRecentlyViewedFront.png "Recently Viewed admin panel screenshot")  
 
+## Add new params to window.checkout and window.checkoutConfig  
+Add new params to use in JS files  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CheckoutConfig.png "WindowCheckoutConfig screenshot")  
+![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CheckoutWindowRow.png "WindowCheckoutConfig screenshot")  
+
+
 License
 ----
 MIT
