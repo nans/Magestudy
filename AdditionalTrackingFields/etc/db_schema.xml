@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_shipment_track">
+        <column xsi:type="text" name="reference" nullable="true" comment="Reference"/>
+        <column xsi:type="text" name="contents" nullable="true" comment="Contents"/>
+    </table>
+</schema>

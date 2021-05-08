@@ -1,0 +1,8 @@
+{
+    "sales_shipment_track": {
+        "column": {
+            "reference": true,
+            "contents": true
+        }
+    }
+}
