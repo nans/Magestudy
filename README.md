@@ -220,9 +220,14 @@ Add new params to use in JS files
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CheckoutConfig.png "WindowCheckoutConfig screenshot")  
 ![Sample](https://github.com/nans/devdocs/blob/master/Magestudy/CheckoutWindowRow.png "WindowCheckoutConfig screenshot")  
 
-## Magento 2 - Additional fields in the "Shipping and Tracking Information" section
-Added new fields to the tracking form.
+## Additional fields in the "Shipping and Tracking Information" section - AdditionalTrackingFields
+Added new fields (Reference and Contents) to the tracking form.
 ![Sample](https://github.com/nans/devdocs/blob/master/AdditionalTrackingFields/NewTrackingFields.png "AdditionalTrackingFields screenshot")
+
+## Add a new role to the product image - ProductImageRole
+Add new product image role programmatically  
+![Sample](https://github.com/nans/devdocs/blob/master/ProductImageRole/ImageDetail.png "ProductImageRole screenshot")  
+![Sample](https://github.com/nans/devdocs/blob/master/ProductImageRole/ProductEditPage.png "ProductImageRole screenshot")
 
 License
 ----
